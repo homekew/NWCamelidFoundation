@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <meta name="description" content="Contact the Northwest Camelid Foundation, make a donation to camelid research, or send a donation to the NWCF Scholarship Endowment Fund.">
+  <title>Contact &amp; Donate — Northwest Camelid Foundation</title>
+  <link rel="stylesheet" href="css/styles.css?v=brown1">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="site-logo" aria-label="Northwest Camelid Foundation — home">
+          <div class="logo-fallback" aria-hidden="true">N</div>
+          <span class="logo-text">Northwest Camelid Foundation</span>
+        </a>
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="events.html">Events &amp; Education</a></li>
+            <li><a href="scholarships.html">Scholarships</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="nav-donate"><a href="#donate">Donate</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">Contact</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Get in Touch</span>
+        <h1>Contact Us</h1>
+        <p class="lead">Have a question about the Foundation, a research proposal, or an upcoming event? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--white" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="grid-2" style="align-items:start; gap:3rem;">
+
+          <div>
+            <h2 id="contact-heading">Reach the Foundation</h2>
+            <p>For general questions about the Northwest Camelid Foundation — including research proposals, events, scholarships, or membership — please contact our president directly:</p>
+
+            <div class="card" style="margin-top:1.5rem;">
+              <h3>Glen Pfefferkorn</h3>
+              <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:1rem;">President, Northwest Camelid Foundation</p>
+              <address style="font-style:normal; font-size:0.9375rem; line-height:2;">
+                <a href="mailto:info@NWCamelidFoundation.org">info@NWCamelidFoundation.org</a><br>
+                <a href="tel:+15204372218">(520) 437-2218</a><br>
+                500 W Camino Encanto, Apt 161<br>
+                Green Valley, AZ 85614
+              </address>
+            </div>
+          </div>
+
+          <div>
+            <h2>Send Us a Message</h2>
+            <form action="#" method="post" aria-label="Contact form" style="margin-top:0.5rem;">
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div>
+                  <label for="contact-name" style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.3rem;">Your name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="contact-name" name="name" required autocomplete="name" placeholder="Jane Smith" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--color-border); border-radius:4px; font-family:inherit; font-size:0.9375rem;">
+                </div>
+                <div>
+                  <label for="contact-email" style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.3rem;">Email address <span aria-hidden="true">*</span></label>
+                  <input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="jane@yourfarm.com" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--color-border); border-radius:4px; font-family:inherit; font-size:0.9375rem;">
+                </div>
+                <div>
+                  <label for="contact-subject" style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.3rem;">Subject</label>
+                  <select id="contact-subject" name="subject" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--color-border); border-radius:4px; font-family:inherit; font-size:0.9375rem; background:white;">
+                    <option value="">Select a topic</option>
+                    <option>General question</option>
+                    <option>Research proposal</option>
+                    <option>Scholarship inquiry</option>
+                    <option>Event inquiry</option>
+                    <option>Donation question</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="contact-message" style="display:block; font-size:0.875rem; font-weight:600; margin-bottom:0.3rem;">Message <span aria-hidden="true">*</span></label>
+                  <textarea id="contact-message" name="message" required rows="5" placeholder="How can we help?" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--color-border); border-radius:4px; font-family:inherit; font-size:0.9375rem; resize:vertical;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DONATE ===================== -->
+    <section class="section section--panel" id="donate" aria-labelledby="donate-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Support NWCF</span>
+          <h2 id="donate-heading">Make a Donation</h2>
+          <p class="lead">Your donation funds the veterinary research that keeps llamas and alpacas healthy. Every dollar goes to work.</p>
+        </div>
+
+        <div class="grid-2" style="align-items:start;">
+
+          <!-- Donate to NWCF General -->
+          <div class="donate-box">
+            <span class="section-label">General Research Fund</span>
+            <h3>Donate to NWCF</h3>
+            <p style="margin-bottom:1.5rem;">Donations to the Northwest Camelid Foundation support our annual research grants and help maintain the OSU research herd.</p>
+            <!-- PayPal button placeholder -->
+            <div style="background:var(--color-white); border:1px dashed var(--color-border); border-radius:var(--radius-md); padding:2rem; margin-bottom:1.5rem; text-align:center; color:var(--color-text-muted); font-size:0.875rem;">
+              PayPal donate button goes here
+            </div>
+            <p style="font-size:0.875rem; color:var(--color-text-muted);">Prefer to mail a check?</p>
+            <div class="donate-address">
+              <strong>North West Camelid Foundation</strong>
+              21319 NE 68th Street<br>
+              Vancouver, WA 98682-9674
+            </div>
+          </div>
+
+          <!-- Donate to Scholarship -->
+          <div class="donate-box">
+            <span class="section-label">Scholarship Endowment</span>
+            <h3>Support the Scholarship Fund</h3>
+            <p style="margin-bottom:1.5rem;">Donations to the NWCF Scholarship Endowment Fund go directly to OSU's College of Veterinary Medicine. The endowment funds our annual scholarships in perpetuity.</p>
+            <div class="donate-address">
+              <strong>Make checks payable to: The OSU Foundation</strong>
+              Note "Northwest Camelid Foundation Scholarship Endowment Fund" in the memo line or in correspondence.<br><br>
+              <strong>Mail to:</strong><br>
+              Oregon State University Foundation<br>
+              4238 SW Research Way<br>
+              Corvallis, OR 97333-1068
+            </div>
+            <a href="scholarships.html" class="btn btn-secondary" style="margin-top:1.25rem; display:inline-block;">Learn about our scholars</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo-text">Northwest Camelid Foundation</p>
+          <p>Advancing camelid health through veterinary research and education since 1987.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="events.html">Events &amp; Education</a></li>
+            <li><a href="scholarships.html">Scholarships</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <address>
+            Glen Pfefferkorn, President<br>
+            <a href="mailto:info@NWCamelidFoundation.org">info@NWCamelidFoundation.org</a><br>
+            (520) 437-2218
+          </address>
+        </div>
+        <div class="footer-donate">
+          <h3>Donate</h3>
+          <p>Checks payable to North West Camelid Foundation, or donate online via PayPal.</p>
+          <a href="#donate" class="btn btn-donate">Donate Now</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Northwest Camelid Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

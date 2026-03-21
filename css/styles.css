@@ -1,0 +1,1139 @@
+/* ============================================================
+   Northwest Camelid Foundation — Shared Stylesheet
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Custom Properties
+   ------------------------------------------------------------ */
+:root {
+  /* === Brand Colors === */
+  --brown:       #4A3E3B;   /* Primary deep brown — nav, footer, major anchors */
+  --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
+  --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
+  --green:       #688075;   /* CTA green — primary buttons, donation moments */
+  --green-dark:  #4E6158;   /* CTA green hover */
+
+  /* === Surface Colors === */
+  --bg:          #F3F2ED;   /* Main background */
+  --panel:       #ECEAE4;   /* Soft neutral panel — callouts, inset bands */
+  --white:       #FFFFFF;   /* White surface — cards, forms */
+
+  /* === Text Colors === */
+  --text:        #202326;   /* Headings + body on light backgrounds */
+  --muted:       #686B6E;   /* Supporting copy, meta, lower-emphasis */
+  --light:       #FAF8F5;   /* Text on dark brown backgrounds */
+
+  /* === Structure === */
+  --border:      #D7D1C7;   /* Cards, dividers, layout structure */
+
+  /* === Typography === */
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* === Scale === */
+  --size-xs:   0.75rem;
+  --size-sm:   0.875rem;
+  --size-base: 1rem;
+  --size-md:   1.125rem;
+  --size-lg:   1.375rem;
+  --size-xl:   1.75rem;
+  --size-2xl:  2.25rem;
+  --size-3xl:  3rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(74,62,59,0.08);
+  --shadow-md: 0 4px 12px rgba(74,62,59,0.10);
+  --shadow-lg: 0 8px 24px rgba(74,62,59,0.12);
+
+  --max-width:  1100px;
+  --nav-height: 72px;
+  --transition: 0.2s ease;
+}
+
+/* ------------------------------------------------------------
+   2. Reset & Base
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--brown);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ------------------------------------------------------------
+   3. Typography
+   ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text);
+  line-height: 1.25;
+  font-weight: normal;
+}
+
+h1 { font-size: var(--size-3xl); }
+h2 { font-size: var(--size-2xl); }
+h3 { font-size: var(--size-xl); }
+h4 { font-size: var(--size-lg); }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: var(--size-md);
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.section-label {
+  display: block;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 1.5rem 0;
+}
+
+/* ------------------------------------------------------------
+   4. Layout Utilities
+   ------------------------------------------------------------ */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.section {
+  padding-block: 4rem;
+}
+
+.section--bg      { background: var(--bg); }
+.section--white   { background: var(--white); }
+.section--panel   { background: var(--panel); }
+.section--brown   { background: var(--brown); }
+
+.section--brown h2,
+.section--brown h3,
+.section--brown h4 { color: var(--light); }
+.section--brown p,
+.section--brown .lead { color: rgba(250,248,245,0.85); }
+.section--brown .section-label { color: var(--blue-light); }
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.75rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-center { text-align: center; }
+.text-muted  { color: var(--muted); }
+
+/* ------------------------------------------------------------
+   5. Buttons
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--light);
+  border-color: var(--green);
+}
+
+.btn-primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brown);
+  border-color: var(--brown);
+}
+
+.btn-secondary:hover {
+  background: var(--brown);
+  color: var(--light);
+}
+
+.btn-donate {
+  background: var(--green);
+  color: var(--light);
+  border-color: var(--green);
+}
+
+.btn-donate:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-lg {
+  padding: 0.9rem 2rem;
+  font-size: var(--size-base);
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------
+   6. Header & Navigation
+   ------------------------------------------------------------ */
+.site-header {
+  background: var(--brown);
+  border-bottom: 1px solid rgba(250,248,245,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  gap: 1rem;
+}
+
+/* Logo */
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  width: 48px;
+  height: 48px;
+  background: rgba(250,248,245,0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: var(--size-sm);
+  color: var(--light);
+  line-height: 1.3;
+  max-width: 160px;
+}
+
+/* Main Nav */
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  font-size: var(--size-sm);
+  font-weight: 500;
+  color: var(--light);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.main-nav a:hover {
+  color: var(--light);
+  background: rgba(250,248,245,0.12);
+}
+
+.main-nav a.active {
+  color: var(--light);
+  font-weight: 600;
+}
+
+.main-nav .nav-donate a {
+  background: var(--green);
+  color: var(--light);
+  padding: 0.4rem 1rem;
+}
+
+.main-nav .nav-donate a:hover {
+  background: var(--green-dark);
+  color: var(--light);
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--light);
+  outline-offset: 2px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--light);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ------------------------------------------------------------
+   7. Page Hero
+   ------------------------------------------------------------ */
+.page-hero {
+  background: var(--bg);
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.page-hero .lead {
+  max-width: 640px;
+}
+
+/* Homepage Hero */
+.hero {
+  background: linear-gradient(135deg, var(--panel) 0%, var(--bg) 100%);
+  padding-block: 5rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.75rem, 4vw, var(--size-3xl));
+  margin-bottom: 1rem;
+}
+
+.hero-content .lead {
+  margin-bottom: 2rem;
+}
+
+.hero-stat-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: var(--size-xl);
+  font-family: var(--font-heading);
+  color: var(--brown);
+}
+
+.hero-stat span {
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
+
+.hero-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-media iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+/* ------------------------------------------------------------
+   8. Cards
+   ------------------------------------------------------------ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--blue-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* News Card */
+.news-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.news-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.news-card-body {
+  padding: 1.5rem;
+}
+
+.news-card-meta {
+  font-size: var(--size-xs);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.news-card h3 {
+  font-size: var(--size-lg);
+  margin-bottom: 0.75rem;
+}
+
+.news-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Scholarship Card */
+.scholar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.scholar-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.scholar-badge {
+  background: var(--blue-light);
+  color: var(--brown);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.scholar-card h3 {
+  margin-bottom: 0.25rem;
+}
+
+.scholar-card .school {
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
+
+.scholar-field {
+  margin-bottom: 0.75rem;
+}
+
+.scholar-field strong {
+  display: block;
+  font-size: var(--size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+/* Team Card */
+.team-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  background: var(--panel);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: var(--size-xl);
+  color: var(--brown);
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------------------------------------
+   9. Impact / Stats Bar
+   ------------------------------------------------------------ */
+.impact-bar {
+  background: var(--brown);
+  color: var(--light);
+  padding-block: 2.5rem;
+}
+
+.impact-bar h2,
+.impact-bar h3 {
+  color: var(--light);
+}
+
+.impact-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.impact-stat {
+  text-align: center;
+}
+
+.impact-stat strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--size-3xl);
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.impact-stat span {
+  font-size: var(--size-sm);
+  opacity: 0.85;
+}
+
+/* ------------------------------------------------------------
+   10. Quote / Testimonial
+   ------------------------------------------------------------ */
+.pull-quote {
+  background: var(--panel);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem 2rem;
+  margin-block: 2rem;
+}
+
+.pull-quote p {
+  font-family: var(--font-heading);
+  font-size: var(--size-lg);
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.pull-quote cite {
+  font-size: var(--size-sm);
+  color: var(--muted);
+  font-style: normal;
+}
+
+/* ------------------------------------------------------------
+   11. Committee / Member List
+   ------------------------------------------------------------ */
+.member-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.member-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: var(--size-sm);
+}
+
+.member-item.vet {
+  border-left: 3px solid var(--blue);
+}
+
+/* ------------------------------------------------------------
+   12. Donate Box
+   ------------------------------------------------------------ */
+.donate-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.donate-box h2 {
+  margin-bottom: 0.75rem;
+}
+
+.donate-box .lead {
+  max-width: 500px;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.donate-address {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: inline-block;
+  text-align: left;
+  font-size: var(--size-sm);
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+.donate-address strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--brown);
+}
+
+/* ------------------------------------------------------------
+   13. Email Signup / CTA Section
+   ------------------------------------------------------------ */
+.cta-section {
+  background: var(--brown);
+  color: var(--light);
+  padding-block: 4rem;
+  text-align: center;
+}
+
+.cta-section h2 {
+  color: var(--light);
+  margin-bottom: 0.75rem;
+}
+
+.cta-section p {
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.email-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 420px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.email-form input[type="email"] {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.7rem 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+}
+
+.email-form input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.email-form input:focus {
+  outline: none;
+  border-color: white;
+}
+
+.email-form button {
+  background: var(--light);
+  color: var(--brown);
+  border: 2px solid white;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--size-sm);
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.email-form button:hover {
+  background: var(--panel);
+  border-color: var(--panel);
+}
+
+/* ------------------------------------------------------------
+   14. Content + Sidebar Layout
+   ------------------------------------------------------------ */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.sidebar-box h3 {
+  font-size: var(--size-base);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------
+   15. Letter / Long-form Content
+   ------------------------------------------------------------ */
+.letter-block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.letter-block h3 {
+  margin-bottom: 0.25rem;
+}
+
+.letter-block .letter-meta {
+  font-size: var(--size-sm);
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Details / Accordion */
+details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+details summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--white);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+details summary::-webkit-details-marker { display: none; }
+
+details summary::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--blue);
+  transition: transform var(--transition);
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+details .details-body {
+  padding: 1.25rem;
+  background: var(--bg);
+}
+
+/* ------------------------------------------------------------
+   16. Footer
+   ------------------------------------------------------------ */
+.site-footer {
+  background: var(--brown);
+  color: rgba(250,248,245,0.85);
+  padding-block: 3rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-brand p {
+  font-size: var(--size-sm);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+  max-width: 280px;
+}
+
+.footer-logo-text {
+  font-family: var(--font-heading);
+  font-size: var(--size-md);
+  color: white;
+  line-height: 1.3;
+}
+
+.site-footer h3 {
+  color: white;
+  font-size: var(--size-sm);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: var(--size-sm);
+  transition: color var(--transition);
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+.footer-contact p,
+.footer-contact address {
+  font-size: var(--size-sm);
+  font-style: normal;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.75);
+}
+
+.footer-contact a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: underline;
+}
+
+.footer-contact a:hover {
+  color: white;
+}
+
+.footer-donate p {
+  font-size: var(--size-sm);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: var(--size-xs);
+  color: rgba(255,255,255,0.5);
+}
+
+/* ------------------------------------------------------------
+   17. Breadcrumb
+   ------------------------------------------------------------ */
+.breadcrumb {
+  padding-block: 0.75rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--size-xs);
+  color: var(--muted);
+}
+
+.breadcrumb ol {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.breadcrumb li + li::before {
+  content: '›';
+  color: var(--border);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   18. Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .content-layout { grid-template-columns: 1fr; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-media { order: -1; }
+  .hero { padding-block: 3rem; }
+}
+
+@media (max-width: 720px) {
+  :root {
+  /* === Brand Colors === */
+  --brown:       #4A3E3B;   /* Primary deep brown — nav, footer, major anchors */
+  --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
+  --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
+  --green:       #688075;   /* CTA green — primary buttons, donation moments */
+  --green-dark:  #4E6158;   /* CTA green hover */
+
+  /* === Surface Colors === */
+  --bg:          #F3F2ED;   /* Main background */
+  --panel:       #ECEAE4;   /* Soft neutral panel — callouts, inset bands */
+  --white:       #FFFFFF;   /* White surface — cards, forms */
+
+  /* === Text Colors === */
+  --text:        #202326;   /* Headings + body on light backgrounds */
+  --muted:       #686B6E;   /* Supporting copy, meta, lower-emphasis */
+  --light:       #FAF8F5;   /* Text on dark brown backgrounds */
+
+  /* === Structure === */
+  --border:      #D7D1C7;   /* Cards, dividers, layout structure */
+
+  /* === Typography === */
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* === Scale === */
+  --size-xs:   0.75rem;
+  --size-sm:   0.875rem;
+  --size-base: 1rem;
+  --size-md:   1.125rem;
+  --size-lg:   1.375rem;
+  --size-xl:   1.75rem;
+  --size-2xl:  2.25rem;
+  --size-3xl:  3rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(74,62,59,0.08);
+  --shadow-md: 0 4px 12px rgba(74,62,59,0.10);
+  --shadow-lg: 0 8px 24px rgba(74,62,59,0.12);
+
+  --max-width:  1100px;
+  --nav-height: 72px;
+  --transition: 0.2s ease;
+}
+
+  h1 { font-size: var(--size-2xl); }
+  h2 { font-size: var(--size-xl); }
+
+  .section { padding-block: 2.5rem; }
+
+  .nav-toggle { display: flex; }
+
+  .main-nav {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--brown);
+    border-bottom: 1px solid rgba(250,248,245,0.12);
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+    display: none;
+  }
+
+  .main-nav.is-open { display: block; }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: stretch;
+  }
+
+  .main-nav a {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+  .impact-stats { gap: 2rem; }
+
+  .btn-group { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .hero-stat-row { flex-direction: column; gap: 1rem; }
+  .donate-box { padding: 1.5rem; }
+  .letter-block { padding: 1.25rem 1.5rem; }
+}
