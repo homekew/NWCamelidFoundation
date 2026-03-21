@@ -7,7 +7,7 @@
    ------------------------------------------------------------ */
 :root {
   /* === Brand Colors === */
-  --brown:       #4A3E3B;   /* Primary deep brown — nav, footer, major anchors */
+  --brown:       #57504B;   /* Primary deep brown — nav, footer, major anchors */
   --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
   --green:       #688075;   /* CTA green — primary buttons, donation moments */
@@ -44,9 +44,9 @@
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  --shadow-sm: 0 1px 3px rgba(74,62,59,0.08);
-  --shadow-md: 0 4px 12px rgba(74,62,59,0.10);
-  --shadow-lg: 0 8px 24px rgba(74,62,59,0.12);
+  --shadow-sm: 0 1px 3px rgba(87,80,75,0.08);
+  --shadow-md: 0 4px 12px rgba(87,80,75,0.10);
+  --shadow-lg: 0 8px 24px rgba(87,80,75,0.12);
 
   --max-width:  1100px;
   --nav-height: 72px;
@@ -1045,7 +1045,7 @@ details .details-body {
 @media (max-width: 720px) {
   :root {
   /* === Brand Colors === */
-  --brown:       #4A3E3B;   /* Primary deep brown — nav, footer, major anchors */
+  --brown:       #57504B;   /* Primary deep brown — nav, footer, major anchors */
   --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
   --green:       #688075;   /* CTA green — primary buttons, donation moments */
@@ -1082,9 +1082,9 @@ details .details-body {
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  --shadow-sm: 0 1px 3px rgba(74,62,59,0.08);
-  --shadow-md: 0 4px 12px rgba(74,62,59,0.10);
-  --shadow-lg: 0 8px 24px rgba(74,62,59,0.12);
+  --shadow-sm: 0 1px 3px rgba(87,80,75,0.08);
+  --shadow-md: 0 4px 12px rgba(87,80,75,0.10);
+  --shadow-lg: 0 8px 24px rgba(87,80,75,0.12);
 
   --max-width:  1100px;
   --nav-height: 72px;
