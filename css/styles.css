@@ -134,7 +134,7 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #688075;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 blockquote {
@@ -178,7 +178,7 @@ blockquote {
 }
 
 .section-header h2 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .grid-2 {
@@ -225,7 +225,7 @@ blockquote {
    ------------------------------------------------------------ */
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.5rem;
+  padding: 0.45rem 1.1rem;
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: var(--size-sm);
@@ -280,8 +280,8 @@ blockquote {
 }
 
 .btn-lg {
-  padding: 0.9rem 2rem;
-  font-size: var(--size-base);
+  padding: 0.6rem 1.5rem;
+  font-size: var(--size-sm);
 }
 
 .btn-group {
@@ -346,7 +346,7 @@ blockquote {
   font-size: var(--size-xl);
   color: var(--light);
   line-height: 1.2;
-  max-width: 220px;
+  white-space: nowrap;
 }
 
 /* Main Nav */
@@ -1170,18 +1170,21 @@ details .details-body {
     padding: 0.6rem 0.75rem;
   }
 
-  /* Mobile dropdowns — show inline, no absolute positioning */
-  .has-dropdown > a::after { display: none; }
+  /* Mobile dropdowns — hidden by default, toggled via .is-open */
+  .has-dropdown > a::after { display: inline-block; }
 
   .dropdown {
-    display: flex;
+    display: none;
     position: static;
     box-shadow: none;
     border: none;
-    border-radius: 0;
+    border-radius: var(--radius-sm);
     background: rgba(0,0,0,0.12);
     margin: 0.25rem 0 0.25rem 0.75rem;
-    border-radius: var(--radius-sm);
+  }
+
+  .has-dropdown.is-open .dropdown {
+    display: flex;
   }
 
   .dropdown a {
