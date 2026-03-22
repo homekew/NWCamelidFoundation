@@ -8,8 +8,6 @@
 :root {
   /* === Brand Colors === */
   --brown:       #2C3848;   /* Primary dark — nav, footer, dark anchor sections */
-  --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
-  --blue-light:  #E8EEF2;   /* Light on dark backgrounds */
   --green:       #7D5C50;   /* Warm brown — reserved */
   --green-dark:  #6B4D42;   /* Warm brown hover */
   --terra:       #823E1D;   /* Terracotta — primary accent, filled CTAs */
@@ -786,7 +784,7 @@ blockquote {
 }
 
 .scholar-badge {
-  background: var(--blue-light);
+  background: var(--terra-light);
   color: var(--brown);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -958,7 +956,7 @@ blockquote {
 }
 
 .member-item.vet {
-  border-left: 3px solid var(--blue);
+  border-left: 3px solid var(--gold);
 }
 
 /* ------------------------------------------------------------
@@ -1296,7 +1294,7 @@ details summary::-webkit-details-marker { display: none; }
 details summary::after {
   content: '+';
   font-size: 1.25rem;
-  color: var(--blue);
+  color: var(--terra);
   transition: transform var(--transition);
 }
 
@@ -1476,7 +1474,7 @@ details .details-body {
 }
 
 .breadcrumb a:hover {
-  color: var(--blue);
+  color: var(--terra);
   text-decoration: underline;
 }
 
