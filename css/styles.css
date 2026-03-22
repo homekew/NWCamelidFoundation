@@ -12,7 +12,7 @@
   --green-dark:  #6B4D42;   /* Warm brown hover */
   --terra:       #823E1D;   /* Terracotta — primary accent, filled CTAs */
   --terra-light: #F0EDE8;   /* Terracotta tint — icon backgrounds */
-  --gold:        #C49443;   /* Warm gold — accents on dark surfaces */
+  --gold:        #D99F3D;   /* Warm gold — accents on dark surfaces */
 
   /* === Surface Colors === */
   --bg:          #F8F5F0;   /* Body background — warm parchment */
@@ -421,7 +421,7 @@ blockquote {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: var(--size-2xl);
+  font-size: var(--size-lg);
   color: var(--light);
   line-height: 1.2;
   white-space: nowrap;
