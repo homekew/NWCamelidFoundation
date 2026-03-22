@@ -407,7 +407,7 @@ blockquote {
 .dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 6px);
+  top: 100%;
   left: 0;
   background: var(--brown);
   border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
@@ -452,6 +452,14 @@ blockquote {
 
 .dropdown a:hover {
   background: rgba(250,248,245,0.14);
+  color: var(--light);
+}
+
+/* Active page link inside a dropdown: highlight with bg instead of underline */
+.dropdown a.active {
+  text-decoration: none;
+  background: rgba(250,248,245,0.1);
+  font-weight: 600;
   color: var(--light);
 }
 
