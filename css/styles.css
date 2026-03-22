@@ -88,7 +88,7 @@ img {
 }
 
 a {
-  color: var(--blue);
+  color: var(--terra);
   text-decoration: underline;
   transition: color var(--transition);
 }
@@ -98,7 +98,7 @@ a:hover {
 }
 
 a:focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--terra);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -114,13 +114,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--text);
   line-height: 1.25;
-  font-weight: normal;
+  font-weight: 600;
 }
 
-h1 { font-size: var(--size-3xl); font-weight: 600; }
+h1 { font-size: var(--size-3xl); line-height: 1.15; }
 h2 { font-size: var(--size-2xl); }
 h3 { font-size: var(--size-xl); }
-h4 { font-size: var(--size-lg); }
+h4 { font-size: var(--size-lg); font-weight: 500; }
 
 p { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
@@ -683,7 +683,7 @@ blockquote {
   background: var(--white);
   border-radius: var(--radius-md);
   padding: 1.75rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 8px 28px rgba(0,0,0,0.07);
   transition: box-shadow var(--transition), transform var(--transition);
 }
 
