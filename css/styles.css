@@ -419,8 +419,11 @@ blockquote {
   overflow: hidden;
 }
 
-.has-dropdown.is-open .dropdown {
-  display: flex;
+/* Desktop only — CSS hover is mutually exclusive by definition (one pointer) */
+@media (min-width: 721px) {
+  .has-dropdown:hover .dropdown {
+    display: flex;
+  }
 }
 
 .dropdown li {

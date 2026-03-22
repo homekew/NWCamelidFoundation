@@ -32,74 +32,64 @@
   });
 })();
 
-// Dropdown toggle — unified .is-open approach for both hover (desktop) and click (all)
+// Dropdown behavior
+// Desktop: CSS :hover handles visibility (can't show two at once by definition).
+//          JS only updates aria-expanded via mouseenter/mouseleave.
+// Mobile:  JS click toggles .is-open; CSS shows/hides based on that class.
 (function () {
-  var items = document.querySelectorAll('.has-dropdown');
-  var DESKTOP = '(min-width: 721px)';
+  var MOBILE = '(max-width: 720px)';
+  var items  = document.querySelectorAll('.has-dropdown');
 
-  function openDropdown(item) {
-    var trigger = item.querySelector(':scope > a');
-    // Close all others first
-    items.forEach(function (other) {
-      if (other !== item) {
-        other.classList.remove('is-open');
-        var t = other.querySelector(':scope > a');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      }
+  function setAria(item, val) {
+    var t = item.querySelector(':scope > a');
+    if (t) t.setAttribute('aria-expanded', val);
+  }
+
+  function closeAllMobile() {
+    items.forEach(function (item) {
+      item.classList.remove('is-open');
+      setAria(item, 'false');
     });
-    item.classList.add('is-open');
-    if (trigger) trigger.setAttribute('aria-expanded', 'true');
   }
 
-  function closeDropdown(item) {
-    var trigger = item.querySelector(':scope > a');
-    item.classList.remove('is-open');
-    if (trigger) trigger.setAttribute('aria-expanded', 'false');
-  }
-
-  function closeAll() {
-    items.forEach(function (item) { closeDropdown(item); });
-  }
-
-  // Desktop hover: mouseenter opens, mouseleave closes
+  // Desktop: sync aria-expanded with CSS hover state (visual handled by CSS)
   items.forEach(function (item) {
     item.addEventListener('mouseenter', function () {
-      if (window.matchMedia(DESKTOP).matches) {
-        openDropdown(item);
-      }
+      if (!window.matchMedia(MOBILE).matches) { setAria(item, 'true'); }
     });
-
     item.addEventListener('mouseleave', function () {
-      if (window.matchMedia(DESKTOP).matches) {
-        closeDropdown(item);
-      }
+      if (!window.matchMedia(MOBILE).matches) { setAria(item, 'false'); }
     });
   });
 
-  // Click / tap / keyboard Enter — toggle on all viewport sizes
+  // Click: mobile-only toggle; desktop just prevents default (CSS handles hover)
   document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
     var parent = trigger.parentElement;
-
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
-      if (parent.classList.contains('is-open')) {
-        closeDropdown(parent);
-      } else {
-        openDropdown(parent);
-      }
+      if (!window.matchMedia(MOBILE).matches) { return; } // desktop: do nothing
+
+      var isOpen = parent.classList.toggle('is-open');
+      setAria(parent, isOpen);
+      // Close all other mobile dropdowns
+      items.forEach(function (other) {
+        if (other !== parent) {
+          other.classList.remove('is-open');
+          setAria(other, 'false');
+        }
+      });
     });
   });
 
-  // Close on outside click
+  // Close mobile dropdowns when clicking outside or pressing Escape
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.has-dropdown')) {
-      closeAll();
+    if (window.matchMedia(MOBILE).matches && !e.target.closest('.has-dropdown')) {
+      closeAllMobile();
     }
   });
 
-  // Close on Escape
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closeAll(); }
+    if (e.key === 'Escape') { closeAllMobile(); }
   });
 })();
 
