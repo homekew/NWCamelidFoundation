@@ -161,7 +161,7 @@ blockquote {
 
 .section--bg      { background: var(--surface); }
 .section--white   { background: var(--white); }
-.section--panel   { background: linear-gradient(180deg, var(--surface) 0%, var(--panel) 30%, var(--panel) 70%, var(--surface) 100%); }
+.section--panel   { background: var(--panel); }
 .section--brown   { background: linear-gradient(135deg, #3A4D58 0%, var(--brown) 50%, #5C7082 100%); }
 
 .section--brown h2,
