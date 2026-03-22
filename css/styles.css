@@ -50,7 +50,7 @@
   --shadow-lg: 0 8px 24px rgba(87,80,75,0.12);
 
   --max-width:  1100px;
-  --nav-height: 88px;
+  --nav-height: 100px;
   --transition: 0.2s ease;
 }
 
@@ -322,8 +322,8 @@ blockquote {
 }
 
 .logo-img {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
 }
 
@@ -343,10 +343,10 @@ blockquote {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: var(--size-lg);
+  font-size: var(--size-xl);
   color: var(--light);
-  line-height: 1.25;
-  max-width: 200px;
+  line-height: 1.2;
+  max-width: 220px;
 }
 
 /* Main Nav */
