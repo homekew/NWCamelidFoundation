@@ -34,83 +34,92 @@
 
 // Dropdown behavior
 // ─────────────────────────────────────────────────────────────────────────────
-// Desktop (≥721px)
-//   VISUAL:  CSS :hover + :focus-within handle visibility — no JS class needed.
-//   ARIA:    JS syncs aria-expanded via mouseenter/leave and focusin/out.
-//   KEYBOARD:Enter/Space on trigger → focus first item (CSS focus-within shows panel).
-//            Escape → blur active element → focus-within clears → panel hides.
-//            Click outside → mousedown handler blurs nav focus → panel hides.
+// Desktop (≥721px) — two independent, non-conflicting mechanisms:
+//   MOUSE:    CSS :hover opens/closes the panel. JS only syncs aria-expanded.
+//             :focus-within is intentionally NOT used — clicking a trigger
+//             focuses it, which would keep the panel open via :focus-within
+//             even after the mouse moves elsewhere (stuck-open bug).
+//   KEYBOARD: JS adds .kb-open on Enter/ArrowDown. Any mouseenter on the
+//             nav clears .kb-open so mouse takes over cleanly. Tab-out and
+//             Escape also remove .kb-open.
 //
-// Mobile (≤720px)
-//   VISUAL:  JS click toggles .is-open; CSS shows/hides from that class.
-//   One dropdown open at a time. Escape + outside click both close.
+// Mobile (≤720px) — JS click toggles .is-open; CSS shows panel from that class.
 // ─────────────────────────────────────────────────────────────────────────────
 (function () {
-  var mq     = window.matchMedia('(max-width: 720px)');  // true = mobile
-  var items  = document.querySelectorAll('.has-dropdown');
+  var mq    = window.matchMedia('(max-width: 720px)');   // true = mobile
+  var items = document.querySelectorAll('.has-dropdown');
 
-  // ── Utility ──────────────────────────────────────────────────────────────
+  // ── Utilities ─────────────────────────────────────────────────────────────
   function setAria(item, val) {
     var t = item.querySelector(':scope > a');
     if (t) t.setAttribute('aria-expanded', String(val));
   }
 
-  function closeAllMobile() {
-    items.forEach(function (item) {
-      item.classList.remove('is-open');
-      setAria(item, false);
+  function clearKbOpen() {
+    items.forEach(function (i) {
+      i.classList.remove('kb-open');
+      setAria(i, false);
     });
   }
 
-  // ── Desktop: keep aria-expanded in sync with CSS hover/focus state ───────
+  function closeAllMobile() {
+    items.forEach(function (i) {
+      i.classList.remove('is-open');
+      setAria(i, false);
+    });
+  }
+
+  // ── Desktop: sync aria-expanded with CSS :hover ───────────────────────────
   items.forEach(function (item) {
-    // Hover enter/leave
     item.addEventListener('mouseenter', function () {
-      if (!mq.matches) { setAria(item, true); }
+      if (mq.matches) { return; }
+      clearKbOpen();              // mouse takes over — discard keyboard state
+      setAria(item, true);
     });
     item.addEventListener('mouseleave', function () {
       if (!mq.matches) { setAria(item, false); }
     });
+  });
 
-    // Keyboard focus enter/leave (deferred so activeElement is updated first)
-    item.addEventListener('focusin', function () {
-      if (!mq.matches) { setAria(item, true); }
+  // ── Desktop keyboard: Enter/ArrowDown opens; Tab-out/Escape closes ─────────
+  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
+    var parent = trigger.parentElement;
+
+    trigger.addEventListener('keydown', function (e) {
+      if (mq.matches) { return; }
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        clearKbOpen();
+        parent.classList.add('kb-open');
+        setAria(parent, true);
+        var first = parent.querySelector('.dropdown a');
+        if (first) { first.focus(); }
+      }
     });
-    item.addEventListener('focusout', function () {
+
+    // Tab-out of the whole .has-dropdown removes .kb-open
+    parent.addEventListener('focusout', function () {
       if (!mq.matches) {
         setTimeout(function () {
-          if (!item.contains(document.activeElement)) { setAria(item, false); }
+          if (!parent.contains(document.activeElement)) {
+            parent.classList.remove('kb-open');
+            setAria(parent, false);
+          }
         }, 0);
       }
     });
   });
 
-  // ── Desktop keyboard: Enter/Space opens dropdown, Arrow Down enters it ───
-  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
-    var parent = trigger.parentElement;
-
-    trigger.addEventListener('keydown', function (e) {
-      if (mq.matches) { return; }                        // handled by click below
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        var first = parent.querySelector('.dropdown a');
-        if (first) { first.focus(); }                    // CSS focus-within shows panel
-      }
-    });
-  });
-
-  // ── Mobile: click trigger to toggle .is-open ─────────────────────────────
+  // ── Mobile: click trigger to toggle .is-open ──────────────────────────────
   document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
     var parent = trigger.parentElement;
 
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
-      if (!mq.matches) { return; }                       // desktop: no-op
+      if (!mq.matches) { return; }                       // desktop: CSS handles it
 
       var isOpen = parent.classList.toggle('is-open');
       setAria(parent, isOpen);
-
-      // Close all other mobile dropdowns
       items.forEach(function (other) {
         if (other !== parent) {
           other.classList.remove('is-open');
@@ -120,25 +129,14 @@
     });
   });
 
-  // ── Desktop: clicking outside the header blurs nav focus (closes focus-within)
-  document.addEventListener('mousedown', function (e) {
-    if (!mq.matches && !e.target.closest('.site-header')) {
-      var active = document.activeElement;
-      if (active && active.closest('.has-dropdown')) { active.blur(); }
-    }
-  });
-
-  // ── Escape: close everything ──────────────────────────────────────────────
+  // ── Escape: close everything ───────────────────────────────────────────────
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') { return; }
-    // Desktop: blur active dropdown element so focus-within clears
-    var active = document.activeElement;
-    if (active && active.closest('.has-dropdown')) { active.blur(); }
-    // Mobile: remove .is-open
+    clearKbOpen();
     closeAllMobile();
   });
 
-  // ── Mobile: outside click closes dropdown ────────────────────────────────
+  // ── Mobile: outside click closes ──────────────────────────────────────────
   document.addEventListener('click', function (e) {
     if (mq.matches && !e.target.closest('.has-dropdown')) { closeAllMobile(); }
   });
