@@ -777,6 +777,8 @@ blockquote {
   background: linear-gradient(135deg, #3A4D58 0%, var(--brown) 45%, #5C7082 100%);
   color: var(--light);
   padding-block: 2.5rem;
+  border-top: 3px solid var(--brown);
+  border-bottom: 3px solid var(--brown);
 }
 
 .impact-bar h2,
