@@ -1022,34 +1022,36 @@ details .details-body {
 /* ------------------------------------------------------------
    16. Footer
    ------------------------------------------------------------ */
+/* ── Site Footer ──────────────────────────────────────────── */
 .site-footer {
   background: var(--brown);
   color: rgba(250,248,245,0.85);
-  padding-block: 3rem 2rem;
+  padding-block: 3.5rem 2rem;
 }
 
-.footer-grid {
+.site-footer__top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1fr 1.75fr;
   gap: 2.5rem;
   margin-bottom: 2.5rem;
 }
 
-.footer-brand p {
-  font-size: var(--size-sm);
-  line-height: 1.7;
-  margin-top: 0.75rem;
-  max-width: 280px;
-}
-
-.footer-logo-text {
+.site-footer__logo {
   font-family: var(--font-heading);
   font-size: var(--size-md);
   color: white;
   line-height: 1.3;
+  margin-bottom: 0.75rem;
 }
 
-.site-footer h3 {
+.site-footer__text {
+  font-size: var(--size-sm);
+  line-height: 1.7;
+  color: rgba(250,248,245,0.75);
+  max-width: 280px;
+}
+
+.site-footer__heading {
   color: white;
   font-size: var(--size-sm);
   font-family: var(--font-body);
@@ -1059,52 +1061,96 @@ details .details-body {
   margin-bottom: 1rem;
 }
 
-.footer-nav ul {
+.site-footer__nav,
+.site-footer__meta {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.footer-nav a {
+.site-footer__nav a,
+.site-footer__meta a {
   color: rgba(255,255,255,0.75);
   text-decoration: none;
   font-size: var(--size-sm);
   transition: color var(--transition);
 }
 
-.footer-nav a:hover {
+.site-footer__nav a:hover,
+.site-footer__meta a:hover {
   color: white;
 }
 
-.footer-contact p,
-.footer-contact address {
-  font-size: var(--size-sm);
-  font-style: normal;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.75);
-}
-
-.footer-contact a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: underline;
-}
-
-.footer-contact a:hover {
-  color: white;
-}
-
-.footer-donate p {
-  font-size: var(--size-sm);
-  line-height: 1.7;
+.site-footer__signup .site-footer__text {
   margin-bottom: 1rem;
 }
 
-.footer-bottom {
+.site-footer__form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: var(--size-sm);
+  font-family: var(--font-body);
+}
+
+.site-footer__input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.site-footer__input:focus {
+  outline: 2px solid rgba(255,255,255,0.4);
+  outline-offset: 2px;
+  background: rgba(255,255,255,0.15);
+}
+
+.site-footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.15);
   padding-top: 1.5rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-footer__copyright {
   font-size: var(--size-xs);
   color: rgba(255,255,255,0.5);
+}
+
+.site-footer__social {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.site-footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: var(--size-xs);
+  font-weight: 700;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.site-footer__social a:hover {
+  color: white;
+  border-color: rgba(255,255,255,0.5);
 }
 
 /* ------------------------------------------------------------
@@ -1145,7 +1191,7 @@ details .details-body {
    ------------------------------------------------------------ */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .site-footer__top { grid-template-columns: 1fr 1fr; }
   .content-layout { grid-template-columns: 1fr; }
   .hero-inner { grid-template-columns: 1fr; }
   .hero-media { order: -1; }
@@ -1211,7 +1257,8 @@ details .details-body {
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
 
-  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .site-footer__top { grid-template-columns: 1fr; gap: 2rem; }
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; }
 
   .impact-stats { gap: 2rem; }
 

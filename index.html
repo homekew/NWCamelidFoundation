@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <meta name="description" content="The Northwest Camelid Foundation funds veterinary research and scholarships to advance the health and well-being of llamas and alpacas. Supporting OSU and WSU since 1987.">
   <title>Northwest Camelid Foundation — Advancing Camelid Health Since 1987</title>
-  <link rel="stylesheet" href="css/styles.css?v=brown27">
+  <link rel="stylesheet" href="css/styles.css?v=brown28">
 </head>
 <body>
 
@@ -240,44 +240,61 @@
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
+  <footer class="site-footer" aria-label="Site footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <p class="footer-logo-text">Northwest Camelid Foundation</p>
-          <p>Advancing camelid health through veterinary research and education since 1987.</p>
+      <div class="site-footer__top">
+
+        <div class="site-footer__brand">
+          <div class="site-footer__logo">Northwest Camelid Foundation</div>
+          <p class="site-footer__text">
+            Advancing camelid health through veterinary research,
+            education, and scholarship since 1987.
+          </p>
         </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <h3>Pages</h3>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="events.html">Events &amp; Education</a></li>
-            <li><a href="scholarships.html">Scholarships</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="footer-contact">
-          <h3>Contact</h3>
-          <address>
-            Glen Pfefferkorn, President<br>
-            <a href="mailto:info@NWCamelidFoundation.org">info@NWCamelidFoundation.org</a><br>
-            (520) 437-2218
-          </address>
+
+        <div>
+          <h3 class="site-footer__heading">Explore</h3>
+          <nav class="site-footer__nav" aria-label="Footer explore">
+            <a href="research.html">Research</a>
+            <a href="events.html">Events &amp; Education</a>
+            <a href="scholarships.html">Scholarships</a>
+            <a href="news.html">News</a>
+          </nav>
         </div>
-        <div class="footer-donate">
-          <h3>Donate</h3>
-          <p>Checks payable to North West Camelid Foundation, or donate online via PayPal.</p>
-          <a href="contact.html#donate" class="btn btn-donate">Donate Now</a>
+
+        <div>
+          <h3 class="site-footer__heading">Connect</h3>
+          <div class="site-footer__meta">
+            <a href="about.html">About NWCF</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html#donate">Donate</a>
+            <a href="mailto:info@NWCamelidFoundation.org">Email Us</a>
+          </div>
         </div>
+
+        <div class="site-footer__signup">
+          <h3 class="site-footer__heading">Stay informed</h3>
+          <p class="site-footer__text">Get updates on research, events, and scholarship opportunities.</p>
+          <form class="site-footer__form" action="#" method="post">
+            <input class="site-footer__input" type="email" name="email" placeholder="Email address" aria-label="Email address" />
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Northwest Camelid Foundation. All rights reserved. &nbsp;·&nbsp; <a href="contact.html" style="color:rgba(255,255,255,0.5);">Contact Us</a></p>
+      <div class="site-footer__bottom">
+        <div class="site-footer__copyright">
+          &copy; 2026 Northwest Camelid Foundation. All rights reserved.
+        </div>
+        <div class="site-footer__social">
+          <a href="#" aria-label="Facebook">F</a>
+          <a href="#" aria-label="Instagram">I</a>
+          <a href="#" aria-label="LinkedIn">L</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=brown27"></script>
+  <script src="js/main.js?v=brown28"></script>
 </body>
 </html>
