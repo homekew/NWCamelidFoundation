@@ -14,7 +14,8 @@
   --green-dark:  #332B28;   /* CTA warm dark hover */
 
   /* === Surface Colors === */
-  --bg:          #FAFAF8;   /* Main background */
+  --bg:          #FAFAF8;   /* Body background */
+  --surface:     #F5F5F1;   /* First/light section background */
   --panel:       #EBECE8;   /* Soft neutral panel — callouts, inset bands */
   --white:       #FFFFFF;   /* White surface — cards, forms */
 
@@ -157,7 +158,7 @@ blockquote {
   padding-block: 5rem;
 }
 
-.section--bg      { background: var(--bg); }
+.section--bg      { background: var(--surface); }
 .section--white   { background: var(--white); }
 .section--panel   { background: var(--panel); }
 .section--brown   { background: var(--brown); }
@@ -433,7 +434,7 @@ blockquote {
    7. Page Hero
    ------------------------------------------------------------ */
 .page-hero {
-  background: var(--bg);
+  background: var(--surface);
   padding-block: 3rem;
   border-bottom: 1px solid var(--border);
 }
@@ -449,7 +450,7 @@ blockquote {
 
 /* Homepage Hero */
 .hero {
-  background: linear-gradient(135deg, var(--panel) 0%, var(--bg) 100%);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
   padding-block: 5rem;
 }
 
