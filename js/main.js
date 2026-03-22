@@ -13,11 +13,13 @@
     toggle.setAttribute('aria-expanded', isOpen);
   });
 
-  // Close nav when a link is clicked
+  // Close nav when a non-dropdown link is clicked
   nav.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+      if (!link.closest('.has-dropdown > a') || link.getAttribute('href') !== '#') {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 
@@ -30,14 +32,67 @@
   });
 })();
 
-// Mark active nav link based on current page
+// Dropdown toggle — click for touch/keyboard, hover handled by CSS
 (function () {
-  const links = document.querySelectorAll('.main-nav a');
-  const page  = window.location.pathname.split('/').pop() || 'index.html';
-  links.forEach(function (link) {
-    if (link.getAttribute('href') === page) {
+  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
+    const parent = trigger.parentElement;
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      const isOpen = parent.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', isOpen);
+
+      // Close other open dropdowns
+      document.querySelectorAll('.has-dropdown').forEach(function (other) {
+        if (other !== parent) {
+          other.classList.remove('is-open');
+          const otherTrigger = other.querySelector(':scope > a');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.has-dropdown')) {
+      document.querySelectorAll('.has-dropdown').forEach(function (el) {
+        el.classList.remove('is-open');
+        const t = el.querySelector(':scope > a');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+
+  // Keyboard: close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.has-dropdown').forEach(function (el) {
+        el.classList.remove('is-open');
+        const t = el.querySelector(':scope > a');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+})();
+
+// Mark active nav link and active parent dropdown
+(function () {
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+
+  document.querySelectorAll('.main-nav a').forEach(function (link) {
+    const href = link.getAttribute('href');
+    // Match exact page or page with hash
+    if (href === page || href.split('#')[0] === page) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
+
+      // If inside a dropdown, mark the parent li as active-parent
+      const dropdown = link.closest('.dropdown');
+      if (dropdown) {
+        const parentLi = dropdown.closest('.has-dropdown');
+        if (parentLi) parentLi.classList.add('active-parent');
+      }
     }
   });
 })();

@@ -50,7 +50,7 @@
   --shadow-lg: 0 8px 24px rgba(87,80,75,0.12);
 
   --max-width:  1100px;
-  --nav-height: 72px;
+  --nav-height: 88px;
   --transition: 0.2s ease;
 }
 
@@ -322,8 +322,8 @@ blockquote {
 }
 
 .logo-img {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
 }
 
@@ -343,10 +343,10 @@ blockquote {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: var(--size-sm);
+  font-size: var(--size-lg);
   color: var(--light);
-  line-height: 1.3;
-  white-space: nowrap;
+  line-height: 1.25;
+  max-width: 200px;
 }
 
 /* Main Nav */
@@ -389,6 +389,73 @@ blockquote {
 .main-nav .nav-donate a:hover {
   background: var(--green-dark);
   color: var(--light);
+}
+
+/* Dropdowns */
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown > a::after {
+  content: '▾';
+  margin-left: 0.3rem;
+  font-size: 0.7em;
+  opacity: 0.75;
+  display: inline-block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--brown);
+  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+  border: 1px solid rgba(250,248,245,0.15);
+  min-width: 190px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  z-index: 200;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.has-dropdown:hover .dropdown,
+.has-dropdown:focus-within .dropdown,
+.has-dropdown.is-open .dropdown {
+  display: flex;
+}
+
+.dropdown li {
+  width: 100%;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.7rem 1.1rem;
+  font-size: var(--size-sm);
+  color: rgba(250,248,245,0.9);
+  text-decoration: none;
+  border-radius: 0;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(250,248,245,0.08);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.dropdown li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown a:hover {
+  background: rgba(250,248,245,0.14);
+  color: var(--light);
+}
+
+/* Parent link gets active indicator when a child page is current */
+.has-dropdown.active-parent > a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 /* Hamburger */
@@ -1102,6 +1169,27 @@ details .details-body {
 
   .main-nav a {
     padding: 0.6rem 0.75rem;
+  }
+
+  /* Mobile dropdowns — show inline, no absolute positioning */
+  .has-dropdown > a::after { display: none; }
+
+  .dropdown {
+    display: flex;
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: rgba(0,0,0,0.12);
+    margin: 0.25rem 0 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .dropdown a {
+    padding: 0.5rem 0.9rem;
+    border-bottom: none;
+    font-size: var(--size-xs);
+    opacity: 0.9;
   }
 
   .grid-2 { grid-template-columns: 1fr; }
