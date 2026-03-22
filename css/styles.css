@@ -7,7 +7,7 @@
    ------------------------------------------------------------ */
 :root {
   /* === Brand Colors === */
-  --brown:       #57504B;   /* Primary deep brown — nav, footer, major anchors */
+  --brown:       #4E5F6A;   /* Primary slate — nav, footer, major anchors */
   --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
   --green:       #688075;   /* CTA green — primary buttons, donation moments */
