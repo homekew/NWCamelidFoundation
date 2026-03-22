@@ -493,7 +493,7 @@ blockquote {
   border-radius: var(--radius-lg);
   overflow: visible;
   box-shadow: var(--shadow-lg);
-  transform: rotate(15deg) scale(0.5);
+  transform: scale(0.75);
   transform-origin: center center;
 }
 
