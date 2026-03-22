@@ -244,17 +244,17 @@ blockquote {
 }
 
 .btn-primary {
-  background: var(--green);
-  color: var(--light);
-  border-color: var(--green);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  color: #4A3E3B;
+  border-color: #4A3E3B;
+  box-shadow: inset 0 0 0 1px #4A3E3B;
 }
 
 .btn-primary:hover {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
+  background: #4A3E3B;
+  border-color: #4A3E3B;
   color: var(--light);
-  box-shadow: var(--shadow-md);
+  box-shadow: inset 0 0 0 1px #4A3E3B;
   transform: translateY(-1px);
 }
 
@@ -270,17 +270,17 @@ blockquote {
 }
 
 .btn-donate {
-  background: var(--green);
-  color: var(--light);
-  border-color: var(--green);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  color: #4A3E3B;
+  border-color: #4A3E3B;
+  box-shadow: inset 0 0 0 1px #4A3E3B;
 }
 
 .btn-donate:hover {
-  background: var(--green-dark);
-  border-color: var(--green-dark);
+  background: #4A3E3B;
+  border-color: #4A3E3B;
   color: var(--light);
-  box-shadow: var(--shadow-md);
+  box-shadow: inset 0 0 0 1px #4A3E3B;
   transform: translateY(-1px);
 }
 
