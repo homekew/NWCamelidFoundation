@@ -32,47 +32,74 @@
   });
 })();
 
-// Dropdown toggle — click for touch/keyboard, hover handled by CSS
+// Dropdown toggle — unified .is-open approach for both hover (desktop) and click (all)
 (function () {
-  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
-    const parent = trigger.parentElement;
+  var items = document.querySelectorAll('.has-dropdown');
+  var DESKTOP = '(min-width: 721px)';
 
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      const isOpen = parent.classList.toggle('is-open');
-      trigger.setAttribute('aria-expanded', isOpen);
+  function openDropdown(item) {
+    var trigger = item.querySelector(':scope > a');
+    // Close all others first
+    items.forEach(function (other) {
+      if (other !== item) {
+        other.classList.remove('is-open');
+        var t = other.querySelector(':scope > a');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+    item.classList.add('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  }
 
-      // Close other open dropdowns
-      document.querySelectorAll('.has-dropdown').forEach(function (other) {
-        if (other !== parent) {
-          other.classList.remove('is-open');
-          const otherTrigger = other.querySelector(':scope > a');
-          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
+  function closeDropdown(item) {
+    var trigger = item.querySelector(':scope > a');
+    item.classList.remove('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function closeAll() {
+    items.forEach(function (item) { closeDropdown(item); });
+  }
+
+  // Desktop hover: mouseenter opens, mouseleave closes
+  items.forEach(function (item) {
+    item.addEventListener('mouseenter', function () {
+      if (window.matchMedia(DESKTOP).matches) {
+        openDropdown(item);
+      }
+    });
+
+    item.addEventListener('mouseleave', function () {
+      if (window.matchMedia(DESKTOP).matches) {
+        closeDropdown(item);
+      }
     });
   });
 
-  // Close dropdowns on outside click
+  // Click / tap / keyboard Enter — toggle on all viewport sizes
+  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
+    var parent = trigger.parentElement;
+
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (parent.classList.contains('is-open')) {
+        closeDropdown(parent);
+      } else {
+        openDropdown(parent);
+      }
+    });
+  });
+
+  // Close on outside click
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.has-dropdown')) {
-      document.querySelectorAll('.has-dropdown').forEach(function (el) {
-        el.classList.remove('is-open');
-        const t = el.querySelector(':scope > a');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
+      closeAll();
     }
   });
 
-  // Keyboard: close on Escape
+  // Close on Escape
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.has-dropdown').forEach(function (el) {
-        el.classList.remove('is-open');
-        const t = el.querySelector(':scope > a');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
-    }
+    if (e.key === 'Escape') { closeAll(); }
   });
 })();
 

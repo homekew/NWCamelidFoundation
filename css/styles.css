@@ -419,7 +419,6 @@ blockquote {
   overflow: hidden;
 }
 
-.has-dropdown:hover .dropdown,
 .has-dropdown.is-open .dropdown {
   display: flex;
 }
