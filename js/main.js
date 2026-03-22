@@ -33,63 +33,114 @@
 })();
 
 // Dropdown behavior
-// Desktop: CSS :hover handles visibility (can't show two at once by definition).
-//          JS only updates aria-expanded via mouseenter/mouseleave.
-// Mobile:  JS click toggles .is-open; CSS shows/hides based on that class.
+// ─────────────────────────────────────────────────────────────────────────────
+// Desktop (≥721px)
+//   VISUAL:  CSS :hover + :focus-within handle visibility — no JS class needed.
+//   ARIA:    JS syncs aria-expanded via mouseenter/leave and focusin/out.
+//   KEYBOARD:Enter/Space on trigger → focus first item (CSS focus-within shows panel).
+//            Escape → blur active element → focus-within clears → panel hides.
+//            Click outside → mousedown handler blurs nav focus → panel hides.
+//
+// Mobile (≤720px)
+//   VISUAL:  JS click toggles .is-open; CSS shows/hides from that class.
+//   One dropdown open at a time. Escape + outside click both close.
+// ─────────────────────────────────────────────────────────────────────────────
 (function () {
-  var MOBILE = '(max-width: 720px)';
+  var mq     = window.matchMedia('(max-width: 720px)');  // true = mobile
   var items  = document.querySelectorAll('.has-dropdown');
 
+  // ── Utility ──────────────────────────────────────────────────────────────
   function setAria(item, val) {
     var t = item.querySelector(':scope > a');
-    if (t) t.setAttribute('aria-expanded', val);
+    if (t) t.setAttribute('aria-expanded', String(val));
   }
 
   function closeAllMobile() {
     items.forEach(function (item) {
       item.classList.remove('is-open');
-      setAria(item, 'false');
+      setAria(item, false);
     });
   }
 
-  // Desktop: sync aria-expanded with CSS hover state (visual handled by CSS)
+  // ── Desktop: keep aria-expanded in sync with CSS hover/focus state ───────
   items.forEach(function (item) {
+    // Hover enter/leave
     item.addEventListener('mouseenter', function () {
-      if (!window.matchMedia(MOBILE).matches) { setAria(item, 'true'); }
+      if (!mq.matches) { setAria(item, true); }
     });
     item.addEventListener('mouseleave', function () {
-      if (!window.matchMedia(MOBILE).matches) { setAria(item, 'false'); }
+      if (!mq.matches) { setAria(item, false); }
+    });
+
+    // Keyboard focus enter/leave (deferred so activeElement is updated first)
+    item.addEventListener('focusin', function () {
+      if (!mq.matches) { setAria(item, true); }
+    });
+    item.addEventListener('focusout', function () {
+      if (!mq.matches) {
+        setTimeout(function () {
+          if (!item.contains(document.activeElement)) { setAria(item, false); }
+        }, 0);
+      }
     });
   });
 
-  // Click: mobile-only toggle; desktop just prevents default (CSS handles hover)
+  // ── Desktop keyboard: Enter/Space opens dropdown, Arrow Down enters it ───
   document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
     var parent = trigger.parentElement;
+
+    trigger.addEventListener('keydown', function (e) {
+      if (mq.matches) { return; }                        // handled by click below
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        var first = parent.querySelector('.dropdown a');
+        if (first) { first.focus(); }                    // CSS focus-within shows panel
+      }
+    });
+  });
+
+  // ── Mobile: click trigger to toggle .is-open ─────────────────────────────
+  document.querySelectorAll('.has-dropdown > a').forEach(function (trigger) {
+    var parent = trigger.parentElement;
+
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
-      if (!window.matchMedia(MOBILE).matches) { return; } // desktop: do nothing
+      if (!mq.matches) { return; }                       // desktop: no-op
 
       var isOpen = parent.classList.toggle('is-open');
       setAria(parent, isOpen);
+
       // Close all other mobile dropdowns
       items.forEach(function (other) {
         if (other !== parent) {
           other.classList.remove('is-open');
-          setAria(other, 'false');
+          setAria(other, false);
         }
       });
     });
   });
 
-  // Close mobile dropdowns when clicking outside or pressing Escape
-  document.addEventListener('click', function (e) {
-    if (window.matchMedia(MOBILE).matches && !e.target.closest('.has-dropdown')) {
-      closeAllMobile();
+  // ── Desktop: clicking outside the header blurs nav focus (closes focus-within)
+  document.addEventListener('mousedown', function (e) {
+    if (!mq.matches && !e.target.closest('.site-header')) {
+      var active = document.activeElement;
+      if (active && active.closest('.has-dropdown')) { active.blur(); }
     }
   });
 
+  // ── Escape: close everything ──────────────────────────────────────────────
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closeAllMobile(); }
+    if (e.key !== 'Escape') { return; }
+    // Desktop: blur active dropdown element so focus-within clears
+    var active = document.activeElement;
+    if (active && active.closest('.has-dropdown')) { active.blur(); }
+    // Mobile: remove .is-open
+    closeAllMobile();
+  });
+
+  // ── Mobile: outside click closes dropdown ────────────────────────────────
+  document.addEventListener('click', function (e) {
+    if (mq.matches && !e.target.closest('.has-dropdown')) { closeAllMobile(); }
   });
 })();
 

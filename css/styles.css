@@ -419,9 +419,12 @@ blockquote {
   overflow: hidden;
 }
 
-/* Desktop only — CSS hover is mutually exclusive by definition (one pointer) */
+/* Desktop only — hover (mouse) and focus-within (keyboard) open the dropdown.
+   CSS hover is mutually exclusive by definition; focus-within is closed by
+   the mousedown-outside blur handler in JS. */
 @media (min-width: 721px) {
-  .has-dropdown:hover .dropdown {
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
     display: flex;
   }
 }
