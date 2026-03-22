@@ -350,7 +350,7 @@ blockquote {
 }
 
 /* Main Nav */
-.main-nav ul {
+.main-nav > ul {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -1166,7 +1166,7 @@ details .details-body {
 
   .main-nav.is-open { display: block; }
 
-  .main-nav ul {
+  .main-nav > ul {
     flex-direction: column;
     gap: 0.25rem;
     align-items: stretch;
