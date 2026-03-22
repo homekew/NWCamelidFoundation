@@ -307,6 +307,25 @@ blockquote {
   z-index: 100;
   height: var(--nav-height);
   box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: 'NWCF';
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  transform: translateY(-50%);
+  font-family: var(--font-heading);
+  font-size: 7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--light);
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
 }
 
 .header-inner {
@@ -315,6 +334,8 @@ blockquote {
   justify-content: space-between;
   height: var(--nav-height);
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Logo */
@@ -535,33 +556,11 @@ blockquote {
 
 /* Homepage Hero */
 .hero {
-  position: relative;
-  overflow: hidden;
   background: linear-gradient(160deg, #ffffff 0%, var(--bg) 55%, #E8E9E5 100%);
   padding-block: 2rem 3rem;
 }
 
-.hero::before {
-  content: 'NWCF';
-  position: absolute;
-  top: 50%;
-  right: -2rem;
-  transform: translateY(-50%);
-  font-family: var(--font-heading);
-  font-size: clamp(8rem, 18vw, 16rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--brown);
-  opacity: 0.055;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-
 .hero-inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
