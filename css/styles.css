@@ -10,21 +10,21 @@
   --brown:       #4E5F6A;   /* Primary slate — nav, footer, major anchors */
   --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
-  --green:       #688075;   /* CTA green — primary buttons, donation moments */
-  --green-dark:  #4E6158;   /* CTA green hover */
+  --green:       #4A3E3B;   /* CTA warm dark — primary buttons, donation moments */
+  --green-dark:  #332B28;   /* CTA warm dark hover */
 
   /* === Surface Colors === */
-  --bg:          #F7F4EE;   /* Main background */
-  --panel:       #ECEAE4;   /* Soft neutral panel — callouts, inset bands */
+  --bg:          #F5F5F1;   /* Main background */
+  --panel:       #EBECE8;   /* Soft neutral panel — callouts, inset bands */
   --white:       #FFFFFF;   /* White surface — cards, forms */
 
   /* === Text Colors === */
-  --text:        #202326;   /* Headings + body on light backgrounds */
-  --muted:       #686B6E;   /* Supporting copy, meta, lower-emphasis */
-  --light:       #FAF8F5;   /* Text on dark brown backgrounds */
+  --text:        #232427;   /* Headings + body on light backgrounds */
+  --muted:       #666A6D;   /* Supporting copy, meta, lower-emphasis */
+  --light:       #FAF8F5;   /* Text on dark backgrounds */
 
   /* === Structure === */
-  --border:      #D7D1C7;   /* Cards, dividers, layout structure */
+  --border:      #D7D7D0;   /* Cards, dividers, layout structure */
 
   /* === Typography === */
   --font-heading: 'Source Serif 4', Georgia, serif;
@@ -132,7 +132,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #4A6070;
+  color: #688075;
   margin-bottom: 0.5rem;
 }
 
