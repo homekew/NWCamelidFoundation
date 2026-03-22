@@ -536,7 +536,7 @@ blockquote {
 /* Homepage Hero */
 .hero {
   background: linear-gradient(160deg, #ffffff 0%, var(--bg) 55%, #E8E9E5 100%);
-  padding-block: 5rem;
+  padding-block: 3.5rem 5rem;
 }
 
 .hero-inner {
