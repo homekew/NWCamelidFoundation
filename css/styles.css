@@ -12,6 +12,8 @@
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
   --green:       #7D5C50;   /* CTA warm brown — primary buttons, donation moments */
   --green-dark:  #6B4D42;   /* CTA warm brown hover */
+  --terra:       #C4633A;   /* Terracotta accent — labels, icons, stat highlights */
+  --terra-light: #F5E8E1;   /* Terracotta tint — icon backgrounds */
 
   /* === Surface Colors === */
   --bg:          #FAFAF8;   /* Body background */
@@ -134,7 +136,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #688075;
+  color: var(--terra);
   margin-bottom: 1rem;
 }
 
@@ -591,7 +593,7 @@ blockquote {
   display: block;
   font-size: var(--size-xl);
   font-family: var(--font-heading);
-  color: var(--brown);
+  color: var(--terra);
 }
 
 .hero-stat span {
@@ -642,14 +644,14 @@ blockquote {
 .card-icon {
   width: 48px;
   height: 48px;
-  background: var(--blue-light);
+  background: var(--terra-light);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: var(--brown);
+  color: var(--terra);
 }
 
 .card h3 {
