@@ -10,8 +10,8 @@
   --brown:       #4E5F6A;   /* Primary slate — nav, footer, major anchors */
   --blue:        #6B8393;   /* Accent blue — section labels, icons, links */
   --blue-light:  #E5EAEE;   /* Light blue — for blue on dark backgrounds */
-  --green:       #4A3E3B;   /* CTA warm dark — primary buttons, donation moments */
-  --green-dark:  #332B28;   /* CTA warm dark hover */
+  --green:       #7D5C50;   /* CTA warm brown — primary buttons, donation moments */
+  --green-dark:  #6B4D42;   /* CTA warm brown hover */
 
   /* === Surface Colors === */
   --bg:          #FAFAF8;   /* Body background */
