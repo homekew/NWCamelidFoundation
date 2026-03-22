@@ -15,7 +15,7 @@
 
   /* === Surface Colors === */
   --bg:          #FAFAF8;   /* Body background */
-  --surface:     #F5F5F1;   /* First/light section background */
+  --surface:     #FFFFFF;   /* First/light section background */
   --panel:       #EBECE8;   /* Soft neutral panel — callouts, inset bands */
   --white:       #FFFFFF;   /* White surface — cards, forms */
 
