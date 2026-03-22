@@ -306,7 +306,7 @@ blockquote {
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12), 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .site-header::before {
@@ -779,6 +779,7 @@ blockquote {
   padding-block: 2.5rem;
   border-top: 3px solid var(--brown);
   border-bottom: 3px solid var(--brown);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.1);
 }
 
 .impact-bar h2,
