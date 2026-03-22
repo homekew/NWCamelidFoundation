@@ -420,7 +420,6 @@ blockquote {
 }
 
 .has-dropdown:hover .dropdown,
-.has-dropdown:focus-within .dropdown,
 .has-dropdown.is-open .dropdown {
   display: flex;
 }
