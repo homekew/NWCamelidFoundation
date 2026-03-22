@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <title>Style Guide — Northwest Camelid Foundation</title>
+  <link rel="stylesheet" href="css/styles.css?v=brown66">
+  <style>
+    /* ---- Style Guide Only Styles ---- */
+    .sg-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    .sg-title {
+      font-family: var(--font-heading);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .sg-subtitle {
+      font-size: var(--size-md);
+      color: var(--muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .sg-section {
+      margin-bottom: 4rem;
+    }
+    .sg-section-title {
+      font-family: var(--font-body);
+      font-size: var(--size-xs);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+    .sg-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 130px;
+    }
+    .sg-swatch-color {
+      width: 100%;
+      height: 64px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.07);
+      margin-bottom: 0.5rem;
+    }
+    .sg-swatch-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 0.15rem;
+    }
+    .sg-swatch-token {
+      font-size: 0.65rem;
+      color: var(--muted);
+      font-family: monospace;
+      text-align: center;
+    }
+    .sg-swatch-hex {
+      font-size: 0.65rem;
+      color: var(--muted);
+      font-family: monospace;
+      text-align: center;
+    }
+    .sg-type-row {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+    .sg-type-meta {
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+    .sg-type-tag {
+      font-size: 0.7rem;
+      font-family: monospace;
+      background: var(--panel);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--terra);
+      display: inline-block;
+      margin-bottom: 0.25rem;
+    }
+    .sg-type-spec {
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .sg-component {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+    }
+    .sg-component-label {
+      background: var(--panel);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-family: monospace;
+    }
+    .sg-component-preview {
+      padding: 2rem 1.5rem;
+    }
+    .sg-component-preview--dark {
+      background: var(--brown);
+      padding: 2rem 1.5rem;
+    }
+    .sg-component-code {
+      background: #1e2022;
+      color: #e8e4dc;
+      font-family: monospace;
+      font-size: 0.72rem;
+      line-height: 1.6;
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      overflow-x: auto;
+      white-space: pre;
+    }
+    .sg-token-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-bottom: 1.5rem;
+    }
+    .sg-token-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+    }
+    .sg-token-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .sg-token-table tr:last-child td { border-bottom: none; }
+    .sg-token-table code {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: var(--terra);
+      background: var(--terra-light);
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+    }
+    .sg-spacing-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .sg-spacing-bar {
+      background: var(--terra);
+      opacity: 0.25;
+      height: 16px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .sg-spacing-label {
+      font-size: 0.75rem;
+      font-family: monospace;
+      color: var(--muted);
+    }
+    .sg-nav {
+      position: sticky;
+      top: 0;
+      background: var(--brown);
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .sg-nav a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(250,247,242,0.7);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .sg-nav a:hover { color: var(--gold); }
+    .sg-nav-brand {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--light);
+      letter-spacing: 0.03em;
+      margin-right: 1rem;
+    }
+    .sg-divider {
+      color: rgba(250,247,242,0.2);
+    }
+    .sg-grid-demo {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .sg-grid-cell {
+      background: var(--terra-light);
+      border: 1px dashed var(--terra);
+      border-radius: 6px;
+      padding: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--terra);
+      text-align: center;
+      font-family: monospace;
+    }
+    .sg-toc {
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .sg-toc h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .sg-toc ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      list-style: none;
+    }
+    .sg-toc a {
+      font-size: 0.875rem;
+      color: var(--terra);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .sg-toc a:hover { text-decoration: underline; }
+    .sg-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.15em 0.5em;
+      border-radius: 100px;
+      vertical-align: middle;
+    }
+    .sg-badge--new { background: #d1fae5; color: #065f46; }
+    .sg-badge--reserved { background: #fef9c3; color: #713f12; }
+  </style>
+</head>
+<body style="background: var(--bg);">
+
+  <!-- Style Guide Nav -->
+  <div class="sg-nav">
+    <span class="sg-nav-brand">NWCF Style Guide</span>
+    <span class="sg-divider">|</span>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing &amp; Radius</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#sections">Sections</a>
+    <a href="#components">Components</a>
+    <a href="#layout">Layout</a>
+    <a href="index.html" style="margin-left:auto;">← Back to Site</a>
+  </div>
+
+  <div class="sg-page">
+
+    <h1 class="sg-title">Northwest Camelid Foundation</h1>
+    <p class="sg-subtitle">Design System &amp; Element Reference — <code>styles.css?v=brown66</code></p>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="sg-toc">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#colors">Color Tokens</a></li>
+        <li><a href="#typography">Typography Scale</a></li>
+        <li><a href="#spacing">Spacing, Radius &amp; Shadow</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#labels">Section Labels &amp; Eyebrows</a></li>
+        <li><a href="#sections">Section Variants</a></li>
+        <li><a href="#components">Named Components</a></li>
+        <li><a href="#layout">Layout &amp; Grid</a></li>
+        <li><a href="#nav">Navigation &amp; Breadcrumb</a></li>
+        <li><a href="#images">Image Treatments</a></li>
+      </ul>
+    </div>
+
+    <!-- ====================================================
+         COLORS
+    ==================================================== -->
+    <section class="sg-section" id="colors">
+      <h2 class="sg-section-title">Color Tokens</h2>
+
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:1.5rem;">All colors are defined as CSS custom properties on <code style="font-family:monospace; font-size:0.8rem; color:var(--terra);">:root</code>. Never use raw hex values in HTML or CSS — always reference the token.</p>
+
+      <h3 style="font-size:0.8rem; font-weight:600; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem;">Brand Colors</h3>
+      <div class="sg-row">
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#2C4048;"></div>
+          <span class="sg-swatch-name">Primary Dark</span>
+          <span class="sg-swatch-token">--brown</span>
+          <span class="sg-swatch-hex">#2C4048</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#99461D;"></div>
+          <span class="sg-swatch-name">Terracotta</span>
+          <span class="sg-swatch-token">--terra</span>
+          <span class="sg-swatch-hex">#99461D</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#F0EDE8; border:1px solid #D4CEC6;"></div>
+          <span class="sg-swatch-name">Terra Tint</span>
+          <span class="sg-swatch-token">--terra-light</span>
+          <span class="sg-swatch-hex">#F0EDE8</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#D99F3D;"></div>
+          <span class="sg-swatch-name">Warm Gold</span>
+          <span class="sg-swatch-token">--gold</span>
+          <span class="sg-swatch-hex">#D99F3D</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#7D5C50;"></div>
+          <span class="sg-swatch-name">Warm Brown <span class="sg-badge sg-badge--reserved">reserved</span></span>
+          <span class="sg-swatch-token">--green</span>
+          <span class="sg-swatch-hex">#7D5C50</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#6B4D42;"></div>
+          <span class="sg-swatch-name">Brown Hover <span class="sg-badge sg-badge--reserved">hover</span></span>
+          <span class="sg-swatch-token">--green-dark</span>
+          <span class="sg-swatch-hex">#6B4D42</span>
+        </div>
+      </div>
+
+      <h3 style="font-size:0.8rem; font-weight:600; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem; margin-top:1.75rem;">Surface Colors</h3>
+      <div class="sg-row">
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#F8F5F0; border:1px solid #D4CEC6;"></div>
+          <span class="sg-swatch-name">Parchment</span>
+          <span class="sg-swatch-token">--bg</span>
+          <span class="sg-swatch-hex">#F8F5F0</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#FFFFFF; border:1px solid #D4CEC6;"></div>
+          <span class="sg-swatch-name">White Surface</span>
+          <span class="sg-swatch-token">--surface / --white</span>
+          <span class="sg-swatch-hex">#FFFFFF</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#EEEAE2; border:1px solid #D4CEC6;"></div>
+          <span class="sg-swatch-name">Warm Stone</span>
+          <span class="sg-swatch-token">--panel</span>
+          <span class="sg-swatch-hex">#EEEAE2</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#D4CEC6; border:1px solid #ccc;"></div>
+          <span class="sg-swatch-name">Border</span>
+          <span class="sg-swatch-token">--border</span>
+          <span class="sg-swatch-hex">#D4CEC6</span>
+        </div>
+      </div>
+
+      <h3 style="font-size:0.8rem; font-weight:600; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem; margin-top:1.75rem;">Text Colors</h3>
+      <div class="sg-row">
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#1A1410;"></div>
+          <span class="sg-swatch-name">Body Text</span>
+          <span class="sg-swatch-token">--text</span>
+          <span class="sg-swatch-hex">#1A1410</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#6B6560;"></div>
+          <span class="sg-swatch-name">Muted / Supporting</span>
+          <span class="sg-swatch-token">--muted</span>
+          <span class="sg-swatch-hex">#6B6560</span>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background:#FAF7F2; border:1px solid #D4CEC6;"></div>
+          <span class="sg-swatch-name">On Dark</span>
+          <span class="sg-swatch-token">--light</span>
+          <span class="sg-swatch-hex">#FAF7F2</span>
+        </div>
+      </div>
+
+      <div class="sg-component" style="margin-top:1.5rem;">
+        <div class="sg-component-label">Color Usage Rules</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Token</th><th>Primary Use</th><th>Do not use for</th></tr></thead>
+            <tbody>
+              <tr><td><code>--brown</code></td><td>Nav, footer, dark sections, dark CTAs</td><td>Body text, inline links</td></tr>
+              <tr><td><code>--terra</code></td><td>Links, section labels, filled CTA button, card links</td><td>Large background fills (too saturated)</td></tr>
+              <tr><td><code>--gold</code></td><td>Accents on dark backgrounds only</td><td>Text on light backgrounds (fails contrast)</td></tr>
+              <tr><td><code>--bg</code></td><td>Page body background</td><td>Card/panel surfaces</td></tr>
+              <tr><td><code>--surface</code></td><td>Cards, form inputs, white sections</td><td>Page body (too stark)</td></tr>
+              <tr><td><code>--panel</code></td><td>Alternating section backgrounds (warm stone)</td><td>Text</td></tr>
+              <tr><td><code>--light</code></td><td>Body text on dark (<code>--brown</code>) backgrounds</td><td>Text on light surfaces</td></tr>
+              <tr><td><code>--muted</code></td><td>Supporting copy, metadata, captions</td><td>Headings, CTAs</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         TYPOGRAPHY
+    ==================================================== -->
+    <section class="sg-section" id="typography">
+      <h2 class="sg-section-title">Typography Scale</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Fonts</div>
+        <div class="sg-component-preview">
+          <p style="margin-bottom:0.75rem;"><strong>Headings:</strong> <span style="font-family:'Source Serif 4', Georgia, serif; font-size:1.25rem;">Source Serif 4</span> — <code style="font-family:monospace; font-size:0.78rem;">var(--font-heading)</code> — Google Fonts</p>
+          <p><strong>Body:</strong> <span style="font-family:'Inter', system-ui, sans-serif;">Inter</span> — <code style="font-family:monospace; font-size:0.78rem;">var(--font-body)</code> — Google Fonts</p>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Heading Elements</div>
+        <div class="sg-component-preview">
+          <div class="sg-type-row">
+            <div class="sg-type-meta">
+              <span class="sg-type-tag">&lt;h1&gt;</span>
+              <div class="sg-type-spec">3rem · 600 · lh 1.15<br>mb 1.5rem</div>
+            </div>
+            <h1 style="font-size:3rem; margin-bottom:0;">Advancing Camelid Health</h1>
+          </div>
+          <div class="sg-type-row">
+            <div class="sg-type-meta">
+              <span class="sg-type-tag">&lt;h2&gt;</span>
+              <div class="sg-type-spec">2.25rem · 600 · lh 1.25<br>mb 1.25rem</div>
+            </div>
+            <h2 style="margin-bottom:0;">Better Science. Healthier Herds.</h2>
+          </div>
+          <div class="sg-type-row">
+            <div class="sg-type-meta">
+              <span class="sg-type-tag">&lt;h3&gt;</span>
+              <div class="sg-type-spec">1.75rem · 600 · lh 1.25</div>
+            </div>
+            <h3 style="margin-bottom:0;">Fund Research</h3>
+          </div>
+          <div class="sg-type-row">
+            <div class="sg-type-meta">
+              <span class="sg-type-tag">&lt;h4&gt;</span>
+              <div class="sg-type-spec">1.375rem · 500 · lh 1.25</div>
+            </div>
+            <h4 style="margin-bottom:0;">Section Subheading</h4>
+          </div>
+          <div class="sg-type-row" style="border-bottom:none;">
+            <div class="sg-type-meta">
+              <span class="sg-type-tag">&lt;p&gt;</span>
+              <div class="sg-type-spec">1rem · 400 · lh 1.7<br>color: --text</div>
+            </div>
+            <p style="margin-bottom:0;">Body copy. The Northwest Camelid Foundation has funded veterinary research since 1987. We support OSU and WSU and bring owners together across the Pacific Northwest.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Text Utilities</div>
+        <div class="sg-component-preview" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div>
+            <code class="sg-type-tag" style="display:inline-block; margin-bottom:0.5rem;">.lead</code>
+            <p class="lead" style="margin-bottom:0;">For over 35 years, the Northwest Camelid Foundation has funded the veterinary research that keeps llamas and alpacas healthy. 1.125rem · lh 1.8 · color: --muted.</p>
+          </div>
+          <div>
+            <code class="sg-type-tag" style="display:inline-block; margin-bottom:0.5rem;">.section-label (eyebrow)</code>
+            <span class="section-label" style="display:block;">Our Mission</span>
+          </div>
+          <div>
+            <code class="sg-type-tag" style="display:inline-block; margin-bottom:0.5rem;">.card-link</code>
+            <a href="#" class="card-link">Explore our research →</a>
+          </div>
+          <div>
+            <code class="sg-type-tag" style="display:inline-block; margin-bottom:0.5rem;">&lt;a&gt; inline link</code>
+            <p style="margin-bottom:0;">Visit our <a href="#">research page</a> to see the full list of funded studies. Links use <code style="font-size:0.8rem;">--terra</code> and hover to <code style="font-size:0.8rem;">--brown</code>.</p>
+          </div>
+          <div>
+            <code class="sg-type-tag" style="display:inline-block; margin-bottom:0.5rem;">&lt;blockquote&gt;</code>
+            <blockquote style="margin-bottom:0;">"Every dollar raised at our events goes directly to research. There is no overhead, no administrative cost — just science."</blockquote>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Font Size Tokens</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Token</th><th>Value</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><code>--size-xs</code></td><td>0.75rem</td><td><span style="font-size:0.75rem;">Section labels, badges</span></td></tr>
+              <tr><td><code>--size-sm</code></td><td>0.875rem</td><td><span style="font-size:0.875rem;">Meta, captions, small text</span></td></tr>
+              <tr><td><code>--size-base</code></td><td>1rem</td><td><span style="font-size:1rem;">Body copy (default)</span></td></tr>
+              <tr><td><code>--size-md</code></td><td>1.125rem</td><td><span style="font-size:1.125rem;">.lead text</span></td></tr>
+              <tr><td><code>--size-lg</code></td><td>1.375rem</td><td><span style="font-size:1.375rem;">h4 / sidebar headings</span></td></tr>
+              <tr><td><code>--size-xl</code></td><td>1.75rem</td><td><span style="font-size:1.75rem; font-family:var(--font-heading);">h3 headings</span></td></tr>
+              <tr><td><code>--size-2xl</code></td><td>2.25rem</td><td><span style="font-size:2.25rem; font-family:var(--font-heading);">h2 headings</span></td></tr>
+              <tr><td><code>--size-3xl</code></td><td>3rem</td><td><span style="font-size:3rem; font-family:var(--font-heading);">h1 headings</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SPACING & RADIUS
+    ==================================================== -->
+    <section class="sg-section" id="spacing">
+      <h2 class="sg-section-title">Spacing, Radius &amp; Shadow</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Border Radius</div>
+        <div class="sg-component-preview">
+          <div class="sg-row" style="align-items:flex-start; gap:1.5rem;">
+            <div style="text-align:center;">
+              <div style="width:64px; height:64px; background:var(--terra-light); border:1px solid var(--terra); border-radius:4px; margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--radius-sm<br>4px</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:64px; height:64px; background:var(--terra-light); border:1px solid var(--terra); border-radius:8px; margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--radius-md<br>8px</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:64px; height:64px; background:var(--terra-light); border:1px solid var(--terra); border-radius:16px; margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--radius-lg<br>16px</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:64px; height:28px; background:var(--terra-light); border:1px solid var(--terra); border-radius:100px; margin:0 auto 0.5rem; margin-top:18px;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">Pill buttons<br>100px</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Shadow Scale</div>
+        <div class="sg-component-preview">
+          <div class="sg-row" style="gap:2rem;">
+            <div style="text-align:center;">
+              <div style="width:80px; height:60px; background:var(--white); border-radius:8px; box-shadow:var(--shadow-sm); margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--shadow-sm</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:80px; height:60px; background:var(--white); border-radius:8px; box-shadow:var(--shadow-md); margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--shadow-md</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:80px; height:60px; background:var(--white); border-radius:8px; box-shadow:var(--shadow-lg); margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--shadow-lg</code>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:80px; height:60px; background:var(--white); border-radius:8px; box-shadow:var(--shadow-xl); margin:0 auto 0.5rem;"></div>
+              <code style="font-size:0.7rem; font-family:monospace; color:var(--muted);">--shadow-xl</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Key Spacing Conventions</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Context</th><th>Value</th><th>Token / Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Section vertical padding</td><td>5rem</td><td><code>.section { padding-block: 5rem }</code></td></tr>
+              <tr><td>Page hero padding</td><td>4rem top / 4rem bottom</td><td><code>.page-hero { padding: 4rem 0 }</code></td></tr>
+              <tr><td>Container padding</td><td>1.25rem sides</td><td><code>.container { padding-inline: 1.25rem }</code></td></tr>
+              <tr><td>Max content width</td><td>1100px</td><td><code>--max-width</code></td></tr>
+              <tr><td>Nav height</td><td>100px</td><td><code>--nav-height</code></td></tr>
+              <tr><td>Section-label → Heading gap</td><td>1.5rem</td><td><code>.section-label { margin-bottom: 1.5rem }</code></td></tr>
+              <tr><td>h1 → content gap</td><td>1.5rem</td><td><code>h1 { margin-bottom: 1.5rem }</code></td></tr>
+              <tr><td>h2 → content gap</td><td>1.25rem</td><td><code>h2 { margin-bottom: 1.25rem }</code></td></tr>
+              <tr><td>Card padding</td><td>1.75rem</td><td><code>.card { padding: 1.75rem }</code></td></tr>
+              <tr><td>Grid gap (2-col)</td><td>2rem</td><td><code>.grid-2 { gap: 2rem }</code></td></tr>
+              <tr><td>Grid gap (3-col)</td><td>1.5rem</td><td><code>.grid-3 { gap: 1.5rem }</code></td></tr>
+              <tr><td>Animation duration</td><td>0.2s ease</td><td><code>--transition</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         BUTTONS
+    ==================================================== -->
+    <section class="sg-section" id="buttons">
+      <h2 class="sg-section-title">Buttons</h2>
+
+      <p style="font-size:0.875rem; color:var(--muted); margin-bottom:1.5rem;">All buttons use the base <code style="font-family:monospace; font-size:0.8rem;">.btn</code> class plus a variant. Buttons are pill-shaped (border-radius: 100px). Use <code style="font-family:monospace; font-size:0.8rem;">.btn-lg</code> for hero and CTA contexts.</p>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.btn .btn-primary — Primary action on light backgrounds</div>
+        <div class="sg-component-preview" style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+          <a href="#" class="btn btn-primary">Donate to NWCF</a>
+          <a href="#" class="btn btn-primary btn-lg">Donate to NWCF</a>
+        </div>
+        <div class="sg-component-code">&lt;a href="#" class="btn btn-primary"&gt;Donate to NWCF&lt;/a&gt;
+&lt;a href="#" class="btn btn-primary btn-lg"&gt;Donate to NWCF&lt;/a&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.btn .btn-secondary — Secondary / ghost on light backgrounds</div>
+        <div class="sg-component-preview" style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+          <a href="#" class="btn btn-secondary">Learn About Our Work</a>
+          <a href="#" class="btn btn-secondary btn-lg">Learn About Our Work</a>
+        </div>
+        <div class="sg-component-code">&lt;a href="#" class="btn btn-secondary"&gt;Learn About Our Work&lt;/a&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.btn .btn-filled — Filled terracotta. Use ONLY for the primary Donate CTA</div>
+        <div class="sg-component-preview" style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; background:var(--brown); margin:-2rem -1.5rem; padding:2rem 1.5rem;">
+          <a href="#" class="btn btn-filled btn-lg">Donate to NWCF</a>
+        </div>
+        <div class="sg-component-code">&lt;!-- Only used in .cta-band on index.html --&gt;
+&lt;a href="#" class="btn btn-filled btn-lg"&gt;Donate to NWCF&lt;/a&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.btn .btn-light — Outline on dark backgrounds</div>
+        <div class="sg-component-preview" style="background:var(--brown); margin:-2rem -1.5rem; padding:2rem 1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#" class="btn btn-light">Learn More</a>
+          <a href="#" class="btn btn-light btn-lg">Learn More</a>
+        </div>
+        <div class="sg-component-code">&lt;!-- Use on dark sections (.feature-section, .cta-band) --&gt;
+&lt;a href="#" class="btn btn-light"&gt;Learn More&lt;/a&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.btn-group — Button pair layout</div>
+        <div class="sg-component-preview">
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary btn-lg">Donate to NWCF</a>
+            <a href="#" class="btn btn-secondary btn-lg">Learn About Our Work</a>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="btn-group"&gt;
+  &lt;a href="#" class="btn btn-primary btn-lg"&gt;Donate to NWCF&lt;/a&gt;
+  &lt;a href="#" class="btn btn-secondary btn-lg"&gt;Learn About Our Work&lt;/a&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Button Decision Matrix</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Context</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td>Primary CTA on light bg (hero, events, research)</td><td><code>.btn .btn-primary</code></td></tr>
+              <tr><td>Secondary/ghost action on light bg</td><td><code>.btn .btn-secondary</code></td></tr>
+              <tr><td>Donate CTA in CTA Band (dark section)</td><td><code>.btn .btn-filled</code></td></tr>
+              <tr><td>Secondary action on dark section</td><td><code>.btn .btn-light</code></td></tr>
+              <tr><td>Donate pill in nav header</td><td><code>.nav-donate a</code> (auto-styled)</td></tr>
+              <tr><td>Large hero or CTA context</td><td>Add <code>.btn-lg</code> to any variant</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         CARDS
+    ==================================================== -->
+    <section class="sg-section" id="cards">
+      <h2 class="sg-section-title">Cards</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.card — Mission / content card (white surface)</div>
+        <div class="sg-component-preview" style="max-width:320px;">
+          <div class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 4H8L9 3z"/><path d="M8 7v10a4 4 0 0 0 8 0V7"/></svg>
+            </div>
+            <h3>Fund Research</h3>
+            <p>We award grants to qualified veterinary researchers at OSU and WSU, funding studies that directly improve camelid health outcomes.</p>
+            <a href="#" class="card-link">Explore our research →</a>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="card"&gt;
+  &lt;div class="card-icon" aria-hidden="true"&gt;...svg...&lt;/div&gt;
+  &lt;h3&gt;Fund Research&lt;/h3&gt;
+  &lt;p&gt;Copy...&lt;/p&gt;
+  &lt;a href="research.html" class="card-link"&gt;Explore our research →&lt;/a&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.news-card — News article card</div>
+        <div class="sg-component-preview" style="max-width:380px;">
+          <article class="news-card">
+            <div class="news-card-body">
+              <p class="news-card-meta">September 2024 &nbsp;·&nbsp; Events</p>
+              <h3>Camelid Fun Under the Trees: NWCF's 2024 Fundraiser</h3>
+              <p>Llama and alpaca enthusiasts gathered in central Oregon in August, hosted by Crescent Moon Ranch.</p>
+              <a href="#">Read the full recap</a>
+            </div>
+          </article>
+        </div>
+        <div class="sg-component-code">&lt;article class="news-card"&gt;
+  &lt;div class="news-card-body"&gt;
+    &lt;p class="news-card-meta"&gt;September 2024 · Events&lt;/p&gt;
+    &lt;h3&gt;Article Title&lt;/h3&gt;
+    &lt;p&gt;Excerpt...&lt;/p&gt;
+    &lt;a href="news.html"&gt;Read the full recap&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.card-icon — Icon treatment inside .card</div>
+        <div class="sg-component-preview">
+          <p style="font-size:0.875rem; color:var(--muted); margin-bottom:1rem;">Card icons use terracotta tint background (<code style="font-family:monospace; font-size:0.8rem;">--terra-light</code>) with terracotta stroke. Size: 22×22px SVG.</p>
+          <div style="display:flex; gap:1rem;">
+            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 4H8L9 3z"/><path d="M8 7v10a4 4 0 0 0 8 0V7"/></svg></div>
+            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div>
+            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTION LABELS
+    ==================================================== -->
+    <section class="sg-section" id="labels">
+      <h2 class="sg-section-title">Section Labels &amp; Eyebrows</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.section-label — Eyebrow above headings</div>
+        <div class="sg-component-preview">
+          <span class="section-label">Our Mission</span>
+          <h2 style="margin-bottom:0;">Better Science. Healthier Herds.</h2>
+        </div>
+        <div class="sg-component-code">&lt;span class="section-label"&gt;Our Mission&lt;/span&gt;
+&lt;h2&gt;Better Science. Healthier Herds.&lt;/h2&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.section-label on dark backgrounds — auto gold color</div>
+        <div class="sg-component-preview--dark">
+          <span class="feature-eyebrow">Research Spotlight</span>
+          <h2 style="color:var(--light); margin-bottom:0;">Camelid Antibodies Are Changing Medicine</h2>
+        </div>
+        <div class="sg-component-code">&lt;!-- In .feature-section or .cta-band: use .feature-eyebrow --&gt;
+&lt;span class="feature-eyebrow"&gt;Research Spotlight&lt;/span&gt;
+&lt;!-- In .section--brown: use .section-label (auto-recolors to gold) --&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.section-header — Centered intro block for sections</div>
+        <div class="sg-component-preview">
+          <div class="section-header">
+            <span class="section-label">Latest News</span>
+            <h2 id="news-demo">From the Foundation</h2>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="section-header"&gt;
+  &lt;span class="section-label"&gt;Latest News&lt;/span&gt;
+  &lt;h2&gt;From the Foundation&lt;/h2&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         SECTIONS
+    ==================================================== -->
+    <section class="sg-section" id="sections">
+      <h2 class="sg-section-title">Section Variants</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Section Background Variants</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Class</th><th>Background</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td><code>.section</code> (no modifier)</td><td><code>--bg</code> parchment (body)</td><td>Mission cards, default sections</td></tr>
+              <tr><td><code>.section.section--bg</code></td><td><code>--surface</code> white</td><td>News, alternating sections</td></tr>
+              <tr><td><code>.section.section--panel</code></td><td><code>--panel</code> warm stone</td><td>Events teaser, alternating sections</td></tr>
+              <tr><td><code>.section.section--brown</code></td><td><code>--brown</code> dark + atmospheric overlay</td><td>Dark feature sections (avoid overuse)</td></tr>
+              <tr><td><code>.feature-section</code></td><td><code>--brown</code> dark with radial gradients</td><td>Research Spotlight on homepage</td></tr>
+              <tr><td><code>.cta-band</code></td><td><code>--brown</code> dark with radial gradients</td><td>Bottom of homepage before footer</td></tr>
+              <tr><td><code>.impact-bar</code></td><td><code>--brown</code> dark compact</td><td>Stats bar on homepage</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.pull-quote — Styled callout quote</div>
+        <div class="sg-component-preview" style="max-width:540px;">
+          <div class="pull-quote">
+            <p>"Every dollar raised at our events goes directly to research. There is no overhead, no administrative cost — just science."</p>
+            <cite>— Northwest Camelid Foundation</cite>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="pull-quote"&gt;
+  &lt;p&gt;"Quote text..."&lt;/p&gt;
+  &lt;cite&gt;— Attribution&lt;/cite&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         NAMED COMPONENTS
+    ==================================================== -->
+    <section class="sg-section" id="components">
+      <h2 class="sg-section-title">Named Components</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.feature-section — Dark research spotlight (homepage)</div>
+        <div class="sg-component-preview--dark" style="padding:2.5rem 1.5rem;">
+          <span class="feature-eyebrow">Research Spotlight</span>
+          <h2 style="color:var(--light); font-size:1.5rem; margin-bottom:0.75rem;">Camelid Antibodies Are Changing Medicine</h2>
+          <p style="color:rgba(250,248,245,0.8); font-size:0.9rem; margin-bottom:1.25rem;">Llamas and alpacas produce uniquely small antibodies — called nanobodies — that are revolutionizing drug development.</p>
+          <a href="#" class="learn-link">Read the full research →</a>
+          <div class="feature-stat-grid" style="margin-top:1.5rem;">
+            <div class="feature-stat"><strong>12+</strong><span>Active research projects funded</span></div>
+            <div class="feature-stat"><strong>$820K+</strong><span>Total research investment</span></div>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;section class="feature-section"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="feature-inner"&gt;
+      &lt;div&gt;
+        &lt;span class="feature-eyebrow"&gt;Research Spotlight&lt;/span&gt;
+        &lt;h2&gt;...&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+        &lt;a href="research.html" class="learn-link"&gt;Read the full research →&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="feature-stat-grid"&gt;
+        &lt;div class="feature-stat"&gt;&lt;strong&gt;12+&lt;/strong&gt;&lt;span&gt;Label&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.cta-band — Dark centered donation CTA (bottom of homepage)</div>
+        <div class="sg-component-preview--dark" style="text-align:center; padding:3rem 1.5rem;">
+          <span class="section-label" style="color:var(--gold);">Support NWCF</span>
+          <h2 style="color:var(--light); font-size:1.75rem; margin-bottom:0.75rem;">Your Gift Funds the Science That Keeps Herds Healthy</h2>
+          <p style="color:rgba(250,248,245,0.75); font-size:0.9rem; margin-bottom:1.5rem;">Every donation goes directly to veterinary research and scholarships.</p>
+          <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+            <a href="#" class="btn btn-filled">Donate to NWCF</a>
+            <a href="#" class="btn btn-light">Learn More</a>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;section class="cta-band"&gt;
+  &lt;div class="container"&gt;
+    &lt;span class="section-label"&gt;Support NWCF&lt;/span&gt;
+    &lt;h2&gt;...&lt;/h2&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;div class="cta-buttons"&gt;
+      &lt;a href="#" class="btn btn-filled btn-lg"&gt;Donate to NWCF&lt;/a&gt;
+      &lt;a href="#" class="btn btn-light btn-lg"&gt;Learn More&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.impact-bar — Compact stat strip (below hero, above mission)</div>
+        <div style="background:var(--brown); padding:1.25rem 1.5rem; display:flex; gap:2.5rem; flex-wrap:wrap;">
+          <div class="impact-stat" style="text-align:center;">
+            <strong style="display:block; font-size:1.75rem; font-weight:700; color:var(--gold); font-family:var(--font-heading);">1987</strong>
+            <span style="font-size:0.75rem; color:rgba(250,247,242,0.7); text-transform:uppercase; letter-spacing:0.08em;">Year founded</span>
+          </div>
+          <div class="impact-stat" style="text-align:center;">
+            <strong style="display:block; font-size:1.75rem; font-weight:700; color:var(--gold); font-family:var(--font-heading);">$36,000+</strong>
+            <span style="font-size:0.75rem; color:rgba(250,247,242,0.7); text-transform:uppercase; letter-spacing:0.08em;">Scholarship dollars awarded</span>
+          </div>
+          <div class="impact-stat" style="text-align:center;">
+            <strong style="display:block; font-size:1.75rem; font-weight:700; color:var(--gold); font-family:var(--font-heading);">100%</strong>
+            <span style="font-size:0.75rem; color:rgba(250,247,242,0.7); text-transform:uppercase; letter-spacing:0.08em;">Of fundraiser funds go to research</span>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;section class="impact-bar"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="impact-stats"&gt;
+      &lt;div class="impact-stat"&gt;
+        &lt;strong&gt;1987&lt;/strong&gt;
+        &lt;span&gt;Year founded&lt;/span&gt;
+      &lt;/div&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.sidebar + .sidebar-box — Interior page aside</div>
+        <div class="sg-component-preview" style="max-width:280px;">
+          <div class="sidebar">
+            <div class="sidebar-box">
+              <h3>Stay Informed</h3>
+              <p style="font-size:0.875rem; margin-bottom:0.75rem;">Event dates and locations are announced each year.</p>
+              <a href="#" class="btn btn-primary" style="width:100%; text-align:center;">Contact Us</a>
+            </div>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;aside class="sidebar"&gt;
+  &lt;div class="sidebar-box"&gt;
+    &lt;h3&gt;Heading&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;CTA&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.events-photo-banner — Wide photo strip in events teaser</div>
+        <div class="sg-component-preview">
+          <div class="events-photo-banner" style="aspect-ratio:21/6;">
+            <img src="images/alpacas-pair.png" alt="Two alpacas" style="width:100%; height:100%; object-fit:cover; object-position:center 30%;">
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="events-photo-banner"&gt;
+  &lt;img src="images/alpacas-pair.png" alt="..." loading="lazy"&gt;
+&lt;/div&gt;</div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         LAYOUT
+    ==================================================== -->
+    <section class="sg-section" id="layout">
+      <h2 class="sg-section-title">Layout &amp; Grid</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.grid-2 — Two-column responsive grid</div>
+        <div class="sg-component-preview">
+          <div class="sg-grid-demo" style="grid-template-columns:1fr 1fr;">
+            <div class="sg-grid-cell">Column 1</div>
+            <div class="sg-grid-cell">Column 2</div>
+          </div>
+          <p style="font-size:0.8rem; color:var(--muted);">Collapses to single column at 768px breakpoint.</p>
+        </div>
+        <div class="sg-component-code">&lt;div class="grid-2"&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.grid-3 — Three-column responsive grid</div>
+        <div class="sg-component-preview">
+          <div class="sg-grid-demo" style="grid-template-columns:1fr 1fr 1fr;">
+            <div class="sg-grid-cell">Column 1</div>
+            <div class="sg-grid-cell">Column 2</div>
+            <div class="sg-grid-cell">Column 3</div>
+          </div>
+          <p style="font-size:0.8rem; color:var(--muted);">Collapses to 2-col at 768px, 1-col at 480px.</p>
+        </div>
+        <div class="sg-component-code">&lt;div class="grid-3"&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+  &lt;div class="card"&gt;...&lt;/div&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.content-layout — Interior page with sidebar</div>
+        <div class="sg-component-preview">
+          <p style="font-size:0.875rem; color:var(--muted);">Used on interior pages (events, research, scholarships) for main content + sidebar. Main column is wider; sidebar is narrower.</p>
+          <div class="sg-grid-demo" style="grid-template-columns:1fr 280px;">
+            <div class="sg-grid-cell">Main content area</div>
+            <div class="sg-grid-cell">Sidebar (.sidebar)</div>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;div class="content-layout"&gt;
+  &lt;div&gt;&lt;!-- main --&gt;&lt;/div&gt;
+  &lt;aside class="sidebar"&gt;...&lt;/aside&gt;
+&lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Page Structure Template</div>
+        <div class="sg-component-code">&lt;!-- Every page follows this structure --&gt;
+&lt;header class="site-header"&gt;...nav...&lt;/header&gt;
+&lt;nav class="breadcrumb"&gt;...&lt;/nav&gt;            &lt;!-- interior pages only --&gt;
+&lt;main&gt;
+  &lt;section class="page-hero"&gt;...h1...&lt;/section&gt; &lt;!-- interior pages --&gt;
+  &lt;!-- OR --&gt;
+  &lt;section class="hero"&gt;...&lt;/section&gt;           &lt;!-- homepage only --&gt;
+
+  &lt;section class="section [variant]"&gt;
+    &lt;div class="container"&gt;...&lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer class="site-footer"&gt;...&lt;/footer&gt;</div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         NAVIGATION
+    ==================================================== -->
+    <section class="sg-section" id="nav">
+      <h2 class="sg-section-title">Navigation &amp; Breadcrumb</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.breadcrumb — Interior page wayfinding</div>
+        <div class="sg-component-preview" style="background:var(--panel); margin:-2rem -1.5rem; padding:1rem 1.5rem;">
+          <nav class="breadcrumb" style="position:static; background:transparent; border-bottom:none; padding:0;">
+            <div>
+              <ol>
+                <li><a href="index.html">Home</a></li>
+                <li><span>About</span></li>
+              </ol>
+            </div>
+          </nav>
+        </div>
+        <div class="sg-component-code">&lt;nav class="breadcrumb" aria-label="Breadcrumb"&gt;
+  &lt;div class="container"&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span aria-current="page"&gt;About&lt;/span&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         IMAGES
+    ==================================================== -->
+    <section class="sg-section" id="images">
+      <h2 class="sg-section-title">Image Treatments</h2>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Available Animal Photos</div>
+        <div class="sg-component-preview">
+          <div class="sg-row" style="gap:1.5rem; flex-wrap:wrap; align-items:flex-start;">
+            <div style="text-align:center; max-width:180px;">
+              <img src="images/llama-portrait.png" alt="Llama portrait" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover; object-position:top;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">llama-portrait.png</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">Hero (index.html)</span>
+            </div>
+            <div style="text-align:center; max-width:180px;">
+              <img src="images/alpaca-closeup.png" alt="Alpaca close-up" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpaca-closeup.png</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">About page hero</span>
+            </div>
+            <div style="text-align:center; max-width:180px;">
+              <img src="images/alpacas-pair.png" alt="Alpaca pair" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover; object-position:top;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpacas-pair.png</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">Events teaser banner (index.html)</span>
+            </div>
+            <div style="text-align:center; max-width:180px;">
+              <img src="images/alpaca-at-fence.png" alt="Alpaca at fence" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover; object-position:top;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpaca-at-fence.png</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">Events page hero</span>
+            </div>
+            <div style="text-align:center; max-width:180px;">
+              <img src="images/alpacas.png" alt="Alpacas" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpacas.png</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">Reserved / legacy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">Image Usage Guidelines</div>
+        <div class="sg-component-preview">
+          <table class="sg-token-table">
+            <thead><tr><th>Context</th><th>Treatment</th></tr></thead>
+            <tbody>
+              <tr><td>Hero image</td><td><code>.hero-media</code> — border-radius: 16px, box-shadow lg, object-fit:cover</td></tr>
+              <tr><td>Page hero image (about, events)</td><td>100% width, max-width 420px, border-radius:16px, box-shadow lg</td></tr>
+              <tr><td>Events photo banner</td><td><code>.events-photo-banner</code> — 21:9 aspect, border-radius:16px, object-position center 30%</td></tr>
+              <tr><td>Board / committee headshots</td><td>Circular, fixed width (on about.html)</td></tr>
+              <tr><td>All images</td><td>Always include descriptive <code>alt</code> text. Use <code>loading="lazy"</code> for below-fold images.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div style="padding-top:3rem; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:0.8rem;">
+      <p>Northwest Camelid Foundation — Style Guide · styles.css v<strong>brown65</strong> · Last updated March 2026</p>
+      <a href="index.html" style="color:var(--terra);">← Back to Site</a>
+    </div>
+
+  </div><!-- .sg-page -->
+
+</body>
+</html>
