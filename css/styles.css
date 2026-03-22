@@ -709,6 +709,22 @@ blockquote {
   margin-bottom: 0.5rem;
 }
 
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--terra);
+  font-size: var(--size-sm);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+
+.card-link:hover {
+  color: #6D3318;
+  text-decoration: underline;
+}
+
 /* News Card */
 .news-card {
   background: var(--white);
