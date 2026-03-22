@@ -420,11 +420,11 @@ blockquote {
 }
 
 /* Desktop only.
-   :hover     — mouse users (mutually exclusive by definition).
-   .kb-open   — keyboard users (set by JS on Enter/ArrowDown, cleared on any
-                mouseenter so mouse hover takes over cleanly). */
+   .js-open   — mouse users (set/cleared by JS mouseenter/mouseleave).
+   .kb-open   — keyboard users (set by JS on Enter/ArrowDown, cleared on
+                next mouseenter or Tab-out). */
 @media (min-width: 721px) {
-  .has-dropdown:hover .dropdown,
+  .has-dropdown.js-open .dropdown,
   .has-dropdown.kb-open .dropdown {
     display: flex;
   }

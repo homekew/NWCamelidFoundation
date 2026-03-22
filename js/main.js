@@ -34,16 +34,12 @@
 
 // Dropdown behavior
 // ─────────────────────────────────────────────────────────────────────────────
-// Desktop (≥721px) — two independent, non-conflicting mechanisms:
-//   MOUSE:    CSS :hover opens/closes the panel. JS only syncs aria-expanded.
-//             :focus-within is intentionally NOT used — clicking a trigger
-//             focuses it, which would keep the panel open via :focus-within
-//             even after the mouse moves elsewhere (stuck-open bug).
-//   KEYBOARD: JS adds .kb-open on Enter/ArrowDown. Any mouseenter on the
-//             nav clears .kb-open so mouse takes over cleanly. Tab-out and
-//             Escape also remove .kb-open.
+// Desktop (≥721px) — pure JS control, no CSS :hover dependency:
+//   MOUSE:    mouseenter adds .js-open (closing all others first for mutual
+//             exclusion). mouseleave removes .js-open.
+//   KEYBOARD: Enter/ArrowDown adds .kb-open. Tab-out and Escape remove it.
 //
-// Mobile (≤720px) — JS click toggles .is-open; CSS shows panel from that class.
+// Mobile (≤720px) — click toggles .is-open; CSS shows panel from that class.
 // ─────────────────────────────────────────────────────────────────────────────
 (function () {
   var mq    = window.matchMedia('(max-width: 720px)');   // true = mobile
@@ -55,9 +51,9 @@
     if (t) t.setAttribute('aria-expanded', String(val));
   }
 
-  function clearKbOpen() {
+  function closeAllDesktop() {
     items.forEach(function (i) {
-      i.classList.remove('kb-open');
+      i.classList.remove('js-open', 'kb-open');
       setAria(i, false);
     });
   }
@@ -69,15 +65,18 @@
     });
   }
 
-  // ── Desktop: sync aria-expanded with CSS :hover ───────────────────────────
+  // ── Desktop: JS mouseenter/mouseleave manages .js-open ────────────────────
   items.forEach(function (item) {
     item.addEventListener('mouseenter', function () {
       if (mq.matches) { return; }
-      clearKbOpen();              // mouse takes over — discard keyboard state
+      closeAllDesktop();              // mutual exclusion: close all others first
+      item.classList.add('js-open');
       setAria(item, true);
     });
     item.addEventListener('mouseleave', function () {
-      if (!mq.matches) { setAria(item, false); }
+      if (mq.matches) { return; }
+      item.classList.remove('js-open');
+      setAria(item, false);
     });
   });
 
@@ -89,7 +88,7 @@
       if (mq.matches) { return; }
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
         e.preventDefault();
-        clearKbOpen();
+        closeAllDesktop();
         parent.classList.add('kb-open');
         setAria(parent, true);
         var first = parent.querySelector('.dropdown a');
@@ -116,7 +115,7 @@
 
     trigger.addEventListener('click', function (e) {
       e.preventDefault();
-      if (!mq.matches) { return; }                       // desktop: CSS handles it
+      if (!mq.matches) { return; }                       // desktop: mouseenter handles it
 
       var isOpen = parent.classList.toggle('is-open');
       setAria(parent, isOpen);
@@ -132,7 +131,7 @@
   // ── Escape: close everything ───────────────────────────────────────────────
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') { return; }
-    clearKbOpen();
+    closeAllDesktop();
     closeAllMobile();
   });
 
