@@ -273,16 +273,16 @@ blockquote {
 
 .btn-donate {
   background: transparent;
-  color: #4A3E3B;
-  border-color: #4A3E3B;
-  box-shadow: inset 0 0 0 1px #4A3E3B;
+  color: #823E1D;
+  border-color: #823E1D;
+  box-shadow: inset 0 0 0 1px #823E1D;
 }
 
 .btn-donate:hover {
-  background: #4A3E3B;
-  border-color: #4A3E3B;
+  background: #823E1D;
+  border-color: #823E1D;
   color: var(--light);
-  box-shadow: inset 0 0 0 1px #4A3E3B;
+  box-shadow: inset 0 0 0 1px #823E1D;
   transform: translateY(-1px);
 }
 
