@@ -667,14 +667,14 @@ blockquote {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.12);
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
   min-height: 0; /* prevents image from inflating the grid row */
 }
 
 .hero-media img {
   display: block;
-  height: 100%;
+  flex: 1 1 0;
+  min-height: 0;
   width: auto;
   max-width: 100%;
   border-radius: var(--radius-lg);
