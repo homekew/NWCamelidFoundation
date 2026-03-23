@@ -663,20 +663,20 @@ blockquote {
 }
 
 .hero-media {
+  position: relative;        /* establishes containing block for abs image */
+  min-height: 0;             /* critical: lets grid size this from left column, not image */
+  overflow: hidden;          /* clips image to border-radius */
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.12);
-  display: flex;
-  flex-direction: column;
-  min-height: 0; /* prevents image from inflating the grid row */
 }
 
 .hero-media img {
-  display: block;
-  flex: 1 1 0;
-  min-height: 0;
-  width: auto;
-  max-width: 100%;
+  position: absolute;        /* removed from flow so it can't inflate the grid row */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* fills container, crops as needed */
+  object-position: center;   /* keeps focal point centred */
   border-radius: var(--radius-lg);
 }
 
@@ -1639,7 +1639,7 @@ details .details-body {
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .content-layout { grid-template-columns: 1fr; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-media { order: -1; }
+  .hero-media { order: -1; min-height: 320px; } /* natural height when stacked */
   .hero { padding-block: 3rem; }
   .feature-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 }
