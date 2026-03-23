@@ -395,7 +395,7 @@ blockquote {
 .site-logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -422,7 +422,7 @@ blockquote {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.58rem;
+  font-size: 1.72rem;
   color: var(--light);
   line-height: 1.2;
   white-space: nowrap;
