@@ -993,8 +993,8 @@ blockquote {
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: center;
-  gap: 4rem;
+  justify-content: space-between;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
