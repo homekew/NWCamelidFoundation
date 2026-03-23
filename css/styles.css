@@ -674,6 +674,23 @@ blockquote {
   border: none;
 }
 
+/* Small floated inline photo (lower-quality images) */
+.inline-photo-sm {
+  float: right;
+  width: 220px;
+  margin: 0 0 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.inline-photo-sm img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Inline article photo */
 .article-photo {
   margin: 1.75rem 0;
