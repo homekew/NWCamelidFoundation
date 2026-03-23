@@ -1084,9 +1084,6 @@ blockquote {
   font-size: var(--size-sm);
 }
 
-.member-item.vet {
-  border-left: 3px solid var(--gold);
-}
 
 /* ------------------------------------------------------------
    12. Donate Box
