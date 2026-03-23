@@ -674,6 +674,22 @@ blockquote {
   border: none;
 }
 
+/* Inline article photo */
+.article-photo {
+  margin: 1.75rem 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.article-photo img {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
 /* Events photo banner */
 .events-photo-banner {
   margin-bottom: 3rem;
