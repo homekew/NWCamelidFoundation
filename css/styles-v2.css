@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: var(--size-3xl); line-height: 1.15; margin-bottom: 1.25rem; }
 h2 { font-size: var(--size-2xl); margin-bottom: 1.25rem; }
-h3 { font-size: var(--size-xl); margin-top: 1.75rem; margin-bottom: 1.25rem; }
+h3 { font-size: var(--size-xl); margin-top: 1.75rem; margin-bottom: 1.5rem; }
 h4 { font-size: var(--size-lg); font-weight: 500; margin-top: 1.5rem; margin-bottom: 1.25rem; }
 
 p { margin-bottom: 1rem; }
