@@ -212,6 +212,14 @@ blockquote {
   gap: 2rem;
 }
 
+/* Asymmetric content + sidebar layout (e.g. events fundraiser section) */
+.grid-prose-sidebar {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1689,6 +1697,8 @@ details .details-body {
 
   .grid-2 { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
+  .grid-prose-sidebar { grid-template-columns: 1fr; }
+  .grid-prose-sidebar > *:last-child { position: static; }
 
   .site-footer__top { grid-template-columns: 1fr; gap: 2rem; }
   .site-footer__bottom { flex-direction: column; align-items: flex-start; }
