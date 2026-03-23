@@ -658,15 +658,12 @@ blockquote {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.12);
-  max-height: 520px;
 }
 
 .hero-media img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
   border-radius: var(--radius-lg);
 }
 
