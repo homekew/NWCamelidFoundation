@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DVM Label Preview</title>
+<style>
+  body { font-family: 'Georgia', serif; background: #F8F5F0; padding: 3rem 2rem; color: #1A1410; }
+  h2 { font-size: 1rem; font-weight: 600; color: #6B6560; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1.5rem; }
+  .columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; max-width: 900px; }
+  .col-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6B6560; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #D4CEC6; }
+
+  /* Base card */
+  .member-item {
+    background: #fff;
+    border: 1px solid #D4CEC6;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+  .member-item.vet { border-left: 3px solid #D99F3D; }
+
+  /* Option A — inline "DVM" chip */
+  .chip {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #D99F3D;
+    background: #FBF4E6;
+    border: 1px solid #E8CC8A;
+    border-radius: 3px;
+    padding: 0.1em 0.45em 0.12em;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    line-height: 1;
+    position: relative;
+    top: -1px;
+  }
+
+  /* Option B — subtitle line */
+  .name { display: block; }
+  .subtitle {
+    display: block;
+    font-size: 0.72rem;
+    color: #D99F3D;
+    font-style: italic;
+    margin-top: 0.15rem;
+    font-family: 'Georgia', serif;
+  }
+
+  /* Option C — no accent, plain list, all equal */
+  .member-item.plain { border-left: none; }
+</style>
+</head>
+<body>
+
+<h2>Research Committee — Label Options</h2>
+
+<div class="columns">
+
+  <!-- OPTION A -->
+  <div>
+    <div class="col-label">A &mdash; Inline "DVM" chip</div>
+    <div class="member-item vet">Dr. Patrick Long <span class="chip">DVM</span></div>
+    <div class="member-item vet">Dr. Scot Lubbers <span class="chip">DVM</span></div>
+    <div class="member-item vet">Dr. Rachel Oxley <span class="chip">DVM</span></div>
+    <div class="member-item vet">Dr. Grace Montgomery <span class="chip">DVM</span></div>
+    <div class="member-item vet">Dr. Charlene Arendas <span class="chip">DVM</span></div>
+    <div class="member-item">Glen Pfefferkorn</div>
+    <div class="member-item">Olin Allen</div>
+    <div class="member-item">Ann Dockendorf</div>
+    <div class="member-item">Peggy Gresham</div>
+    <div class="member-item">Kendara VanNorman</div>
+    <div class="member-item">Mary Jo Walker</div>
+    <div class="member-item">Jessie Munson</div>
+  </div>
+
+  <!-- OPTION B -->
+  <div>
+    <div class="col-label">B &mdash; "Veterinarian" subtitle</div>
+    <div class="member-item vet"><span class="name">Dr. Patrick Long</span><span class="subtitle">Veterinarian</span></div>
+    <div class="member-item vet"><span class="name">Dr. Scot Lubbers</span><span class="subtitle">Veterinarian</span></div>
+    <div class="member-item vet"><span class="name">Dr. Rachel Oxley</span><span class="subtitle">Veterinarian</span></div>
+    <div class="member-item vet"><span class="name">Dr. Grace Montgomery</span><span class="subtitle">Veterinarian</span></div>
+    <div class="member-item vet"><span class="name">Dr. Charlene Arendas</span><span class="subtitle">Veterinarian</span></div>
+    <div class="member-item"><span class="name">Glen Pfefferkorn</span></div>
+    <div class="member-item"><span class="name">Olin Allen</span></div>
+    <div class="member-item"><span class="name">Ann Dockendorf</span></div>
+    <div class="member-item"><span class="name">Peggy Gresham</span></div>
+    <div class="member-item"><span class="name">Kendara VanNorman</span></div>
+    <div class="member-item"><span class="name">Mary Jo Walker</span></div>
+    <div class="member-item"><span class="name">Jessie Munson</span></div>
+  </div>
+
+  <!-- OPTION C -->
+  <div>
+    <div class="col-label">C &mdash; No distinction, all equal</div>
+    <div class="member-item plain">Dr. Patrick Long</div>
+    <div class="member-item plain">Dr. Scot Lubbers</div>
+    <div class="member-item plain">Dr. Rachel Oxley</div>
+    <div class="member-item plain">Dr. Grace Montgomery</div>
+    <div class="member-item plain">Dr. Charlene Arendas</div>
+    <div class="member-item plain">Glen Pfefferkorn</div>
+    <div class="member-item plain">Olin Allen</div>
+    <div class="member-item plain">Ann Dockendorf</div>
+    <div class="member-item plain">Peggy Gresham</div>
+    <div class="member-item plain">Kendara VanNorman</div>
+    <div class="member-item plain">Mary Jo Walker</div>
+    <div class="member-item plain">Jessie Munson</div>
+  </div>
+
+</div>
+</body>
+</html>
