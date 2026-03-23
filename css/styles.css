@@ -52,7 +52,7 @@
   --shadow-xl: 0 8px 16px rgba(35,36,39,0.08), 0 28px 56px rgba(35,36,39,0.18);
 
   --max-width:  1100px;
-  --nav-height: 100px;
+  --nav-height: 116px;
   --transition: 0.2s ease;
 }
 
@@ -400,8 +400,8 @@ blockquote {
 }
 
 .logo-img {
-  width: 84px;
-  height: 84px;
+  width: 105px;
+  height: 105px;
   object-fit: contain;
 }
 
@@ -421,7 +421,7 @@ blockquote {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: var(--size-lg);
+  font-size: 1.58rem;
   color: var(--light);
   line-height: 1.2;
   white-space: nowrap;
