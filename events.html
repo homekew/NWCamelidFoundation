@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <meta name="description" content="The Northwest Camelid Foundation hosts annual fundraiser events and educational programs connecting camelid owners and veterinarians across the Pacific Northwest.">
   <title>Events &amp; Education — Northwest Camelid Foundation</title>
-  <link rel="stylesheet" href="css/styles.css?v=brown84">
+  <link rel="stylesheet" href="css/styles.css?v=brown89">
 </head>
 <body>
   <header class="site-header">
@@ -54,6 +54,8 @@
     </div>
   </nav>
   <main>
+
+    <!-- ===================== PAGE HERO ===================== -->
     <section class="page-hero">
       <div class="container">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;">
@@ -68,10 +70,18 @@
         </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         EVENTS
+    ============================================================ -->
     <section class="section section--bg" aria-labelledby="fundraiser-heading">
       <div class="container">
-        <div class="content-layout">
+
+        <!-- 2-col: description + pull quote  |  photo + what to expect -->
+        <div class="grid-2" style="gap:3rem; align-items:start; margin-bottom:3rem;">
+
           <div>
+            <span class="section-label">Events</span>
             <h2 id="fundraiser-heading">Annual Fundraiser Events</h2>
             <p>Each year, NWCF hosts fundraiser events that are the primary source of funding for our research grants and scholarships. These events are open to all camelid owners, breeders, veterinarians, and anyone who cares about the health and well-being of llamas and alpacas.</p>
             <p>Our fundraisers have included silent auctions featuring fiber arts, camelid equipment, veterinary products, and experiences donated by our generous community of supporters. All proceeds go directly to camelid veterinary research at OSU and WSU and to the maintenance of the OSU research herd.</p>
@@ -79,71 +89,110 @@
               <p>"Every dollar raised at our events goes directly to research. There is no overhead, no administrative cost — just science."</p>
               <cite>— Northwest Camelid Foundation</cite>
             </div>
-            <h3 style="margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--border); margin-bottom:0.75rem;">What to Expect</h3>
-            <figure class="inline-photo-sm">
-              <img src="images/fundraiser-community.png" alt="Attendees at an NWCF fundraiser event enjoying the community gathering outdoors" loading="lazy">
-            </figure>
-            <ul style="list-style:disc; padding-left:1.25rem; display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem;">
-              <li>Silent auction with donated items from breeders, vendors, and community supporters</li>
-              <li>Camelid demonstrations and showcase animals</li>
-              <li>Updates from OSU and WSU researchers on current funded studies</li>
-              <li>Networking with veterinarians and camelid owners from across the region</li>
-              <li>Opportunity to ask questions directly of the Research Committee</li>
-            </ul>
-            <div class="btn-group">
+            <div class="btn-group" style="margin-top:2rem;">
               <a href="contact.html" class="btn btn-primary">Get Event Announcements</a>
               <a href="contact.html#donate" class="btn btn-donate">Donate Without Attending</a>
             </div>
           </div>
-          <aside class="sidebar" aria-label="Events sidebar">
-            <div class="sidebar-box">
-              <h3>Stay Informed</h3>
-              <p style="font-size:0.875rem; margin-bottom:0.75rem;">Event dates and locations are announced each year. Contact us to be added to the mailing list.</p>
-              <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center;">Contact Us</a>
+
+          <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            <figure style="margin:0;">
+              <img src="images/fundraiser-community.png" alt="Attendees at an NWCF fundraiser event enjoying the community gathering outdoors" loading="lazy" style="width:100%; border-radius:var(--radius-md); box-shadow:var(--shadow-md); object-fit:cover; max-height:230px;">
+            </figure>
+            <div class="card" style="padding:1.5rem 1.75rem;">
+              <h3 style="font-size:var(--size-base); margin-bottom:1rem;">What to Expect</h3>
+              <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.625rem;">
+                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
+                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
+                  Silent auction with donated items from breeders, vendors, and supporters
+                </li>
+                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
+                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
+                  Camelid demonstrations and showcase animals
+                </li>
+                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
+                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
+                  Research updates from OSU and WSU scientists
+                </li>
+                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
+                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
+                  Networking with veterinarians and owners from across the region
+                </li>
+                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
+                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
+                  Q&amp;A with the Research Committee
+                </li>
+              </ul>
             </div>
-            <div class="sidebar-box">
-              <h3>Donate an Auction Item</h3>
-              <p style="font-size:0.875rem; margin-bottom:0.75rem;">Businesses and individuals can donate items or services to our annual silent auction. Fiber products, camelid equipment, veterinary consultations, and local experiences are all welcome.</p>
-              <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center;">Contact Us to Donate</a>
-            </div>
-            <div class="sidebar-box" style="background:var(--panel);">
-              <h3>Sponsor an Event</h3>
-              <p style="font-size:0.875rem;">Sponsorships are a meaningful way for businesses to support camelid health research while gaining visibility with our community.</p>
-              <a href="contact.html" class="btn btn-primary" style="margin-top:0.75rem; width:100%; text-align:center;">Sponsorship Inquiries</a>
-            </div>
-          </aside>
+          </div>
+
         </div>
+
+        <!-- 3 action cards -->
+        <div class="grid-3" style="border-top:1px solid var(--border); padding-top:2.5rem;">
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Stay Informed</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Event dates and locations are announced each year. Contact us to be added to the mailing list.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Donate an Auction Item</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Fiber products, camelid equipment, veterinary consultations, and local experiences are all welcome in our annual silent auction.</p>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Contact Us to Donate</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem; background:var(--panel);">
+            <h3 style="font-size:var(--size-base); margin:0;">Sponsor an Event</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Sponsorships support camelid health research while gaining visibility with our community of owners, breeders, and vets.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Sponsorship Inquiries</a>
+          </div>
+        </div>
+
       </div>
     </section>
+
+    <!-- ============================================================
+         EDUCATION
+    ============================================================ -->
     <section class="section section--panel" aria-labelledby="education-heading">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Educational Programming</span>
+          <span class="section-label">Education</span>
           <h2 id="education-heading">Meet &amp; Greet Events</h2>
           <p class="lead">Our Meet &amp; Greet events connect camelid owners directly with veterinarians and researchers, providing practical health information and a chance to ask questions in an informal setting.</p>
         </div>
         <div class="grid-3">
           <div class="card">
-            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            </div>
             <h3>Vet Q&amp;A Sessions</h3>
             <p>Get your camelid health questions answered by experienced veterinarians from OSU and WSU in a relaxed, accessible format.</p>
           </div>
           <div class="card">
-            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l1 4H8L9 3z"/><path d="M8 7v10a4 4 0 0 0 8 0V7"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 4H8L9 3z"/><path d="M8 7v10a4 4 0 0 0 8 0V7"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="9" y1="21" x2="15" y2="21"/></svg>
+            </div>
             <h3>Research Updates</h3>
             <p>Hear directly from the researchers your donations support. Learn what is being studied, what has been discovered, and what is next.</p>
           </div>
           <div class="card">
-            <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/></svg></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/><path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/></svg>
+            </div>
             <h3>Community Connection</h3>
             <p>Meet other llama and alpaca owners from across the Pacific Northwest. Share experiences, exchange contacts, and build lasting relationships.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         CONFERENCES & SHOWS
+    ============================================================ -->
     <section class="section section--bg" aria-labelledby="conference-heading">
       <div class="container">
         <div class="grid-2" style="align-items:start; gap:3rem;">
+
           <div>
             <span class="section-label">Community Involvement</span>
             <h2 id="conference-heading">Industry Conferences &amp; Shows</h2>
@@ -152,21 +201,27 @@
             <p>If you are involved with a regional camelid organization and would like to partner with NWCF on an educational event or program, we would love to hear from you.</p>
             <a href="contact.html" class="btn btn-secondary" style="margin-top:0.5rem;">Get in Touch</a>
           </div>
-          <div>
-            <div class="card">
-              <h3 style="margin-bottom:0.5rem;">Bring NWCF to Your Event</h3>
-              <p style="font-size:0.875rem;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
-              <a href="contact.html" class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Contact Us</a>
+
+          <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            <div class="card" style="display:flex; flex-direction:column; gap:0.625rem; padding:1.5rem 1.75rem;">
+              <h3 style="font-size:var(--size-base); margin:0;">Bring NWCF to Your Event</h3>
+              <p style="font-size:var(--size-sm); color:var(--muted); margin:0;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
+              <a href="contact.html" class="btn btn-primary" style="align-self:flex-start; margin-top:0.5rem;">Contact Us</a>
             </div>
-            <div class="card" style="margin-top:1.5rem;">
-              <h3 style="margin-bottom:0.5rem;">Educational Materials</h3>
-              <p style="font-size:0.875rem;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
-              <a href="contact.html" class="btn btn-secondary" style="margin-top:1rem; display:inline-block;">Request Materials</a>
+            <div class="card" style="display:flex; flex-direction:column; gap:0.625rem; padding:1.5rem 1.75rem;">
+              <h3 style="font-size:var(--size-base); margin:0;">Educational Materials</h3>
+              <p style="font-size:var(--size-sm); color:var(--muted); margin:0;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
+              <a href="contact.html" class="btn btn-secondary" style="align-self:flex-start; margin-top:0.5rem;">Request Materials</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
+    <!-- ============================================================
+         DONATE CTA
+    ============================================================ -->
     <section class="section section--bg">
       <div class="container">
         <div class="donate-box">
@@ -177,6 +232,7 @@
         </div>
       </div>
     </section>
+
   </main>
   <footer class="site-footer" aria-label="Site footer">
     <div class="container">
@@ -232,6 +288,6 @@
       </div>
     </div>
   </footer>
-  <script src="js/main.js?v=brown84"></script>
+  <script src="js/main.js?v=brown89"></script>
 </body>
 </html>
