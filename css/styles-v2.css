@@ -169,7 +169,8 @@ blockquote {
 .section--brown h3,
 .section--brown h4 { color: var(--light); }
 .section--brown p,
-.section--brown .lead { color: rgba(250,248,245,0.85); }
+.section--brown .lead,
+.section--brown cite { color: rgba(250,248,245,0.85); }
 .section--brown .section-label { color: var(--gold); }
 
 .section--brown::before {
