@@ -362,7 +362,10 @@ blockquote {
    6. Header & Navigation
    ------------------------------------------------------------ */
 .site-header {
-  background: var(--brown);
+  background-color: var(--brown);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='90'%3E%3Cpolygon points='26,0 52,15 52,45 26,60 0,45 0,15' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='0,45 26,60 26,90 0,105 -26,90 -26,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3Cpolygon points='52,45 78,60 78,90 52,105 26,90 26,60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 52px 90px;
+  background-repeat: repeat;
   border-bottom: 1px solid rgba(250,248,245,0.12);
   position: sticky;
   top: 0;
@@ -606,7 +609,10 @@ blockquote {
    7. Page Hero
    ------------------------------------------------------------ */
 .page-hero {
-  background: var(--surface);
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='90'%3E%3Cpolygon points='26,0 52,15 52,45 26,60 0,45 0,15' fill='none' stroke='rgba(44,64,72,0.06)' stroke-width='1'/%3E%3Cpolygon points='0,45 26,60 26,90 0,105 -26,90 -26,60' fill='none' stroke='rgba(44,64,72,0.06)' stroke-width='1'/%3E%3Cpolygon points='52,45 78,60 78,90 52,105 26,90 26,60' fill='none' stroke='rgba(44,64,72,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 52px 90px;
+  background-repeat: repeat;
   padding-block: 4.5rem;
   border-bottom: 1px solid var(--border);
 }
@@ -630,7 +636,7 @@ blockquote {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .hero-content h1 {
@@ -663,20 +669,15 @@ blockquote {
 }
 
 .hero-media {
-  position: relative;        /* establishes containing block for abs image */
-  min-height: 0;             /* critical: lets grid size this from left column, not image */
-  overflow: hidden;          /* clips image to border-radius */
+  overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.12);
 }
 
 .hero-media img {
-  position: absolute;        /* removed from flow so it can't inflate the grid row */
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;         /* fills container, crops as needed */
-  object-position: center;   /* keeps focal point centred */
+  height: auto;
+  display: block;
   border-radius: var(--radius-lg);
 }
 
@@ -999,18 +1000,20 @@ blockquote {
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .impact-stat {
   text-align: center;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .impact-stat strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: var(--size-2xl);
+  font-size: clamp(1.5rem, 2.2vw, var(--size-2xl));
   font-weight: normal;
   line-height: 1;
   margin-bottom: 0.25rem;
@@ -1018,7 +1021,7 @@ blockquote {
 }
 
 .impact-stat span {
-  font-size: var(--size-base);
+  font-size: clamp(0.75rem, 1.1vw, var(--size-base));
   opacity: 0.85;
 }
 
@@ -1639,7 +1642,7 @@ details .details-body {
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .content-layout { grid-template-columns: 1fr; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-media { order: -1; min-height: 320px; } /* natural height when stacked */
+  .hero-media { order: -1; } /* image stacks above text on mobile */
   .hero { padding-block: 3rem; }
   .feature-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 }
@@ -1708,7 +1711,8 @@ details .details-body {
   .site-footer__top { grid-template-columns: 1fr; gap: 2rem; }
   .site-footer__bottom { flex-direction: column; align-items: flex-start; }
 
-  .impact-stats { gap: 2rem; }
+  .impact-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+  .impact-stat { flex: 0 0 auto; min-width: 140px; }
 
   .btn-group { flex-direction: column; align-items: flex-start; }
 }
