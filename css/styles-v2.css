@@ -794,6 +794,48 @@ blockquote {
   font-style: italic;
 }
 
+/* Honorarium page: image beside entries layout */
+.honorarium-with-photo {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  align-items: start;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.honorarium-with-photo--reverse {
+  grid-template-columns: 1fr 220px;
+}
+
+.honorarium-with-photo--reverse .honorarium-photo {
+  order: 2;
+}
+
+.honorarium-with-photo--reverse .honorarium-list {
+  order: 1;
+}
+
+.honorarium-photo img {
+  position: sticky;
+  top: 6rem;
+}
+
+@media (max-width: 720px) {
+  .honorarium-with-photo,
+  .honorarium-with-photo--reverse {
+    grid-template-columns: 1fr;
+  }
+  .honorarium-photo img {
+    position: static;
+    max-height: 260px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .honorarium-with-photo--reverse .honorarium-photo { order: 1; }
+  .honorarium-with-photo--reverse .honorarium-list  { order: 2; }
+}
+
 /* Honorarium / Memorial entry list */
 .honorarium-list {
   max-width: 780px;
