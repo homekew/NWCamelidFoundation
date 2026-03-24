@@ -1171,6 +1171,46 @@ blockquote {
   font-style: normal;
 }
 
+/* Testimonial quote — used on dark (section--brown) backgrounds */
+.testimonial-quote {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Tighten vertical padding on testimonial sections */
+.section--brown:has(.testimonial-quote) {
+  padding-block: 2.75rem;
+}
+
+.testimonial-quote::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 0.6;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+  font-style: italic;
+  color: rgba(250, 248, 245, 0.95);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-quote cite {
+  display: block;
+  font-size: var(--size-sm);
+  font-style: normal;
+  color: rgba(250, 248, 245, 0.72);
+  letter-spacing: 0.02em;
+}
+
 /* What to Expect — full-width event preview block */
 .what-to-expect {
   background: var(--white);
