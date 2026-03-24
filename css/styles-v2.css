@@ -2280,6 +2280,16 @@ details .details-body {
   align-items: center;
 }
 
+.portrait-row img {
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-sm);
+}
+
+/* Cards on white sections need more elevation contrast */
+.section--white .card {
+  box-shadow: var(--shadow-md);
+}
+
 /* ------------------------------------------------------------
    19. Responsive
    ------------------------------------------------------------ */
