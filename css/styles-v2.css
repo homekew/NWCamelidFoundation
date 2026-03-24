@@ -1698,6 +1698,7 @@ details .details-body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  margin-top: 0;
   margin-bottom: 1rem;
 }
 
