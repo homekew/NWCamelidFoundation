@@ -1040,7 +1040,7 @@ blockquote {
 .impact-stat strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1867,7 +1867,7 @@ body { overflow-x: hidden; }
   /* Impact stats: 2×2 grid with smaller numbers */
   .impact-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
   .impact-stat { flex: 0 0 calc(50% - 0.75rem); min-width: 0; }
-  .impact-stat strong { font-size: clamp(2rem, 4.5vw, 2.75rem); }
+  .impact-stat strong { font-size: clamp(1.5rem, 4.5vw, 2rem); }
 
   /* Pull quote less generous on mobile */
   .pull-quote { margin-block: 2rem; }
