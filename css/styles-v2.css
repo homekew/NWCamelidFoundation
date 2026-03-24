@@ -1182,7 +1182,7 @@ blockquote {
 
 /* Tighten vertical padding on testimonial sections */
 .section--brown:has(.testimonial-quote) {
-  padding-block: 2.75rem;
+  padding-block: 1.25rem;
 }
 
 .testimonial-quote p {
