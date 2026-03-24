@@ -298,7 +298,7 @@
   <div class="sg-page">
 
     <h1 class="sg-title">Northwest Camelid Foundation</h1>
-    <p class="sg-subtitle">Design System &amp; Element Reference — <code>styles.css?v=brown97</code></p>
+    <p class="sg-subtitle">Design System &amp; Element Reference — <code>styles-v2.css?v=brown171</code></p>
 
     <!-- TABLE OF CONTENTS -->
     <div class="sg-toc">
@@ -315,6 +315,7 @@
         <li><a href="#layout">Layout &amp; Grid</a></li>
         <li><a href="#nav">Navigation &amp; Breadcrumb</a></li>
         <li><a href="#images">Image Treatments</a></li>
+        <li><a href="#quotes">Quote Patterns</a></li>
       </ul>
     </div>
 
@@ -799,8 +800,9 @@
     <!-- ====================================================
          SECTIONS
     ==================================================== -->
+    <span id="quotes"></span>
     <section class="sg-section" id="sections">
-      <h2 class="sg-section-title">Section Variants</h2>
+      <h2 class="sg-section-title">Section Variants &amp; Quote Patterns</h2>
 
       <div class="sg-component">
         <div class="sg-component-label">Section Background Variants</div>
@@ -821,7 +823,7 @@
       </div>
 
       <div class="sg-component">
-        <div class="sg-component-label">.pull-quote — Styled callout quote</div>
+        <div class="sg-component-label">.pull-quote — Styled callout quote (light backgrounds, inline with content)</div>
         <div class="sg-component-preview" style="max-width:540px;">
           <div class="pull-quote">
             <p>"Every dollar raised at our events goes directly to research. There is no overhead, no administrative cost — just science."</p>
@@ -832,6 +834,37 @@
   &lt;p&gt;"Quote text..."&lt;/p&gt;
   &lt;cite&gt;— Attribution&lt;/cite&gt;
 &lt;/div&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.testimonial-card + .testimonial-quote — Impact quote on dark sections <span class="sg-badge sg-badge--new">used</span></div>
+        <div class="sg-component-preview--dark" style="padding:2.5rem 1.5rem;">
+          <div class="testimonial-card">
+            <blockquote class="testimonial-quote">
+              <p>"Regardless of the size of their herd or the location of their barn, every camelid and every owner benefits from the research funded by the NWCF."</p>
+              <cite>— North West Camelid Foundation</cite>
+            </blockquote>
+          </div>
+        </div>
+        <div class="sg-component-code">&lt;!-- Used inside .section--brown sections (about.html, events.html) --&gt;
+&lt;section class="section section--brown"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="testimonial-card"&gt;
+      &lt;blockquote class="testimonial-quote"&gt;
+        &lt;p&gt;"Quote text..."&lt;/p&gt;
+        &lt;cite&gt;— Attribution&lt;/cite&gt;
+      &lt;/blockquote&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Notes:
+  - .testimonial-card: frosted panel (rgba white, 13% opacity) with border + radius
+  - .testimonial-quote p: Source Serif 4 italic, clamp(1.1rem, 2.5vw, 1.5rem)
+  - .testimonial-quote cite: same color as p text (rgba 250,248,245 at 95%)
+  - Do NOT wrap in .testimonial-card on light backgrounds — use .pull-quote instead
+  - Mobile: .testimonial-card padding reduces to 1.5rem at &lt;480px
+--&gt;</div>
       </div>
     </section>
 
@@ -941,6 +974,45 @@
     &lt;a href="#" class="btn btn-primary"&gt;CTA&lt;/a&gt;
   &lt;/div&gt;
 &lt;/aside&gt;</div>
+      </div>
+
+      <div class="sg-component">
+        <div class="sg-component-label">.nav-anchor-card — In-page jump link card (used in page heroes) <span class="sg-badge sg-badge--new">used</span></div>
+        <div class="sg-component-preview" style="max-width:420px; display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="#" class="nav-anchor-card">
+            <span class="nav-anchor-card__icon">↓</span>
+            <div>
+              <strong class="nav-anchor-card__title">Board of Directors</strong>
+              <span class="nav-anchor-card__desc">Twelve volunteers who oversee the Foundation's mission</span>
+            </div>
+          </a>
+          <a href="#" class="nav-anchor-card">
+            <span class="nav-anchor-card__icon nav-anchor-card__icon--right">→</span>
+            <div>
+              <strong class="nav-anchor-card__title">Board &amp; Leadership</strong>
+              <span class="nav-anchor-card__desc">Meet the board of directors and research committee</span>
+            </div>
+          </a>
+        </div>
+        <div class="sg-component-code">&lt;!-- Scroll-down variant (↓ icon) --&gt;
+&lt;a href="#section-id" class="nav-anchor-card"&gt;
+  &lt;span class="nav-anchor-card__icon"&gt;↓&lt;/span&gt;
+  &lt;div&gt;
+    &lt;strong class="nav-anchor-card__title"&gt;Section Title&lt;/strong&gt;
+    &lt;span class="nav-anchor-card__desc"&gt;Brief description&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;!-- Link-to-page variant (→ icon) --&gt;
+&lt;a href="page.html" class="nav-anchor-card"&gt;
+  &lt;span class="nav-anchor-card__icon nav-anchor-card__icon--right"&gt;→&lt;/span&gt;
+  &lt;div&gt;
+    &lt;strong class="nav-anchor-card__title"&gt;Page Name&lt;/strong&gt;
+    &lt;span class="nav-anchor-card__desc"&gt;Brief description&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/a&gt;
+
+&lt;!-- Wrap multiple in a flex column container with gap:0.5rem --&gt;</div>
       </div>
 
       <div class="sg-component">
@@ -1074,7 +1146,7 @@
             <div style="text-align:center; max-width:180px;">
               <img src="images/alpaca-closeup.png" alt="Alpaca close-up" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover;">
               <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpaca-closeup.png</code><br>
-              <span style="font-size:0.7rem; color:var(--muted);">About page hero</span>
+              <span style="font-size:0.7rem; color:var(--muted);">Leadership page hero</span>
             </div>
             <div style="text-align:center; max-width:180px;">
               <img src="images/alpacas-pair.png" alt="Alpaca pair" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover; object-position:top;">
@@ -1090,6 +1162,11 @@
               <img src="images/alpacas.png" alt="Alpacas" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover;">
               <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">alpacas.png</code><br>
               <span style="font-size:0.7rem; color:var(--muted);">Reserved / legacy</span>
+            </div>
+            <div style="text-align:center; max-width:180px;">
+              <img src="lupine.png" alt="Purple lupine wildflowers" style="width:100%; border-radius:10px; margin-bottom:0.5rem; aspect-ratio:1; object-fit:cover;">
+              <code style="font-family:monospace; font-size:0.7rem; color:var(--muted);">lupine.png (root)</code><br>
+              <span style="font-size:0.7rem; color:var(--muted);">About page hero</span>
             </div>
           </div>
         </div>
