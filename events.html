@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <meta name="description" content="The North West Camelid Foundation hosts annual fundraiser events and educational programs connecting camelid owners and veterinarians across the Pacific Northwest.">
   <title>Events — North West Camelid Foundation</title>
-  <link rel="stylesheet" href="css/styles-v2.css?v=brown138">
+  <link rel="stylesheet" href="css/styles-v2.css?v=brown140">
 </head>
 <body>
   <header class="site-header">
@@ -223,18 +223,6 @@
     </section>
 
     <!-- ============================================================
-         TESTIMONIAL
-    ============================================================ -->
-    <section class="section section--brown" aria-label="Attendee testimonial">
-      <div class="container">
-        <blockquote class="testimonial-quote">
-          <p>The [recent NWCF] event was both informative and enjoyable, and it was really inspiring to see the dedication and passion that your team brings to the world of camelid care and research&hellip; The work you are doing is so vital to the well-being of these animals, and we really enjoyed learning about the research initiatives underway and how we might be able to support your efforts. Thank you for your time and for the incredible work your foundation is doing.</p>
-          <cite>&mdash; Kate &amp; Eric Carr, Four Roots Ranch Animal Sanctuary, Bend, Oregon</cite>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- ============================================================
          CONFERENCES & SHOWS
     ============================================================ -->
     <section class="section section--bg" aria-labelledby="conference-heading">
@@ -251,45 +239,6 @@
             <figure style="margin:0;">
               <img src="2023-Conference-Pic-2.jpg" alt="NWCF representatives at a 2023 camelid industry conference" loading="lazy" style="width:100%; height:auto; border-radius:var(--radius-md); box-shadow:var(--shadow-md); display:block;">
             </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         GET INVOLVED — ACTION CARDS
-    ============================================================ -->
-    <section class="section section--bg" aria-labelledby="get-involved-heading">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Get Involved</span>
-          <h2 id="get-involved-heading">Ways to Support Our Events</h2>
-        </div>
-        <div class="grid-3">
-          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
-            <h3 style="font-size:var(--size-base); margin:0;">Stay Informed</h3>
-            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Event dates and locations are announced each year. Contact us to be added to the mailing list.</p>
-            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
-          </div>
-          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
-            <h3 style="font-size:var(--size-base); margin:0;">Donate an Auction Item</h3>
-            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Fiber products, camelid equipment, veterinary consultations, and local experiences are all welcome in our annual silent auction.</p>
-            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Contact Us to Donate</a>
-          </div>
-          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem; background:var(--panel);">
-            <h3 style="font-size:var(--size-base); margin:0;">Sponsor an Event</h3>
-            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Sponsorships support camelid health research while gaining visibility with our community of owners, breeders, and vets.</p>
-            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Sponsorship Inquiries</a>
-          </div>
-          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
-            <h3 style="font-size:var(--size-base); margin:0;">Bring NWCF to Your Event</h3>
-            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
-            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
-          </div>
-          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
-            <h3 style="font-size:var(--size-base); margin:0;">Educational Materials</h3>
-            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
-            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Request Materials</a>
           </div>
         </div>
       </div>
@@ -318,6 +267,60 @@
           <!-- Add earlier events above this line in the same format -->
 
         </div>
+        <div style="margin-top:2rem;">
+          <button class="btn btn-secondary" onclick="document.getElementById('past-events-modal').showModal()">View All Past Events</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIAL
+    ============================================================ -->
+    <section class="section section--brown" aria-label="Attendee testimonial">
+      <div class="container">
+        <blockquote class="testimonial-quote">
+          <p>The [recent NWCF] event was both informative and enjoyable, and it was really inspiring to see the dedication and passion that your team brings to the world of camelid care and research&hellip; The work you are doing is so vital to the well-being of these animals, and we really enjoyed learning about the research initiatives underway and how we might be able to support your efforts. Thank you for your time and for the incredible work your foundation is doing.</p>
+          <cite>&mdash; Kate &amp; Eric Carr, Four Roots Ranch Animal Sanctuary, Bend, Oregon</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GET INVOLVED — ACTION CARDS
+    ============================================================ -->
+    <section class="section section--bg" aria-labelledby="get-involved-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get Involved</span>
+          <h2 id="get-involved-heading">Ways to Support Our Events</h2>
+        </div>
+        <div class="grid-3">
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Stay Informed</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Event dates and locations are announced each year. Contact us to be added to the mailing list.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Donate an Auction Item</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Fiber products, camelid equipment, veterinary consultations, and local experiences are all welcome in our annual silent auction.</p>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Contact Us to Donate</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Sponsor an Event</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Sponsorships support camelid health research while gaining visibility with our community of owners, breeders, and vets.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Sponsorship Inquiries</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Bring NWCF to Your Event</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Educational Materials</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Request Materials</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -334,6 +337,20 @@
         </div>
       </div>
     </section>
+
+  <!-- Past Events Modal -->
+  <dialog id="past-events-modal" class="past-events-dialog" aria-labelledby="modal-title">
+    <div class="past-events-dialog__inner">
+      <button class="past-events-dialog__close" onclick="document.getElementById('past-events-modal').close()" aria-label="Close">&#x2715;</button>
+      <h2 id="modal-title">Past Events</h2>
+      <p style="color:var(--muted); margin-top:0.5rem;">A full archive of NWCF events is coming soon.</p>
+      <div class="under-construction">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <p>Under Construction</p>
+        <p style="font-size:var(--size-sm); color:var(--muted);">We're putting together a complete history of NWCF events. Check back soon.</p>
+      </div>
+    </div>
+  </dialog>
 
   </main>
   <footer class="site-footer" aria-label="Site footer">

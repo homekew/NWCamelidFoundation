@@ -2369,3 +2369,68 @@ body { overflow-x: hidden; }
     gap: 0.375rem;
   }
 }
+
+/* -------------------------------------------------------
+   Past Events modal dialog
+------------------------------------------------------- */
+.past-events-dialog {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.22);
+  padding: 0;
+  max-width: 480px;
+  width: calc(100% - 2rem);
+}
+
+.past-events-dialog::backdrop {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+}
+
+.past-events-dialog__inner {
+  padding: 2.25rem 2rem 2rem;
+  position: relative;
+}
+
+.past-events-dialog__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+}
+
+.past-events-dialog__close:hover {
+  background: var(--panel);
+  color: var(--text);
+}
+
+.under-construction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding: 2rem;
+  background: var(--panel);
+  border-radius: var(--radius-md);
+  color: var(--text);
+}
+
+.under-construction svg {
+  color: var(--accent);
+}
+
+.under-construction p:first-of-type {
+  font-family: var(--font-heading);
+  font-size: var(--size-lg);
+  font-weight: 600;
+  margin: 0;
+}
