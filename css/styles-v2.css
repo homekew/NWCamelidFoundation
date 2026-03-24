@@ -1040,7 +1040,7 @@ blockquote {
 .impact-stat strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(2.75rem, 4.5vw, 4rem);
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1738,23 +1738,63 @@ details .details-body {
 }
 
 /* ------------------------------------------------------------
-   18. Responsive
+   18. Reusable Layout Classes (replaces inline style grids)
    ------------------------------------------------------------ */
+
+/* Page hero 2-col: text + image. Collapses to stacked on mobile. */
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Board portrait row: 8 circular photos across on desktop */
+.portrait-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ------------------------------------------------------------
+   19. Responsive
+   ------------------------------------------------------------ */
+
+/* Safety net — prevents layout bugs from causing horizontal scroll */
+body { overflow-x: hidden; }
+
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: 1fr 1fr; }
   .site-footer__top { grid-template-columns: 1fr 1fr; }
   .content-layout { grid-template-columns: 1fr; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-media { order: -1; } /* image stacks above text on mobile */
+  .hero-media { order: -1; }
   .hero { padding-block: 3rem; }
   .feature-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* Portrait row: 4 across at tablet */
+  .portrait-row { grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
 }
 
 @media (max-width: 720px) {
   h1 { font-size: var(--size-2xl); }
   h2 { font-size: var(--size-xl); }
+  h3 { margin-top: 1.5rem; margin-bottom: 1rem; }
 
   .section { padding-block: 2.5rem; }
+
+  /* Page hero reduced padding + single column */
+  .page-hero { padding-block: 2.5rem; }
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  /* Image moves below text in page heroes on mobile */
+  .page-hero-grid > *:last-child { order: 1; }
+
+  /* Prevent oversized images inside heroes on mobile */
+  .page-hero-grid img { max-height: 260px; object-fit: cover; }
 
   .nav-toggle { display: flex; }
 
@@ -1783,7 +1823,7 @@ details .details-body {
     padding: 0.6rem 0.75rem;
   }
 
-  /* Mobile dropdowns — hidden by default, toggled via .is-open */
+  /* Mobile dropdowns */
   .has-dropdown > a::after { display: inline-block; }
 
   .dropdown {
@@ -1812,21 +1852,54 @@ details .details-body {
   .grid-prose-sidebar { grid-template-columns: 1fr; }
   .grid-prose-sidebar > *:last-child { position: static; }
 
+  /* Portrait row: 4 across on small screens */
+  .portrait-row { grid-template-columns: repeat(4, 1fr); gap: 0.625rem; }
+
+  .photo-grid-2 { grid-template-columns: 1fr; }
+
   .site-footer__top { grid-template-columns: 1fr; gap: 2rem; }
   .site-footer__bottom { flex-direction: column; align-items: flex-start; }
 
-  .impact-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
-  .impact-stat { flex: 0 0 auto; min-width: 140px; }
+  /* Footer email form stacks cleanly */
+  .site-footer__form { flex-direction: column; }
+  .site-footer__form .btn { width: 100%; }
 
-  .btn-group { flex-direction: column; align-items: flex-start; }
+  /* Impact stats: 2×2 grid with smaller numbers */
+  .impact-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+  .impact-stat { flex: 0 0 calc(50% - 0.75rem); min-width: 0; }
+  .impact-stat strong { font-size: clamp(2rem, 4.5vw, 2.75rem); }
+
+  /* Pull quote less generous on mobile */
+  .pull-quote { margin-block: 2rem; }
+
+  /* Buttons: full-width stacked */
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-group .btn { width: 100%; text-align: center; }
+
+  /* CTA band buttons: full-width */
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons .btn { width: 100%; }
+
+  /* Float photos: clear on mobile */
+  .inline-photo-sm {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.25rem 0;
+  }
 }
 
 @media (max-width: 480px) {
+  .container { padding-inline: 1.25rem; }
   .hero-stat-row { flex-direction: column; gap: 1rem; }
   .donate-box { padding: 1.5rem; }
   .letter-block { padding: 1.25rem 1.5rem; }
 
-  /* Prevent wordmark overflow on small phones */
+  /* Portrait row: 4 across even on small phones keeps faces legible */
+  .portrait-row { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+
   .logo-text {
     font-size: 1.05rem;
   }
