@@ -989,6 +989,17 @@ blockquote {
   object-fit: cover;
 }
 
+/* Scholarship recipient photo — bleeds to card edges at top */
+.scholar-photo {
+  display: block;
+  width: calc(100% + 3.5rem);
+  height: 220px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: -1.75rem -1.75rem 1.25rem;
+}
+
 /* Scholarship Card */
 .scholar-card {
   background: var(--white);
