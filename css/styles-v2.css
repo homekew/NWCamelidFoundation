@@ -693,7 +693,6 @@ blockquote {
   overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.12);
-  background: var(--panel);
   min-height: 320px;
 }
 
@@ -703,8 +702,8 @@ blockquote {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center top;
   border-radius: var(--radius-lg);
 }
 
