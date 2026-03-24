@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <meta name="description" content="The North West Camelid Foundation hosts annual fundraiser events and educational programs connecting camelid owners and veterinarians across the Pacific Northwest.">
   <title>Events — North West Camelid Foundation</title>
-  <link rel="stylesheet" href="css/styles-v2.css?v=brown137">
+  <link rel="stylesheet" href="css/styles-v2.css?v=brown138">
 </head>
 <body>
   <header class="site-header">
@@ -67,13 +67,52 @@
             <span class="section-label">Events</span>
             <h1>Connect, Learn, and Support the Herd</h1>
             <p class="lead">NWCF hosts annual events and educational programs that bring camelid owners, breeders, and veterinarians together across the Pacific Northwest. The research we fund leads to better health outcomes for llamas and alpacas throughout the region.</p>
-            <p class="lead">Our events are the foundation's primary source of funding. Every dollar raised goes directly to camelid veterinary research and scholarships, with no overhead. When you attend, you are investing in the health and well-being of every camelid in the Pacific Northwest.</p>
+            <p class="lead lead--highlight">Our events are the foundation's primary source of funding. Every dollar raised goes directly to camelid veterinary research and scholarships, with no overhead. When you attend, you are investing in the health and well-being of every camelid in the Pacific Northwest.</p>
             <a href="contact.html" class="btn btn-primary" style="margin-top:1rem; display:inline-block;">Get Event Announcements</a>
           </div>
           <div>
             <img src="images/alpaca-at-fence.png" alt="A russet alpaca standing at a fence on a Pacific Northwest farm" loading="eager" class="events-hero-img">
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         UPCOMING EVENTS
+    ============================================================ -->
+    <section class="section section--white" aria-labelledby="upcoming-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What's Coming Up</span>
+          <h2 id="upcoming-heading">Upcoming Events</h2>
+        </div>
+
+        <!-- When no events are scheduled, show this placeholder card -->
+        <div class="upcoming-placeholder">
+          <p class="upcoming-placeholder__title">No events are currently scheduled.</p>
+          <p class="upcoming-placeholder__sub">Dates and locations for the next annual fundraiser and Meet &amp; Greet events will be announced here as soon as they are confirmed. Sign up to be the first to know.</p>
+          <a href="contact.html" class="btn btn-primary">Get Event Announcements</a>
+        </div>
+
+        <!--
+          WHEN AN EVENT IS UPCOMING, replace the placeholder above with a card like this:
+
+          <div class="upcoming-event-card">
+            <div class="upcoming-event-card__date">
+              <span class="upcoming-event-card__month">August</span>
+              <span class="upcoming-event-card__day">16</span>
+              <span class="upcoming-event-card__year">2025</span>
+            </div>
+            <div class="upcoming-event-card__details">
+              <span class="section-label">Annual Fundraiser</span>
+              <h3 class="upcoming-event-card__name">NWCF Annual Fundraiser &amp; Silent Auction</h3>
+              <p class="upcoming-event-card__location">📍 Venue Name — City, Oregon</p>
+              <p>Brief description of the event, what to expect, and any special highlights for this year.</p>
+              <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;">Reserve Your Spot</a>
+            </div>
+          </div>
+        -->
+
       </div>
     </section>
 
@@ -209,6 +248,32 @@
           <p>These events are an opportunity to distribute educational materials, share information about our research funding, and connect with supporters who share our commitment to camelid health.</p>
           <p>If you are involved with a regional camelid organization and would like to partner with NWCF on an educational event or program, we would love to hear from you.</p>
           <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PAST EVENTS
+    ============================================================ -->
+    <section class="section section--white" aria-labelledby="past-events-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Event History</span>
+          <h2 id="past-events-heading">Past Events</h2>
+        </div>
+        <div class="past-events-list">
+
+          <div class="past-event">
+            <div class="past-event__year">2024</div>
+            <div class="past-event__content">
+              <h3 class="past-event__name">Annual Fundraiser &amp; Silent Auction</h3>
+              <p class="past-event__location">Crescent Moon Ranch &mdash; Central Oregon</p>
+              <p>Supporters gathered under the trees for an afternoon of silent auction bidding, research updates, camelid demonstrations, and community connection. Proceeds supported veterinary research at OSU and WSU.</p>
+            </div>
+          </div>
+
+          <!-- Add earlier events above this line in the same format -->
+
         </div>
       </div>
     </section>

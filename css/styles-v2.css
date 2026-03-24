@@ -1232,6 +1232,175 @@ blockquote {
   margin-bottom: 1.5rem;
 }
 
+/* -------------------------------------------------------
+   Highlighted lead paragraph (events hero impact stat)
+------------------------------------------------------- */
+.lead--highlight {
+  background: var(--panel);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.875rem 1.125rem;
+  margin-top: 1.25rem;
+  font-size: var(--size-base);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* -------------------------------------------------------
+   Upcoming events — "no events" placeholder state
+------------------------------------------------------- */
+.upcoming-placeholder {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+  padding: 2.75rem 2rem;
+  background: var(--panel);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.upcoming-placeholder__title {
+  font-family: var(--font-heading);
+  font-size: var(--size-md);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-placeholder__sub {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* -------------------------------------------------------
+   Upcoming event card (used when an event is confirmed)
+------------------------------------------------------- */
+.upcoming-event-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+  max-width: 56rem;
+}
+
+.upcoming-event-card__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  min-width: 4.5rem;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.upcoming-event-card__month {
+  font-size: var(--size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.upcoming-event-card__day {
+  font-size: var(--size-2xl);
+  font-weight: 700;
+  line-height: 1;
+  margin-block: 0.2rem;
+}
+
+.upcoming-event-card__year {
+  font-size: var(--size-xs);
+  opacity: 0.85;
+}
+
+.upcoming-event-card__name {
+  font-size: var(--size-lg);
+  margin-bottom: 0.25rem;
+}
+
+.upcoming-event-card__location {
+  color: var(--muted);
+  font-size: var(--size-sm);
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .upcoming-event-card {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .upcoming-event-card__date {
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+  .upcoming-event-card__day { font-size: var(--size-xl); }
+}
+
+/* -------------------------------------------------------
+   Past events list
+------------------------------------------------------- */
+.past-events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 52rem;
+}
+
+.past-event {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.5rem 2rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.past-event:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.past-event__year {
+  font-family: var(--font-heading);
+  font-size: var(--size-xl);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+
+.past-event__name {
+  font-size: var(--size-md);
+  margin-bottom: 0.2rem;
+}
+
+.past-event__location {
+  font-size: var(--size-sm);
+  color: var(--muted);
+  margin-bottom: 0.625rem;
+}
+
+@media (max-width: 560px) {
+  .past-event {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .past-event__year {
+    font-size: var(--size-lg);
+  }
+}
+
 /* What to Expect — full-width event preview block */
 .what-to-expect {
   background: var(--white);
