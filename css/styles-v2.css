@@ -1211,6 +1211,15 @@ blockquote {
   letter-spacing: 0.02em;
 }
 
+/* Light variant — same structure, for panel/white backgrounds */
+.testimonial-quote--light p {
+  color: var(--text);
+}
+
+.testimonial-quote--light cite {
+  color: var(--muted);
+}
+
 /* What to Expect — full-width event preview block */
 .what-to-expect {
   background: var(--white);
