@@ -1529,6 +1529,15 @@ blockquote {
   color: var(--brown);
 }
 
+.ein-notice {
+  margin-top: 2rem;
+  font-size: var(--size-sm);
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  padding-top: 1.25rem;
+}
+
 /* ------------------------------------------------------------
    13. Email Signup / CTA Section
    ------------------------------------------------------------ */
