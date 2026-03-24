@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <meta name="description" content="The Northwest Camelid Foundation hosts annual fundraiser events and educational programs connecting camelid owners and veterinarians across the Pacific Northwest.">
   <title>Events — Northwest Camelid Foundation</title>
-  <link rel="stylesheet" href="css/styles-v2.css?v=brown118">
+  <link rel="stylesheet" href="css/styles-v2.css?v=brown119">
 </head>
 <body>
   <header class="site-header">
@@ -78,8 +78,8 @@
     <section class="section section--bg" aria-labelledby="fundraiser-heading">
       <div class="container">
 
-        <!-- 2-col: description + pull quote  |  photo + what to expect -->
-        <div class="grid-prose-sidebar" style="margin-bottom:3rem;">
+        <!-- 2-col: description + photo -->
+        <div class="grid-prose-sidebar" style="margin-bottom:2.5rem; align-items:start;">
 
           <div>
             <span class="section-label">Events</span>
@@ -90,43 +90,47 @@
               <p>"Every dollar raised at our events goes directly to research. There is no overhead, no administrative cost — just science."</p>
               <cite>— Northwest Camelid Foundation</cite>
             </div>
-            <div class="btn-group" style="margin-top:2rem;">
-              <a href="contact.html" class="btn btn-primary">Get Event Announcements</a>
-              <a href="contact.html#donate" class="btn btn-donate">Donate Without Attending</a>
-            </div>
           </div>
 
-          <div style="display:flex; flex-direction:column; gap:1rem; position:sticky; top:2rem;">
+          <div>
             <figure style="margin:0;">
               <img src="images/fundraiser-community.png" alt="Attendees at an NWCF fundraiser event enjoying the community gathering outdoors" loading="lazy" style="width:100%; height:auto; border-radius:var(--radius-md); box-shadow:var(--shadow-md); display:block;">
             </figure>
-            <div style="background:var(--panel); border-radius:var(--radius-md); padding:1.5rem 1.75rem;">
-              <h3 style="font-size:var(--size-lg); margin-top:0; margin-bottom:1rem;">What to Expect</h3>
-              <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.625rem;">
-                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
-                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
-                  Silent auction with donated items from breeders, vendors, and supporters
-                </li>
-                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
-                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
-                  Camelid demonstrations and showcase animals
-                </li>
-                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
-                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
-                  Research updates from OSU and WSU scientists
-                </li>
-                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
-                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
-                  Networking with veterinarians and owners from across the region
-                </li>
-                <li style="display:flex; gap:0.75rem; align-items:flex-start; font-size:var(--size-sm);">
-                  <span style="color:var(--terra); font-weight:700; flex-shrink:0; line-height:1.5;">→</span>
-                  Q&amp;A with the Research Committee
-                </li>
-              </ul>
-            </div>
           </div>
 
+        </div>
+
+        <!-- What to Expect — full width -->
+        <div class="what-to-expect">
+          <h3>What to Expect</h3>
+          <ul class="expect-grid">
+            <li>
+              <span class="arrow">→</span>
+              Silent auction with donated items from breeders, vendors, and supporters
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              Camelid demonstrations and showcase animals
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              Research updates from OSU and WSU scientists
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              Networking with veterinarians and owners from across the region
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              Q&amp;A with the Research Committee
+            </li>
+          </ul>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-group" style="margin-top:2rem;">
+          <a href="contact.html" class="btn btn-primary">Get Event Announcements</a>
+          <a href="contact.html#donate" class="btn btn-donate">Donate Without Attending</a>
         </div>
 
       </div>
@@ -173,30 +177,13 @@
     ============================================================ -->
     <section class="section section--bg" aria-labelledby="conference-heading">
       <div class="container">
-        <div class="grid-prose-sidebar" style="align-items:start;">
-
-          <div>
-            <span class="section-label">Community Involvement</span>
-            <h2 id="conference-heading">Industry Conferences &amp; Shows</h2>
-            <p>NWCF members and board representatives regularly attend regional and national camelid shows and conferences, including events hosted by the Alpaca Owners Association, the Llama Association of North America, and state-level organizations across the Pacific Northwest.</p>
-            <p>These events are an opportunity to distribute educational materials, share information about our research funding, and connect with supporters who share our commitment to camelid health.</p>
-            <p>If you are involved with a regional camelid organization and would like to partner with NWCF on an educational event or program, we would love to hear from you.</p>
-            <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;">Get in Touch</a>
-          </div>
-
-          <div style="display:flex; flex-direction:column; gap:1.5rem;">
-            <div class="card" style="display:flex; flex-direction:column; gap:0.625rem; padding:1.5rem 1.75rem;">
-              <h3 style="font-size:var(--size-base); margin:0;">Bring NWCF to Your Event</h3>
-              <p style="font-size:var(--size-sm); color:var(--muted); margin:0;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
-              <a href="contact.html" class="btn btn-primary" style="align-self:flex-start; margin-top:0.5rem;">Contact Us</a>
-            </div>
-            <div class="card" style="display:flex; flex-direction:column; gap:0.625rem; padding:1.5rem 1.75rem;">
-              <h3 style="font-size:var(--size-base); margin:0;">Educational Materials</h3>
-              <p style="font-size:var(--size-sm); color:var(--muted); margin:0;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
-              <a href="contact.html" class="btn btn-secondary" style="align-self:flex-start; margin-top:0.5rem;">Request Materials</a>
-            </div>
-          </div>
-
+        <div style="max-width:48rem;">
+          <span class="section-label">Community Involvement</span>
+          <h2 id="conference-heading">Industry Conferences &amp; Shows</h2>
+          <p>NWCF members and board representatives regularly attend regional and national camelid shows and conferences, including events hosted by the Alpaca Owners Association, the Llama Association of North America, and state-level organizations across the Pacific Northwest.</p>
+          <p>These events are an opportunity to distribute educational materials, share information about our research funding, and connect with supporters who share our commitment to camelid health.</p>
+          <p>If you are involved with a regional camelid organization and would like to partner with NWCF on an educational event or program, we would love to hear from you.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:0.5rem;">Get in Touch</a>
         </div>
       </div>
     </section>
@@ -225,6 +212,16 @@
             <h3 style="font-size:var(--size-base); margin:0;">Sponsor an Event</h3>
             <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">Sponsorships support camelid health research while gaining visibility with our community of owners, breeders, and vets.</p>
             <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Sponsorship Inquiries</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Bring NWCF to Your Event</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">We welcome invitations to exhibit, present, or participate at camelid events throughout the Northwest. Contact us to discuss how we can be involved.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%; text-align:center; margin-top:auto;">Contact Us</a>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; gap:0.75rem; padding:1.5rem 1.75rem;">
+            <h3 style="font-size:var(--size-base); margin:0;">Educational Materials</h3>
+            <p style="font-size:var(--size-sm); color:var(--muted); margin:0; flex:1;">NWCF produces materials about camelid health research for distribution at events and shows. Contact us to request materials for your organization.</p>
+            <a href="contact.html" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:auto;">Request Materials</a>
           </div>
         </div>
       </div>
