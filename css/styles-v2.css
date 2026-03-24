@@ -1198,7 +1198,7 @@ blockquote {
   display: block;
   font-size: var(--size-sm);
   font-style: normal;
-  color: #99461D;
+  color: rgba(250, 248, 245, 0.75);
   letter-spacing: 0.02em;
   margin-top: 1.25rem;
 }
