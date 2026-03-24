@@ -1176,6 +1176,8 @@ blockquote {
   max-width: 760px;
   margin-inline: auto;
   text-align: center;
+  border: none;
+  padding: 0;
 }
 
 /* Tighten vertical padding on testimonial sections */
@@ -1183,31 +1185,9 @@ blockquote {
   padding-block: 2.75rem;
 }
 
-.testimonial-quote::before {
-  content: '\201C';
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  line-height: 0.6;
-  color: var(--gold);
-  opacity: 0.6;
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-quote::after {
-  content: '\201D';
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 5rem;
-  line-height: 0.6;
-  color: var(--gold);
-  opacity: 0.6;
-  margin-top: 1.25rem;
-}
-
 .testimonial-quote p {
   font-family: var(--font-heading);
-  font-size: clamp(0.925rem, 1.8vw, 1.15rem);
+  font-size: var(--size-base);
   font-style: italic;
   color: rgba(250, 248, 245, 0.95);
   line-height: 1.75;
