@@ -794,6 +794,55 @@ blockquote {
   font-style: italic;
 }
 
+/* Honorarium / Memorial entry list */
+.honorarium-list {
+  max-width: 780px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.honorarium-entry {
+  padding-block: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.honorarium-entry:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.honorarium-entry__name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 600;
+  color: var(--brown);
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+.honorarium-entry p {
+  margin: 0 0 0.5rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.honorarium-entry__attribution {
+  font-size: var(--size-sm);
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.5rem !important;
+}
+
+.honorarium-attribution-footer {
+  max-width: 780px;
+  margin: 2rem auto 0;
+  font-size: var(--size-sm);
+  color: var(--muted);
+  text-align: right;
+}
+
 /* Events photo banner */
 .events-photo-banner {
   margin-bottom: 3rem;
