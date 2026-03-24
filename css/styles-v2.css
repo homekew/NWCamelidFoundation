@@ -1050,6 +1050,22 @@ blockquote {
   padding: 1.5rem;
 }
 
+/* Bio paragraphs are left-aligned for readability */
+.team-card p:not(.text-muted) {
+  text-align: left;
+}
+
+/* Officer cards get a terracotta top accent to signal hierarchy */
+.team-card--officer {
+  border-top: 3px solid var(--terra);
+}
+
+/* Officer role label inherits terra color to reinforce hierarchy */
+.team-card--officer .text-muted {
+  color: var(--terra);
+  opacity: 0.9;
+}
+
 .team-avatar {
   width: 72px;
   height: 72px;
@@ -1074,8 +1090,8 @@ blockquote {
   margin-inline: auto;
   margin-bottom: 1rem;
   display: block;
-  border: 3px solid var(--panel);
-  box-shadow: var(--shadow-sm);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1px var(--border), var(--shadow-md);
 }
 
 /* ------------------------------------------------------------
@@ -2193,6 +2209,60 @@ details .details-body {
 /* ------------------------------------------------------------
    18. Reusable Layout Classes (replaces inline style grids)
    ------------------------------------------------------------ */
+
+/* Nav anchor cards — used in page heroes (leadership, about) */
+.nav-anchor-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.nav-anchor-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--terra);
+  transform: translateX(3px);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-anchor-card__icon {
+  color: var(--terra);
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform var(--transition);
+}
+
+.nav-anchor-card:hover .nav-anchor-card__icon {
+  transform: translateY(3px);
+}
+
+.nav-anchor-card__icon--right {
+  transform: none;
+}
+
+.nav-anchor-card:hover .nav-anchor-card__icon--right {
+  transform: translateX(3px);
+}
+
+.nav-anchor-card__title {
+  display: block;
+  font-size: var(--size-base);
+  font-weight: 600;
+  color: var(--brown);
+}
+
+.nav-anchor-card__desc {
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
 
 /* Page hero 2-col: text + image. Collapses to stacked on mobile. */
 .page-hero-grid {
