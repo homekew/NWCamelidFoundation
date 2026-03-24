@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="blur-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="blur-med" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="blur-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Warm teal lift — upper right quadrant -->
+  <rect x="780" y="-20" width="480" height="80" rx="4"
+        fill="rgba(80,110,118,0.35)" filter="url(#blur-soft)"/>
+
+  <!-- Cool dark anchor — lower left -->
+  <rect x="-40" y="20" width="420" height="80" rx="4"
+        fill="rgba(20,36,44,0.4)" filter="url(#blur-soft)"/>
+
+  <!-- Warm amber blush — far right edge -->
+  <rect x="1160" y="0" width="360" height="80" rx="4"
+        fill="rgba(160,128,72,0.14)" filter="url(#blur-med)"/>
+
+  <!-- Subtle lighter band — horizontal center lift -->
+  <rect x="300" y="10" width="700" height="50" rx="4"
+        fill="rgba(72,100,110,0.18)" filter="url(#blur-soft)"/>
+
+  <!-- Very subtle warm center-left highlight -->
+  <rect x="100" y="-10" width="280" height="60" rx="4"
+        fill="rgba(100,118,108,0.15)" filter="url(#blur-light)"/>
+</svg>
