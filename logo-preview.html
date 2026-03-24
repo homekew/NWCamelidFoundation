@@ -3,135 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <style>
-  body { background: #1a1a1a; display: flex; gap: 40px; padding: 40px; align-items: flex-start; flex-wrap: wrap; font-family: sans-serif; color: #fff; }
-  .swatch { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .label { font-size: 12px; opacity: 0.6; }
-  .dark { background: #2C4048; padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 14px; }
-  .light { background: #F8F5F0; padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 14px; }
-  .wordmark { font-family: Georgia, serif; font-size: 18px; }
-  .wordmark-light { color: #FAF7F2; }
-  .wordmark-dark { color: #1A1410; }
+  body { background: #1a1a1a; display: flex; gap: 48px; padding: 48px; align-items: flex-start; flex-wrap: wrap; font-family: sans-serif; color: #fff; }
+  .col { display: flex; flex-direction: column; gap: 32px; }
+  .swatch { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .label { font-size: 11px; opacity: 0.5; letter-spacing: 0.05em; text-transform: uppercase; }
+  .dark { background: #2C4048; padding: 16px 20px; border-radius: 8px; display: flex; align-items: center; gap: 14px; }
+  .light { background: #F8F5F0; padding: 16px 20px; border-radius: 8px; display: flex; align-items: center; gap: 14px; }
+  .wordmark { font-family: Georgia, serif; font-size: 18px; letter-spacing: 0.02em; }
 </style>
 </head>
 <body>
 
-<div class="swatch">
-  <div class="label">62 × 62 (nav size) — dark bg</div>
-  <div class="dark">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="62" height="62">
-      <rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="#FAF7F2" stroke-width="2.5"/>
-      <!-- Large llama — left side, facing right, head upper-left -->
-      <path d="M22,80 C24,74 28,70 36,67 C46,64 56,61 64,57"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,80 C20,72 19,62 21,50 C23,40 24,32 22,22"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,22 C24,15 30,12 36,14 C40,16 40,22 37,26 C34,29 28,29 24,26"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25,14 L22,7 L29,12"
-            fill="none" stroke="#FAF7F2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M24,77 L22,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M34,75 L34,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <!-- Small cria — right side, shorter neck -->
-      <path d="M54,84 C57,78 63,74 72,72 C79,70 84,67 87,63"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C52,77 52,68 54,59 C56,52 57,46 55,38"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M55,38 C57,32 63,30 67,33 C69,36 68,41 64,43 C61,45 56,44 55,40"
-            fill="none" stroke="#FAF7F2" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M57,30 L55,24 L61,29"
-            fill="none" stroke="#FAF7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M56,81 L54,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-      <path d="M65,79 L65,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-    <span class="wordmark wordmark-light">Northwest Camelid Foundation</span>
+<div class="col">
+  <div class="swatch">
+    <div class="label">62 x 62 — nav context</div>
+    <div class="dark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="62" height="62">
+        <rect x="3.5" y="3.5" width="93" height="93" rx="9" fill="none" stroke="rgba(250,247,242,0.9)" stroke-width="3"/>
+        <ellipse cx="32" cy="68" rx="16" ry="10" fill="#FAF7F2" transform="rotate(-8 32 68)"/>
+        <path d="M24,62 C22,54 20,44 21,34 C22,26 24,20 24,14" fill="none" stroke="#FAF7F2" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="26" cy="11" rx="6" ry="4.5" fill="#FAF7F2" transform="rotate(-15 26 11)"/>
+        <path d="M22,8 L20,2 L26,7" fill="#FAF7F2"/>
+        <rect x="22" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <rect x="30" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <path d="M44,63 C48,60 50,58 49,56" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="68" cy="74" rx="12" ry="7.5" fill="#FAF7F2" transform="rotate(-8 68 74)"/>
+        <path d="M61,68 C59,61 59,53 60,46 C61,40 62,36 62,31" fill="none" stroke="#FAF7F2" stroke-width="5.5" stroke-linecap="round"/>
+        <ellipse cx="64" cy="28" rx="5" ry="3.8" fill="#FAF7F2" transform="rotate(-10 64 28)"/>
+        <path d="M60,25 L58,19 L64,24" fill="#FAF7F2"/>
+        <rect x="60" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+        <rect x="68" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+      </svg>
+      <span class="wordmark" style="color:#FAF7F2">Northwest Camelid Foundation</span>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="label">62 x 62 — light bg</div>
+    <div class="light">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="62" height="62">
+        <rect x="3.5" y="3.5" width="93" height="93" rx="9" fill="none" stroke="rgba(44,64,72,0.9)" stroke-width="3"/>
+        <ellipse cx="32" cy="68" rx="16" ry="10" fill="#2C4048" transform="rotate(-8 32 68)"/>
+        <path d="M24,62 C22,54 20,44 21,34 C22,26 24,20 24,14" fill="none" stroke="#2C4048" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="26" cy="11" rx="6" ry="4.5" fill="#2C4048" transform="rotate(-15 26 11)"/>
+        <path d="M22,8 L20,2 L26,7" fill="#2C4048"/>
+        <rect x="22" y="75" width="4" height="14" rx="2" fill="#2C4048"/>
+        <rect x="30" y="75" width="4" height="14" rx="2" fill="#2C4048"/>
+        <path d="M44,63 C48,60 50,58 49,56" fill="none" stroke="#2C4048" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="68" cy="74" rx="12" ry="7.5" fill="#2C4048" transform="rotate(-8 68 74)"/>
+        <path d="M61,68 C59,61 59,53 60,46 C61,40 62,36 62,31" fill="none" stroke="#2C4048" stroke-width="5.5" stroke-linecap="round"/>
+        <ellipse cx="64" cy="28" rx="5" ry="3.8" fill="#2C4048" transform="rotate(-10 64 28)"/>
+        <path d="M60,25 L58,19 L64,24" fill="#2C4048"/>
+        <rect x="60" y="79" width="3.5" height="12" rx="1.75" fill="#2C4048"/>
+        <rect x="68" y="79" width="3.5" height="12" rx="1.75" fill="#2C4048"/>
+      </svg>
+      <span class="wordmark" style="color:#1A1410">Northwest Camelid Foundation</span>
+    </div>
   </div>
 </div>
 
-<div class="swatch">
-  <div class="label">100 × 100</div>
-  <div class="dark">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-      <rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="#FAF7F2" stroke-width="2.5"/>
-      <path d="M22,80 C24,74 28,70 36,67 C46,64 56,61 64,57"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,80 C20,72 19,62 21,50 C23,40 24,32 22,22"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,22 C24,15 30,12 36,14 C40,16 40,22 37,26 C34,29 28,29 24,26"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25,14 L22,7 L29,12"
-            fill="none" stroke="#FAF7F2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M24,77 L22,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M34,75 L34,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C57,78 63,74 72,72 C79,70 84,67 87,63"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C52,77 52,68 54,59 C56,52 57,46 55,38"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M55,38 C57,32 63,30 67,33 C69,36 68,41 64,43 C61,45 56,44 55,40"
-            fill="none" stroke="#FAF7F2" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M57,30 L55,24 L61,29"
-            fill="none" stroke="#FAF7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M56,81 L54,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-      <path d="M65,79 L65,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-    </svg>
+<div class="col">
+  <div class="swatch">
+    <div class="label">100 x 100</div>
+    <div class="dark" style="padding:24px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <rect x="3.5" y="3.5" width="93" height="93" rx="9" fill="none" stroke="rgba(250,247,242,0.9)" stroke-width="3"/>
+        <ellipse cx="32" cy="68" rx="16" ry="10" fill="#FAF7F2" transform="rotate(-8 32 68)"/>
+        <path d="M24,62 C22,54 20,44 21,34 C22,26 24,20 24,14" fill="none" stroke="#FAF7F2" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="26" cy="11" rx="6" ry="4.5" fill="#FAF7F2" transform="rotate(-15 26 11)"/>
+        <path d="M22,8 L20,2 L26,7" fill="#FAF7F2"/>
+        <rect x="22" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <rect x="30" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <path d="M44,63 C48,60 50,58 49,56" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="68" cy="74" rx="12" ry="7.5" fill="#FAF7F2" transform="rotate(-8 68 74)"/>
+        <path d="M61,68 C59,61 59,53 60,46 C61,40 62,36 62,31" fill="none" stroke="#FAF7F2" stroke-width="5.5" stroke-linecap="round"/>
+        <ellipse cx="64" cy="28" rx="5" ry="3.8" fill="#FAF7F2" transform="rotate(-10 64 28)"/>
+        <path d="M60,25 L58,19 L64,24" fill="#FAF7F2"/>
+        <rect x="60" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+        <rect x="68" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+      </svg>
+    </div>
   </div>
-</div>
 
-<div class="swatch">
-  <div class="label">160 × 160</div>
-  <div class="dark">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="160" height="160">
-      <rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="#FAF7F2" stroke-width="2.5"/>
-      <path d="M22,80 C24,74 28,70 36,67 C46,64 56,61 64,57"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,80 C20,72 19,62 21,50 C23,40 24,32 22,22"
-            fill="none" stroke="#FAF7F2" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,22 C24,15 30,12 36,14 C40,16 40,22 37,26 C34,29 28,29 24,26"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25,14 L22,7 L29,12"
-            fill="none" stroke="#FAF7F2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M24,77 L22,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M34,75 L34,91" fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C57,78 63,74 72,72 C79,70 84,67 87,63"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C52,77 52,68 54,59 C56,52 57,46 55,38"
-            fill="none" stroke="#FAF7F2" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M55,38 C57,32 63,30 67,33 C69,36 68,41 64,43 C61,45 56,44 55,40"
-            fill="none" stroke="#FAF7F2" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M57,30 L55,24 L61,29"
-            fill="none" stroke="#FAF7F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M56,81 L54,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-      <path d="M65,79 L65,92" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-  </div>
-</div>
-
-<div class="swatch">
-  <div class="label">62 × 62 — light bg</div>
-  <div class="light">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="62" height="62">
-      <rect x="4" y="4" width="92" height="92" rx="8" fill="none" stroke="#2C4048" stroke-width="2.5"/>
-      <path d="M22,80 C24,74 28,70 36,67 C46,64 56,61 64,57"
-            fill="none" stroke="#2C4048" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,80 C20,72 19,62 21,50 C23,40 24,32 22,22"
-            fill="none" stroke="#2C4048" stroke-width="4.5" stroke-linecap="round"/>
-      <path d="M22,22 C24,15 30,12 36,14 C40,16 40,22 37,26 C34,29 28,29 24,26"
-            fill="none" stroke="#2C4048" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25,14 L22,7 L29,12"
-            fill="none" stroke="#2C4048" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M24,77 L22,91" fill="none" stroke="#2C4048" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M34,75 L34,91" fill="none" stroke="#2C4048" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C57,78 63,74 72,72 C79,70 84,67 87,63"
-            fill="none" stroke="#2C4048" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M54,84 C52,77 52,68 54,59 C56,52 57,46 55,38"
-            fill="none" stroke="#2C4048" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M55,38 C57,32 63,30 67,33 C69,36 68,41 64,43 C61,45 56,44 55,40"
-            fill="none" stroke="#2C4048" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M57,30 L55,24 L61,29"
-            fill="none" stroke="#2C4048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M56,81 L54,92" fill="none" stroke="#2C4048" stroke-width="3" stroke-linecap="round"/>
-      <path d="M65,79 L65,92" fill="none" stroke="#2C4048" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-    <span class="wordmark wordmark-dark" style="color:#1A1410">Northwest Camelid Foundation</span>
+  <div class="swatch">
+    <div class="label">160 x 160</div>
+    <div class="dark" style="padding:24px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="160" height="160">
+        <rect x="3.5" y="3.5" width="93" height="93" rx="9" fill="none" stroke="rgba(250,247,242,0.9)" stroke-width="3"/>
+        <ellipse cx="32" cy="68" rx="16" ry="10" fill="#FAF7F2" transform="rotate(-8 32 68)"/>
+        <path d="M24,62 C22,54 20,44 21,34 C22,26 24,20 24,14" fill="none" stroke="#FAF7F2" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="26" cy="11" rx="6" ry="4.5" fill="#FAF7F2" transform="rotate(-15 26 11)"/>
+        <path d="M22,8 L20,2 L26,7" fill="#FAF7F2"/>
+        <rect x="22" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <rect x="30" y="75" width="4" height="14" rx="2" fill="#FAF7F2"/>
+        <path d="M44,63 C48,60 50,58 49,56" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="68" cy="74" rx="12" ry="7.5" fill="#FAF7F2" transform="rotate(-8 68 74)"/>
+        <path d="M61,68 C59,61 59,53 60,46 C61,40 62,36 62,31" fill="none" stroke="#FAF7F2" stroke-width="5.5" stroke-linecap="round"/>
+        <ellipse cx="64" cy="28" rx="5" ry="3.8" fill="#FAF7F2" transform="rotate(-10 64 28)"/>
+        <path d="M60,25 L58,19 L64,24" fill="#FAF7F2"/>
+        <rect x="60" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+        <rect x="68" y="79" width="3.5" height="12" rx="1.75" fill="#FAF7F2"/>
+      </svg>
+    </div>
   </div>
 </div>
 
