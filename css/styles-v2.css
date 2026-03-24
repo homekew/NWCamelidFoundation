@@ -1223,11 +1223,11 @@ blockquote {
 
 .testimonial-quote p {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-style: normal;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-style: italic;
   font-weight: 400;
   color: rgba(250, 248, 245, 0.95);
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 0;
 }
 
@@ -1235,9 +1235,13 @@ blockquote {
   display: block;
   font-size: var(--size-sm);
   font-style: normal;
-  color: rgba(250, 248, 245, 0.75);
+  color: rgba(250, 248, 245, 0.95);
   letter-spacing: 0.02em;
   margin-top: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .testimonial-card { padding: 1.5rem 1.25rem; }
 }
 
 /* Light variant — same structure, for panel/white backgrounds */
