@@ -1056,7 +1056,7 @@ blockquote {
   border-left: 4px solid var(--gold);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 1.5rem 2rem;
-  margin-block: 2rem;
+  margin-block: 3.5rem;
 }
 
 .pull-quote p {
