@@ -1691,6 +1691,14 @@ details .details-body {
   max-width: 280px;
 }
 
+.site-footer__text--legal {
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,0.38);
+  margin-top: 0.5rem;
+  letter-spacing: 0.01em;
+  max-width: 280px;
+}
+
 .site-footer__heading {
   color: white;
   font-size: var(--size-sm);
@@ -1885,6 +1893,8 @@ body { overflow-x: hidden; }
 
   /* Prevent oversized images inside heroes on mobile */
   .page-hero-grid img { max-height: 260px; object-fit: cover; }
+  /* Illustrations should show fully, not be cropped */
+  .page-hero-grid .honorarium-illus { max-height: none; object-fit: initial; }
 
   .nav-toggle { display: flex; }
 
