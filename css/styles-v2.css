@@ -401,8 +401,8 @@ blockquote {
 }
 
 .logo-img {
-  width: 54px;
-  height: 54px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
 }
 
@@ -426,20 +426,6 @@ blockquote {
   letter-spacing: 0.025em;
   color: var(--light);
   line-height: 1.2;
-  white-space: nowrap;
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-text::after {
-  content: 'Since 1987';
-  font-family: var(--font-body);
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 400;
-  opacity: 0.52;
-  margin-top: 0.2rem;
   white-space: nowrap;
 }
 
@@ -1785,9 +1771,6 @@ details .details-body {
   /* Prevent wordmark overflow on small phones */
   .logo-text {
     font-size: 1.05rem;
-  }
-  .logo-text::after {
-    display: none;
   }
 }
 
