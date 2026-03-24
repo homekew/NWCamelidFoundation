@@ -1585,6 +1585,7 @@ details .details-body {
   grid-template-columns: 2fr 1fr 1fr 1.75fr;
   gap: 2.5rem;
   margin-bottom: 2.5rem;
+  align-items: start;
 }
 
 .site-footer__logo {
