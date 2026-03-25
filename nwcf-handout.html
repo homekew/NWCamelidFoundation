@@ -9,62 +9,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <style>
 
-    /* ============================================================
-       PRINT SETUP
-    ============================================================ */
-    @page {
-      size: letter portrait;
-      margin: 0;
-    }
+    @page { size: letter portrait; margin: 0; }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-    /* ============================================================
-       BRAND TOKENS
-    ============================================================ */
     :root {
-      --brown:        #2C4048;
-      --terra:        #99461D;
-      --terra-light:  #F0EDE8;
-      --gold:         #D99F3D;
-      --bg:           #F8F5F0;
-      --panel:        #EEEAE2;
-      --white:        #FFFFFF;
-      --text:         #1A1410;
-      --muted:        #6B6560;
-      --light:        #FAF7F2;
-      --border:       #D4CEC6;
-      --font-heading: 'Source Serif 4', Georgia, serif;
-      --font-body:    'Inter', system-ui, -apple-system, sans-serif;
-      --radius-sm:    4px;
-      --radius-md:    8px;
-      --radius-lg:    16px;
+      --brown:       #2C4048;
+      --terra:       #99461D;
+      --terra-light: #F0EDE8;
+      --gold:        #D99F3D;
+      --bg:          #F8F5F0;
+      --panel:       #EEEAE2;
+      --white:       #FFFFFF;
+      --text:        #1A1410;
+      --muted:       #6B6560;
+      --light:       #FAF7F2;
+      --border:      #D4CEC6;
+      --font-h:      'Source Serif 4', Georgia, serif;
+      --font-b:      'Inter', system-ui, sans-serif;
+      --r-sm:        4px;
+      --r-md:        8px;
     }
 
-    /* ============================================================
-       BODY + PAGE WRAPPERS
-    ============================================================ */
     body {
-      font-family: var(--font-body);
+      font-family: var(--font-b);
       color: var(--text);
-      background: #C8C3BB;
+      background: #C0BBB3;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4in;
-      padding: 0.4in 0;
+      justify-content: center;
+      padding: 0.35in 0;
     }
 
-    /* Each .page = one physical side, fixed letter size */
+    /* ── PAGE ── */
     .page {
       width: 8.5in;
       height: 11in;
@@ -72,309 +50,173 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      position: relative;
     }
 
     @media print {
-      body {
-        background: none;
-        padding: 0;
-        gap: 0;
-        display: block;
-      }
-      .page {
-        width: 8.5in;
-        height: 11in;
-        break-after: page;
-      }
-      .page:last-child {
-        break-after: auto;
-      }
+      body { background: none; padding: 0; }
+      .page { width: 8.5in; height: 11in; }
     }
 
-    /* ============================================================
-       FRONT PAGE — HEADER
-    ============================================================ */
-    .header {
+    /* ──────────────────────────────────────────
+       1. HEADER  ~2.6in
+    ────────────────────────────────────────── */
+    .hdr {
       background: var(--brown);
-      padding: 0.48in 0.5in 0.44in;
+      padding: 0.34in 0.5in 0.32in;
       position: relative;
       overflow: hidden;
       flex: 0 0 auto;
     }
-
-    .header::before {
+    .hdr::before {
       content: '';
-      position: absolute;
-      top: -40%;
-      right: -8%;
-      width: 52%;
-      aspect-ratio: 1;
-      background: radial-gradient(circle, rgba(217,159,61,0.13) 0%, transparent 68%);
-      pointer-events: none;
-    }
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: -50%;
-      right: 28%;
-      width: 38%;
-      aspect-ratio: 1;
-      background: radial-gradient(circle, rgba(153,70,29,0.10) 0%, transparent 65%);
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 80% at 92% 10%, rgba(217,159,61,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 70% 110%, rgba(153,70,29,0.09) 0%, transparent 60%);
       pointer-events: none;
     }
 
-    .header-inner {
+    .hdr-grid {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 0.35in;
+      gap: 0.4in;
       align-items: center;
       position: relative;
       z-index: 1;
     }
 
-    .header-left {}
-
-    .org-lockup {
+    /* Lockup */
+    .lockup {
       display: flex;
-      flex-direction: row;
       align-items: center;
-      gap: 0.14in;
-      margin-bottom: 0.16in;
+      gap: 0.13in;
+      margin-bottom: 0.18in;
     }
-
-    .org-lockup img {
-      height: 72pt;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .org-lockup-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.04in;
-    }
-
-    .org-wordmark {
-      font-family: var(--font-body);
-      font-size: 8pt;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(250,248,245,0.9);
+    .lockup img { height: 46pt; width: auto; flex-shrink: 0; }
+    .lockup-text { display: flex; flex-direction: column; gap: 0.03in; }
+    .lockup-name {
+      font-family: var(--font-b);
+      font-size: 8pt; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,248,245,0.88);
       line-height: 1.2;
     }
-
-    .org-eyebrow {
-      font-family: var(--font-body);
-      font-size: 7pt;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .lockup-tag {
+      font-size: 7pt; font-weight: 500;
+      letter-spacing: 0.09em; text-transform: uppercase;
       color: var(--gold);
     }
 
-    .header-headline {
-      font-family: var(--font-heading);
-      font-size: 30pt;
-      font-weight: 700;
-      color: var(--light);
-      line-height: 1.08;
-      margin-bottom: 0.14in;
+    .hdr-headline {
+      font-family: var(--font-h);
+      font-size: 27pt; font-weight: 700;
+      color: var(--light); line-height: 1.07;
+      margin-bottom: 0.12in;
+    }
+    .hdr-mission {
+      font-size: 9pt; line-height: 1.6;
+      color: rgba(250,248,245,0.75);
+      max-width: 4.2in;
     }
 
-    .header-mission {
-      font-size: 9.5pt;
-      color: rgba(250,248,245,0.78);
-      line-height: 1.65;
-      max-width: 4.4in;
-    }
-
-    .header-stats {
+    /* Stats column */
+    .stats {
       display: flex;
       flex-direction: column;
-      gap: 0.16in;
-      align-items: flex-end;
+      gap: 0.14in;
       padding-left: 0.28in;
-      border-left: 1px solid rgba(250,248,245,0.14);
+      border-left: 1px solid rgba(250,248,245,0.13);
+      align-items: flex-end;
     }
-
-    .hstat {
-      text-align: right;
-    }
-
-    .hstat strong {
+    .stat { text-align: right; }
+    .stat strong {
       display: block;
-      font-family: var(--font-heading);
-      font-size: 18pt;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
+      font-family: var(--font-h);
+      font-size: 17pt; font-weight: 700;
+      color: var(--gold); line-height: 1;
+    }
+    .stat span {
+      font-size: 6pt; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      color: rgba(250,248,245,0.44);
     }
 
-    .hstat span {
-      font-size: 6pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: rgba(250,248,245,0.48);
+    /* Gold accent rule */
+    .rule {
+      height: 2px; flex: 0 0 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, rgba(217,159,61,0.1) 100%);
     }
 
-    /* Gold rule */
-    .header-rule {
-      height: 2px;
-      flex: 0 0 2px;
-      background: linear-gradient(90deg, var(--gold) 0%, rgba(217,159,61,0.15) 100%);
-    }
-
-    /* ============================================================
-       FRONT PAGE — THREE PILLARS (fills remaining front-page space)
-    ============================================================ */
-    .section-pillars {
+    /* ──────────────────────────────────────────
+       2. PILLARS  ~2.4in
+    ────────────────────────────────────────── */
+    .pillars-wrap {
       background: var(--bg);
-      padding: 0.38in 0.5in;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 0.26in 0.5in 0.24in;
+      flex: 0 0 auto;
     }
-
-    .sec-eyebrow {
-      font-family: var(--font-body);
-      font-size: 6.5pt;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--terra);
-      margin-bottom: 0.05in;
+    .sec-label {
+      font-size: 6.5pt; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 0.17in;
     }
-
-    .sec-heading {
-      font-family: var(--font-heading);
-      font-size: 15pt;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.22in;
-    }
-
     .pillars {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.18in;
+      gap: 0.15in;
     }
-
     .pillar {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.22in 0.2in 0.2in;
+      border-radius: var(--r-md);
+      padding: 0.17in 0.17in 0.15in;
     }
-
     .pillar-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--terra-light);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--terra);
-      margin-bottom: 0.1in;
+      width: 28px; height: 28px;
+      background: var(--terra-light); border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--terra); margin-bottom: 0.08in;
     }
-
     .pillar h3 {
-      font-family: var(--font-heading);
-      font-size: 11pt;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.06in;
-      line-height: 1.2;
+      font-family: var(--font-h);
+      font-size: 10.5pt; font-weight: 700;
+      color: var(--text); margin-bottom: 0.05in; line-height: 1.2;
     }
-
-    .pillar p {
-      font-size: 8pt;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    .pillar-callout {
-      display: inline-block;
-      margin-top: 0.09in;
-      font-size: 7.5pt;
-      font-weight: 700;
+    .pillar p { font-size: 8pt; color: var(--muted); line-height: 1.58; }
+    .pillar-stat {
+      display: block; margin-top: 0.08in;
+      font-size: 7pt; font-weight: 700;
       color: var(--terra);
-      letter-spacing: 0.02em;
     }
 
-    /* ============================================================
-       FRONT PAGE — QUOTE STRIP
-    ============================================================ */
-    .quote-strip {
+    /* ──────────────────────────────────────────
+       3. QUOTE  ~0.65in
+    ────────────────────────────────────────── */
+    .quote-band {
       background: var(--panel);
       border-top: 1px solid var(--border);
-      padding: 0.22in 0.5in;
-      flex: 0 0 auto;
-    }
-
-    .quote-inner {
-      border-left: 3px solid var(--gold);
-      padding-left: 0.2in;
-    }
-
-    .quote-text {
-      font-family: var(--font-heading);
-      font-size: 10pt;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.58;
-    }
-
-    .quote-attr {
-      display: block;
-      margin-top: 0.05in;
-      font-size: 7pt;
-      font-weight: 600;
-      color: var(--muted);
-      font-style: normal;
-    }
-
-    /* ============================================================
-       BACK PAGE — COMPACT HEADER (branding only)
-    ============================================================ */
-    .back-header {
-      background: var(--brown);
+      border-bottom: 1px solid var(--border);
       padding: 0.18in 0.5in;
       flex: 0 0 auto;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 2px solid var(--gold);
+    }
+    .quote-inner {
+      border-left: 3px solid var(--gold);
+      padding-left: 0.18in;
+    }
+    .quote-text {
+      font-family: var(--font-h);
+      font-size: 9.5pt; font-style: italic;
+      color: var(--text); line-height: 1.55;
+    }
+    .quote-attr {
+      display: block; margin-top: 0.04in;
+      font-size: 6.5pt; font-weight: 600;
+      color: var(--muted); font-style: normal;
     }
 
-    .back-header::before {
-      content: '';
-      position: absolute;
-      top: -80%;
-      right: -4%;
-      width: 30%;
-      aspect-ratio: 1;
-      background: radial-gradient(circle, rgba(217,159,61,0.10) 0%, transparent 68%);
-      pointer-events: none;
-    }
-
-    .back-header .org-lockup {
-      margin-bottom: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .back-header .org-lockup img {
-      height: 40pt;
-    }
-
-    /* ============================================================
-       BACK PAGE — BODY ROW (fills remaining back-page space)
-    ============================================================ */
+    /* ──────────────────────────────────────────
+       4. BODY ROW  — fills remaining space
+    ────────────────────────────────────────── */
     .body-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -382,504 +224,254 @@
       min-height: 0;
     }
 
-    .col-left {
+    .col {
+      padding: 0.24in 0.3in 0.24in 0.5in;
+      display: flex;
+      flex-direction: column;
+    }
+    .col + .col {
       background: var(--white);
-      padding: 0.3in 0.3in 0.28in 0.5in;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
+      padding: 0.24in 0.5in 0.24in 0.3in;
+      border-left: 1px solid var(--border);
     }
 
-    .col-right {
-      background: var(--bg);
-      padding: 0.3in 0.5in 0.28in 0.3in;
-      display: flex;
-      flex-direction: column;
+    .col-head {
+      font-family: var(--font-h);
+      font-size: 11pt; font-weight: 700;
+      color: var(--text); margin-bottom: 0.18in; line-height: 1.2;
     }
 
-    .col-heading {
-      font-family: var(--font-heading);
-      font-size: 12pt;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.04in;
-      line-height: 1.2;
+    /* Checklist */
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.12in; }
+    .check-item { display: flex; align-items: flex-start; gap: 0.09in; }
+    .check-icon {
+      flex-shrink: 0; width: 17px; height: 17px;
+      background: var(--terra-light); border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--terra); margin-top: 1px;
     }
+    .check-item strong { display: block; font-size: 8pt; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .check-item span { font-size: 7.5pt; color: var(--muted); line-height: 1.5; }
 
-    .col-sub {
-      font-size: 7.5pt;
-      color: var(--muted);
-      line-height: 1.58;
-      margin-bottom: 0.18in;
+    /* Involve list */
+    .inv-list { list-style: none; display: flex; flex-direction: column; gap: 0.12in; margin-bottom: 0.2in; }
+    .inv-item { display: flex; align-items: flex-start; gap: 0.1in; }
+    .inv-dot { flex-shrink: 0; width: 5px; height: 5px; background: var(--terra); border-radius: 50%; margin-top: 5px; }
+    .inv-item strong { display: block; font-size: 8pt; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .inv-item span { font-size: 7.5pt; color: var(--muted); line-height: 1.5; }
+
+    /* CTA box */
+    .cta {
+      background: var(--brown); border-radius: var(--r-md);
+      padding: 0.17in 0.18in; margin-top: auto;
     }
-
-    /* Impact list */
-    .impact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.11in;
-      margin-bottom: 0.2in;
+    .cta-label {
+      font-size: 6.5pt; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.04in;
     }
-
-    .impact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.09in;
+    .cta-head {
+      font-family: var(--font-h);
+      font-size: 10.5pt; font-weight: 700;
+      color: var(--light); margin-bottom: 0.06in; line-height: 1.2;
     }
-
-    .impact-check {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      background: var(--terra-light);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--terra);
-      margin-top: 1px;
-    }
-
-    .impact-text strong {
-      display: block;
-      font-size: 8pt;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .impact-text span {
-      font-size: 7pt;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* Partner cards */
-    .partner-label {
-      font-size: 6.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.07in;
-      padding-top: 0.16in;
-      border-top: 1px solid var(--border);
-    }
-
-    .partner-row {
-      display: flex;
-      gap: 0.1in;
-    }
-
-    .partner-card {
-      flex: 1;
-      background: var(--brown);
-      border-radius: var(--radius-md);
-      padding: 0.12in 0.12in;
-      text-align: center;
-    }
-
-    .partner-abbr {
-      font-family: var(--font-heading);
-      font-size: 14pt;
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 0.03in;
-    }
-
-    .partner-name {
-      font-size: 6pt;
-      color: rgba(250,248,245,0.68);
-      line-height: 1.45;
-    }
-
-    /* Involvement list */
-    .involve-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.11in;
-      margin-bottom: 0.18in;
-    }
-
-    .involve-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.09in;
-    }
-
-    .involve-dot {
-      flex-shrink: 0;
-      width: 5px;
-      height: 5px;
-      background: var(--terra);
-      border-radius: 50%;
-      margin-top: 5px;
-    }
-
-    .involve-text strong {
-      display: block;
-      font-size: 8pt;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .involve-text span {
-      font-size: 7pt;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* Donate CTA box */
-    .cta-box {
-      background: var(--brown);
-      border-radius: var(--radius-md);
-      padding: 0.18in 0.2in;
-      margin-top: auto;
-    }
-
-    .cta-eyebrow {
-      font-size: 6.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.04in;
-    }
-
-    .cta-headline {
-      font-family: var(--font-heading);
-      font-size: 10.5pt;
-      font-weight: 700;
-      color: var(--light);
-      margin-bottom: 0.07in;
-      line-height: 1.25;
-    }
-
     .cta-body {
-      font-size: 7pt;
-      color: rgba(250,248,245,0.68);
-      line-height: 1.55;
-      margin-bottom: 0.1in;
+      font-size: 7.5pt; color: rgba(250,248,245,0.68);
+      line-height: 1.5; margin-bottom: 0.1in;
     }
-
-    .cta-pill {
+    .cta-url {
       display: inline-block;
-      background: var(--terra);
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 7.5pt;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      padding: 0.07in 0.2in;
-      border-radius: 100px;
+      background: var(--terra); color: #fff;
+      font-size: 7.5pt; font-weight: 700; letter-spacing: 0.03em;
+      padding: 0.06in 0.18in; border-radius: 100px;
       text-decoration: none;
     }
 
-    /* ============================================================
-       BACK PAGE — FOOTER
-    ============================================================ */
+    /* ──────────────────────────────────────────
+       5. FOOTER
+    ────────────────────────────────────────── */
     .footer {
       background: var(--brown);
-      padding: 0.16in 0.5in;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.2in;
       border-top: 2px solid var(--gold);
+      padding: 0.13in 0.5in;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 0.2in;
       flex: 0 0 auto;
     }
-
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-size: 9pt;
-      font-weight: 700;
-      color: var(--light);
-      white-space: nowrap;
+    .footer-name {
+      font-family: var(--font-h); font-size: 8.5pt; font-weight: 700;
+      color: var(--light); white-space: nowrap;
     }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.02in;
-    }
-
-    .footer-url {
-      font-size: 8pt;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.01em;
-    }
-
-    .footer-email {
-      font-size: 7pt;
-      color: rgba(250,248,245,0.58);
-    }
-
-    .footer-legal {
-      font-size: 6.5pt;
-      color: rgba(250,248,245,0.42);
-      text-align: right;
-      line-height: 1.65;
-    }
+    .footer-mid { display: flex; flex-direction: column; align-items: center; gap: 0.02in; }
+    .footer-url { font-size: 8pt; font-weight: 700; color: var(--gold); }
+    .footer-email { font-size: 7pt; color: rgba(250,248,245,0.55); }
+    .footer-legal { font-size: 6.5pt; color: rgba(250,248,245,0.4); text-align: right; line-height: 1.6; }
 
   </style>
 </head>
 <body>
-
-<!-- ============================================================
-     PAGE 1: FRONT
-============================================================ -->
 <div class="page">
 
-  <header class="header">
-    <div class="header-inner">
-
-      <div class="header-left">
-        <div class="org-lockup">
-          <img src="NWCF_Logo.png" alt="North West Camelid Foundation logo">
-          <div class="org-lockup-text">
-            <div class="org-wordmark">North West Camelid Foundation</div>
-            <div class="org-eyebrow">Raising Funds for Camelid Research Since 1987</div>
+  <!-- 1. HEADER -->
+  <header class="hdr">
+    <div class="hdr-grid">
+      <div>
+        <div class="lockup">
+          <img src="NWCF_Logo.png" alt="North West Camelid Foundation">
+          <div class="lockup-text">
+            <div class="lockup-name">North West Camelid Foundation</div>
+            <div class="lockup-tag">Raising Funds for Camelid Research Since 1987</div>
           </div>
         </div>
-        <h1 class="header-headline">Better Science.<br>Healthier Herds.</h1>
-        <p class="header-mission">We fund veterinary research grants at Oregon State University and Washington State University, award annual scholarships to veterinary students focused on camelid medicine, and bring llama and alpaca owners together through education events across the Pacific Northwest.</p>
+        <h1 class="hdr-headline">Better Science.<br>Healthier Herds.</h1>
+        <p class="hdr-mission">We fund veterinary research and scholarships at Oregon State and Washington State universities, and connect camelid owners across the Pacific Northwest through education and events.</p>
       </div>
-
-      <div class="header-stats">
-        <div class="hstat">
-          <strong>1987</strong>
-          <span>Year Founded</span>
-        </div>
-        <div class="hstat">
-          <strong>35+</strong>
-          <span>Years of Research Funding</span>
-        </div>
-        <div class="hstat">
-          <strong>$36,000+</strong>
-          <span>Scholarships Awarded</span>
-        </div>
-        <div class="hstat">
-          <strong>100%</strong>
-          <span>Of Fundraiser Funds to Research</span>
-        </div>
+      <div class="stats">
+        <div class="stat"><strong>1987</strong><span>Year Founded</span></div>
+        <div class="stat"><strong>$820K+</strong><span>Research Invested</span></div>
+        <div class="stat"><strong>$36K+</strong><span>Scholarships Awarded</span></div>
+        <div class="stat"><strong>100%</strong><span>Fundraiser Funds to Research</span></div>
       </div>
-
     </div>
   </header>
 
-  <div class="header-rule"></div>
+  <div class="rule"></div>
 
-  <!-- THREE PILLARS — vertically centered in remaining front-page space -->
-  <section class="section-pillars">
-    <div class="sec-eyebrow">What We Do</div>
-    <div class="sec-heading">Three Ways We Advance Camelid Health</div>
-
+  <!-- 2. THREE PILLARS -->
+  <section class="pillars-wrap">
+    <div class="sec-label">What We Do</div>
     <div class="pillars">
 
       <div class="pillar">
         <div class="pillar-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M9 3h6l1 4H8L9 3z"/>
-            <path d="M8 7v10a4 4 0 0 0 8 0V7"/>
-            <line x1="12" y1="17" x2="12" y2="21"/>
-            <line x1="9" y1="21" x2="15" y2="21"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 3h6l1 4H8L9 3z"/><path d="M8 7v10a4 4 0 0 0 8 0V7"/>
+            <line x1="12" y1="17" x2="12" y2="21"/><line x1="9" y1="21" x2="15" y2="21"/>
           </svg>
         </div>
         <h3>Fund Research</h3>
-        <p>We award grants to qualified veterinary researchers at OSU and WSU, supporting studies in infectious disease, immunology, reproduction, and nutrition. Results are published and shared with owners and veterinarians everywhere.</p>
-        <span class="pillar-callout">$820,000+ invested since 1987</span>
+        <p>We award grants to OSU and WSU researchers studying camelid infectious disease, reproduction, and nutrition. All findings are published and shared freely with owners and veterinarians.</p>
+        <span class="pillar-stat">$820,000+ invested since 1987</span>
       </div>
 
       <div class="pillar">
         <div class="pillar-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
           </svg>
         </div>
         <h3>Award Scholarships</h3>
-        <p>Each year we award scholarships to veterinary students at OSU and WSU who are passionate about camelid medicine. Scholarship recipients go on to practice and publish, multiplying the impact of every gift.</p>
-        <span class="pillar-callout">$36,000+ awarded to date</span>
+        <p>Annual scholarships support veterinary students at OSU and WSU who specialize in camelid medicine. Recipients go on to practice and publish — multiplying the impact of every gift.</p>
+        <span class="pillar-stat">$36,000+ awarded to date</span>
       </div>
 
       <div class="pillar">
         <div class="pillar-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="9" cy="7" r="3"/>
-            <circle cx="15" cy="7" r="3"/>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
             <path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/>
           </svg>
         </div>
         <h3>Educate Owners</h3>
-        <p>Through Meet &amp; Greet events and the annual conference at OSU's Carlson College of Veterinary Medicine, we connect llama and alpaca owners with leading camelid veterinarians across the Pacific Northwest.</p>
-        <span class="pillar-callout">Events open to all owners</span>
+        <p>Meet &amp; Greet events and the biennial OSU Camelid Conference connect llama and alpaca owners with leading camelid veterinarians across the Pacific Northwest.</p>
+        <span class="pillar-stat">Events open to all owners</span>
       </div>
 
     </div>
   </section>
 
-  <!-- QUOTE STRIP — anchors the bottom of the front page -->
-  <div class="quote-strip">
+  <!-- 3. QUOTE -->
+  <div class="quote-band">
     <div class="quote-inner">
       <p class="quote-text">"Regardless of the size of their herd or the location of their barn, every camelid and every owner benefits from the research funded by the NWCF."</p>
       <cite class="quote-attr">— North West Camelid Foundation</cite>
     </div>
   </div>
 
-</div><!-- end page 1 -->
-
-
-<!-- ============================================================
-     PAGE 2: BACK
-============================================================ -->
-<div class="page">
-
-  <!-- Compact branding header -->
-  <div class="back-header">
-    <div class="org-lockup">
-      <img src="NWCF_Logo.png" alt="North West Camelid Foundation logo">
-      <div class="org-lockup-text">
-        <div class="org-wordmark">North West Camelid Foundation</div>
-        <div class="org-eyebrow">Raising Funds for Camelid Research Since 1987</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Body row — fills all remaining space between header and footer -->
+  <!-- 4. BODY ROW -->
   <div class="body-row">
 
-    <!-- Left: Why Your Support Matters -->
-    <div class="col-left">
-      <h2 class="col-heading">Why Your Support Matters</h2>
-      <p class="col-sub">Every donation goes directly to veterinary research and scholarships. No overhead. No administrative fees. Pure impact.</p>
-
-      <ul class="impact-list">
-
-        <li class="impact-item">
-          <div class="impact-check">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    <!-- Left: Why Give -->
+    <div class="col">
+      <h2 class="col-head">Why Your Support Matters</h2>
+      <ul class="check-list">
+        <li class="check-item">
+          <div class="check-icon">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <div class="impact-text">
+          <div>
             <strong>100% of fundraiser proceeds fund research</strong>
-            <span>Every dollar raised at NWCF events goes directly to science — no administrative overhead taken out.</span>
+            <span>Every dollar raised at NWCF events goes directly to science — no overhead deducted.</span>
           </div>
         </li>
-
-        <li class="impact-item">
-          <div class="impact-check">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <li class="check-item">
+          <div class="check-icon">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <div class="impact-text">
-            <strong>Research partnerships at OSU and WSU</strong>
-            <span>Your gift sustains NWCF's work with two of the nation's leading camelid veterinary programs, including the OSU research herd.</span>
-          </div>
-        </li>
-
-        <li class="impact-item">
-          <div class="impact-check">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div class="impact-text">
-            <strong>Scholarships train tomorrow's specialists</strong>
-            <span>Scholarship recipients go on to practice camelid medicine and publish research — compounding your investment for years.</span>
+          <div>
+            <strong>Partnerships with two leading vet schools</strong>
+            <span>Your gift sustains research at OSU and WSU, including OSU's dedicated camelid research herd.</span>
           </div>
         </li>
-
-        <li class="impact-item">
-          <div class="impact-check">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <li class="check-item">
+          <div class="check-icon">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <div class="impact-text">
-            <strong>Research benefits every herd, everywhere</strong>
-            <span>Findings are published and shared with camelid owners and veterinarians across North America — not just in the Pacific Northwest.</span>
+          <div>
+            <strong>Results shared across North America</strong>
+            <span>Published findings benefit camelid owners and vets everywhere — not just in the Pacific Northwest.</span>
           </div>
         </li>
-
       </ul>
-
-      <div class="partner-label">Our University Research Partners</div>
-      <div class="partner-row" style="margin-top:0.07in;">
-        <div class="partner-card">
-          <div class="partner-abbr">OSU</div>
-          <div class="partner-name">Carlson College of<br>Veterinary Medicine</div>
-        </div>
-        <div class="partner-card">
-          <div class="partner-abbr">WSU</div>
-          <div class="partner-name">College of<br>Veterinary Medicine</div>
-        </div>
-      </div>
     </div>
 
-    <!-- Right: How to Get Involved -->
-    <div class="col-right">
-      <h2 class="col-heading">How to Get Involved</h2>
-      <p class="col-sub">There are several ways to support the NWCF's mission — from making a gift to attending an event near you.</p>
-
-      <ul class="involve-list">
-
-        <li class="involve-item">
-          <div class="involve-dot"></div>
-          <div class="involve-text">
+    <!-- Right: How to Help -->
+    <div class="col">
+      <h2 class="col-head">How to Get Involved</h2>
+      <ul class="inv-list">
+        <li class="inv-item">
+          <div class="inv-dot"></div>
+          <div>
             <strong>Make a Donation</strong>
             <span>One-time or recurring gifts fund research and scholarships year-round. All donations are fully tax deductible.</span>
           </div>
         </li>
-
-        <li class="involve-item">
-          <div class="involve-dot"></div>
-          <div class="involve-text">
+        <li class="inv-item">
+          <div class="inv-dot"></div>
+          <div>
             <strong>Attend an Event</strong>
-            <span>Join our annual fundraiser, Meet &amp; Greet gatherings around the Pacific Northwest, and the biennial OSU Camelid Conference. Events are open to all owners.</span>
+            <span>Join our annual fundraiser, regional Meet &amp; Greet gatherings, or the biennial OSU Camelid Conference — open to all owners.</span>
           </div>
         </li>
-
-        <li class="involve-item">
-          <div class="involve-dot"></div>
-          <div class="involve-text">
+        <li class="inv-item">
+          <div class="inv-dot"></div>
+          <div>
             <strong>Spread the Word</strong>
-            <span>Share our mission with fellow camelid owners, breeders, and veterinarians. Awareness is its own form of support.</span>
+            <span>Share our mission with fellow owners, breeders, and veterinarians. Awareness is its own form of support.</span>
           </div>
         </li>
-
-        <li class="involve-item">
-          <div class="involve-dot"></div>
-          <div class="involve-text">
-            <strong>Leave a Legacy</strong>
-            <span>Consider a planned gift or endowment to sustain camelid veterinary research in perpetuity. Contact us to learn more.</span>
-          </div>
-        </li>
-
       </ul>
-
-      <div class="cta-box">
-        <div class="cta-eyebrow">Support NWCF</div>
-        <div class="cta-headline">Your gift keeps camelids healthy.</div>
-        <p class="cta-body">Every contribution — large or small — directly supports the veterinary science that llama and alpaca owners depend on. Make your gift online or contact us to learn about giving options.</p>
-        <span class="cta-pill">NWCamelidFoundation.org</span>
+      <div class="cta">
+        <div class="cta-label">Support NWCF</div>
+        <div class="cta-head">Every gift keeps camelids healthier.</div>
+        <p class="cta-body">Make a gift online, learn about planned giving, or find an event near you.</p>
+        <span class="cta-url">NWCamelidFoundation.org</span>
       </div>
-
     </div>
+
   </div>
 
+  <!-- 5. FOOTER -->
   <footer class="footer">
-    <div class="footer-brand">North West Camelid Foundation</div>
-    <div class="footer-contact">
+    <div class="footer-name">North West Camelid Foundation</div>
+    <div class="footer-mid">
       <div class="footer-url">NWCamelidFoundation.org</div>
       <div class="footer-email">info@NWCamelidFoundation.org</div>
     </div>
-    <div class="footer-legal">
-      501(c)(3) Nonprofit Organization &nbsp;·&nbsp; EIN: 94-3192267<br>
-      All donations are tax deductible.
-    </div>
+    <div class="footer-legal">501(c)(3) Nonprofit &nbsp;·&nbsp; EIN 94-3192267<br>All donations are tax deductible.</div>
   </footer>
 
-</div><!-- end page 2 -->
-
+</div>
 </body>
 </html>
