@@ -131,9 +131,9 @@
 
     .org-lockup {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.08in;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.14in;
       margin-bottom: 0.12in;
     }
 
@@ -141,26 +141,34 @@
       height: 72pt;
       width: auto;
       display: block;
+      flex-shrink: 0;
+    }
+
+    .org-lockup-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.04in;
     }
 
     .org-wordmark {
       font-family: var(--font-body);
-      font-size: 7.5pt;
+      font-size: 8pt;
       font-weight: 700;
       letter-spacing: 0.13em;
       text-transform: uppercase;
-      color: rgba(250,248,245,0.45);
+      color: rgba(250,248,245,0.9);
       margin-bottom: 0;
+      line-height: 1.2;
     }
 
     .header-eyebrow {
       font-family: var(--font-body);
       font-size: 7pt;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.1in;
+      margin-bottom: 0;
     }
 
     .header-headline {
@@ -598,9 +606,11 @@
       <div class="header-left">
         <div class="org-lockup">
           <img src="NWCF_Logo.png" alt="North West Camelid Foundation logo">
-          <div class="org-wordmark">North West Camelid Foundation</div>
+          <div class="org-lockup-text">
+            <div class="org-wordmark">North West Camelid Foundation</div>
+            <div class="header-eyebrow">Raising Funds for Camelid Research Since 1987</div>
+          </div>
         </div>
-        <div class="header-eyebrow">Raising Funds for Camelid Research Since 1987</div>
         <h1 class="header-headline">Better Science.<br>Healthier Herds.</h1>
         <p class="header-mission">We fund veterinary research grants at Oregon State University and Washington State University, award annual scholarships to veterinary students focused on camelid medicine, and bring llama and alpaca owners together through education events across the Pacific Northwest.</p>
       </div>
