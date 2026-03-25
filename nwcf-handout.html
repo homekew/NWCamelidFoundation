@@ -129,6 +129,20 @@
 
     .header-left {}
 
+    .org-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.1in;
+      margin-bottom: 0.07in;
+    }
+
+    .org-lockup img {
+      height: 36pt;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
     .org-wordmark {
       font-family: var(--font-body);
       font-size: 7.5pt;
@@ -136,7 +150,7 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(250,248,245,0.45);
-      margin-bottom: 0.07in;
+      margin-bottom: 0;
     }
 
     .header-eyebrow {
@@ -582,7 +596,10 @@
     <div class="header-inner">
 
       <div class="header-left">
-        <div class="org-wordmark">North West Camelid Foundation</div>
+        <div class="org-lockup">
+          <img src="nwcfLogo.png" alt="North West Camelid Foundation logo">
+          <div class="org-wordmark">North West Camelid Foundation</div>
+        </div>
         <div class="header-eyebrow">Raising Funds for Camelid Research Since 1987</div>
         <h1 class="header-headline">Better Science.<br>Healthier Herds.</h1>
         <p class="header-mission">We fund veterinary research grants at Oregon State University and Washington State University, award annual scholarships to veterinary students focused on camelid medicine, and bring llama and alpaca owners together through education events across the Pacific Northwest.</p>
