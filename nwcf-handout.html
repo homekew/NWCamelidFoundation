@@ -23,14 +23,13 @@
       padding: 0;
     }
 
-    /* Force all backgrounds and colors to print accurately */
     html {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
     /* ============================================================
-       BRAND TOKENS  (matches styles-v2.css exactly)
+       BRAND TOKENS
     ============================================================ */
     :root {
       --brown:        #2C4048;
@@ -52,51 +51,58 @@
     }
 
     /* ============================================================
-       PAGE WRAPPER — letter size, flex column
+       BODY + PAGE WRAPPERS
     ============================================================ */
     body {
       font-family: var(--font-body);
       color: var(--text);
-      background: #C8C3BB; /* preview background only */
+      background: #C8C3BB;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4in;
       padding: 0.4in 0;
     }
 
+    /* Each .page = one physical side, fixed letter size */
     .page {
       width: 8.5in;
-      min-height: 11in;
+      height: 11in;
       background: var(--bg);
       display: flex;
       flex-direction: column;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
     @media print {
       body {
         background: none;
         padding: 0;
+        gap: 0;
         display: block;
       }
       .page {
         width: 8.5in;
-        min-height: 11in;
-        margin: 0;
+        height: 11in;
+        break-after: page;
+      }
+      .page:last-child {
+        break-after: auto;
       }
     }
 
     /* ============================================================
-       1. HEADER — dark teal, matches section--brown
+       FRONT PAGE — HEADER
     ============================================================ */
     .header {
       background: var(--brown);
-      padding: 0.38in 0.5in 0.35in;
+      padding: 0.48in 0.5in 0.44in;
       position: relative;
       overflow: hidden;
+      flex: 0 0 auto;
     }
 
-    /* Atmospheric radial gradient — mirrors section--brown::before on site */
     .header::before {
       content: '';
       position: absolute;
@@ -134,7 +140,7 @@
       flex-direction: row;
       align-items: center;
       gap: 0.14in;
-      margin-bottom: 0.12in;
+      margin-bottom: 0.16in;
     }
 
     .org-lockup img {
@@ -157,41 +163,38 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: rgba(250,248,245,0.9);
-      margin-bottom: 0;
       line-height: 1.2;
     }
 
-    .header-eyebrow {
+    .org-eyebrow {
       font-family: var(--font-body);
       font-size: 7pt;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0;
     }
 
     .header-headline {
       font-family: var(--font-heading);
-      font-size: 26pt;
+      font-size: 30pt;
       font-weight: 700;
       color: var(--light);
-      line-height: 1.1;
-      margin-bottom: 0.11in;
+      line-height: 1.08;
+      margin-bottom: 0.14in;
     }
 
     .header-mission {
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: rgba(250,248,245,0.78);
       line-height: 1.65;
       max-width: 4.4in;
     }
 
-    /* Stats stacked vertically in right column */
     .header-stats {
       display: flex;
       flex-direction: column;
-      gap: 0.12in;
+      gap: 0.16in;
       align-items: flex-end;
       padding-left: 0.28in;
       border-left: 1px solid rgba(250,248,245,0.14);
@@ -204,7 +207,7 @@
     .hstat strong {
       display: block;
       font-family: var(--font-heading);
-      font-size: 17pt;
+      font-size: 18pt;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
@@ -218,18 +221,23 @@
       color: rgba(250,248,245,0.48);
     }
 
-    /* Gold rule between header and pillars */
+    /* Gold rule */
     .header-rule {
       height: 2px;
+      flex: 0 0 2px;
       background: linear-gradient(90deg, var(--gold) 0%, rgba(217,159,61,0.15) 100%);
     }
 
     /* ============================================================
-       2. WHAT WE DO — three pillar cards on parchment
+       FRONT PAGE — THREE PILLARS (fills remaining front-page space)
     ============================================================ */
     .section-pillars {
       background: var(--bg);
-      padding: 0.28in 0.5in 0.24in;
+      padding: 0.38in 0.5in;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .sec-eyebrow {
@@ -244,84 +252,79 @@
 
     .sec-heading {
       font-family: var(--font-heading);
-      font-size: 14pt;
+      font-size: 15pt;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 0.18in;
+      margin-bottom: 0.22in;
     }
 
     .pillars {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.16in;
+      gap: 0.18in;
     }
 
-    /* Mirrors .card on the website */
     .pillar {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 0.18in 0.18in 0.16in;
+      padding: 0.22in 0.2in 0.2in;
     }
 
-    /* Mirrors .card-icon */
     .pillar-icon {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       background: var(--terra-light);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--terra);
-      margin-bottom: 0.09in;
+      margin-bottom: 0.1in;
     }
 
     .pillar h3 {
       font-family: var(--font-heading);
-      font-size: 10.5pt;
+      font-size: 11pt;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 0.05in;
+      margin-bottom: 0.06in;
       line-height: 1.2;
     }
 
     .pillar p {
-      font-size: 7.5pt;
+      font-size: 8pt;
       color: var(--muted);
       line-height: 1.62;
     }
 
     .pillar-callout {
       display: inline-block;
-      margin-top: 0.07in;
-      font-size: 7pt;
+      margin-top: 0.09in;
+      font-size: 7.5pt;
       font-weight: 700;
       color: var(--terra);
       letter-spacing: 0.02em;
     }
 
     /* ============================================================
-       3. QUOTE STRIP — mirrors .pull-quote from style guide
+       FRONT PAGE — QUOTE STRIP
     ============================================================ */
     .quote-strip {
       background: var(--panel);
       border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 0.18in 0.5in;
+      padding: 0.22in 0.5in;
+      flex: 0 0 auto;
     }
 
     .quote-inner {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.18in;
       border-left: 3px solid var(--gold);
-      padding-left: 0.18in;
+      padding-left: 0.2in;
     }
 
     .quote-text {
       font-family: var(--font-heading);
-      font-size: 9.5pt;
+      font-size: 10pt;
       font-style: italic;
       color: var(--text);
       line-height: 1.58;
@@ -329,7 +332,7 @@
 
     .quote-attr {
       display: block;
-      margin-top: 0.04in;
+      margin-top: 0.05in;
       font-size: 7pt;
       font-weight: 600;
       color: var(--muted);
@@ -337,34 +340,66 @@
     }
 
     /* ============================================================
-       4. BODY ROW — two columns, fills remaining space
+       BACK PAGE — COMPACT HEADER (branding only)
+    ============================================================ */
+    .back-header {
+      background: var(--brown);
+      padding: 0.18in 0.5in;
+      flex: 0 0 auto;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .back-header::before {
+      content: '';
+      position: absolute;
+      top: -80%;
+      right: -4%;
+      width: 30%;
+      aspect-ratio: 1;
+      background: radial-gradient(circle, rgba(217,159,61,0.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .back-header .org-lockup {
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-header .org-lockup img {
+      height: 40pt;
+    }
+
+    /* ============================================================
+       BACK PAGE — BODY ROW (fills remaining back-page space)
     ============================================================ */
     .body-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       flex: 1;
+      min-height: 0;
     }
 
-    /* --- Left column: Why Your Support Matters --- */
     .col-left {
       background: var(--white);
-      padding: 0.26in 0.3in 0.26in 0.5in;
+      padding: 0.3in 0.3in 0.28in 0.5in;
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
     }
 
-    /* --- Right column: How to Get Involved --- */
     .col-right {
       background: var(--bg);
-      padding: 0.26in 0.5in 0.26in 0.3in;
+      padding: 0.3in 0.5in 0.28in 0.3in;
       display: flex;
       flex-direction: column;
     }
 
     .col-heading {
       font-family: var(--font-heading);
-      font-size: 11.5pt;
+      font-size: 12pt;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 0.04in;
@@ -375,16 +410,16 @@
       font-size: 7.5pt;
       color: var(--muted);
       line-height: 1.58;
-      margin-bottom: 0.16in;
+      margin-bottom: 0.18in;
     }
 
-    /* Impact list — checkmark items */
+    /* Impact list */
     .impact-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.1in;
-      margin-bottom: 0.18in;
+      gap: 0.11in;
+      margin-bottom: 0.2in;
     }
 
     .impact-item {
@@ -420,7 +455,7 @@
       line-height: 1.55;
     }
 
-    /* Partner mini-cards — mirrors the OSU/WSU dark cards */
+    /* Partner cards */
     .partner-label {
       font-size: 6.5pt;
       font-weight: 700;
@@ -428,7 +463,7 @@
       letter-spacing: 0.1em;
       color: var(--muted);
       margin-bottom: 0.07in;
-      padding-top: 0.14in;
+      padding-top: 0.16in;
       border-top: 1px solid var(--border);
     }
 
@@ -441,13 +476,13 @@
       flex: 1;
       background: var(--brown);
       border-radius: var(--radius-md);
-      padding: 0.1in 0.12in;
+      padding: 0.12in 0.12in;
       text-align: center;
     }
 
     .partner-abbr {
       font-family: var(--font-heading);
-      font-size: 13pt;
+      font-size: 14pt;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
@@ -460,13 +495,13 @@
       line-height: 1.45;
     }
 
-    /* Involvement list — terracotta bullet items */
+    /* Involvement list */
     .involve-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.1in;
-      margin-bottom: 0.16in;
+      gap: 0.11in;
+      margin-bottom: 0.18in;
     }
 
     .involve-item {
@@ -498,11 +533,11 @@
       line-height: 1.55;
     }
 
-    /* Donate CTA box — dark, mirrors section--brown CTA pattern */
+    /* Donate CTA box */
     .cta-box {
       background: var(--brown);
       border-radius: var(--radius-md);
-      padding: 0.16in 0.18in;
+      padding: 0.18in 0.2in;
       margin-top: auto;
     }
 
@@ -517,10 +552,10 @@
 
     .cta-headline {
       font-family: var(--font-heading);
-      font-size: 10pt;
+      font-size: 10.5pt;
       font-weight: 700;
       color: var(--light);
-      margin-bottom: 0.06in;
+      margin-bottom: 0.07in;
       line-height: 1.25;
     }
 
@@ -531,7 +566,6 @@
       margin-bottom: 0.1in;
     }
 
-    /* Mirrors btn-donate / btn-primary pill shape */
     .cta-pill {
       display: inline-block;
       background: var(--terra);
@@ -546,7 +580,7 @@
     }
 
     /* ============================================================
-       5. FOOTER — dark teal, matches site-footer
+       BACK PAGE — FOOTER
     ============================================================ */
     .footer {
       background: var(--brown);
@@ -556,6 +590,7 @@
       justify-content: space-between;
       gap: 0.2in;
       border-top: 2px solid var(--gold);
+      flex: 0 0 auto;
     }
 
     .footer-brand {
@@ -595,11 +630,12 @@
   </style>
 </head>
 <body>
+
+<!-- ============================================================
+     PAGE 1: FRONT
+============================================================ -->
 <div class="page">
 
-  <!-- ============================================================
-       1. HEADER
-  ============================================================ -->
   <header class="header">
     <div class="header-inner">
 
@@ -608,7 +644,7 @@
           <img src="NWCF_Logo.png" alt="North West Camelid Foundation logo">
           <div class="org-lockup-text">
             <div class="org-wordmark">North West Camelid Foundation</div>
-            <div class="header-eyebrow">Raising Funds for Camelid Research Since 1987</div>
+            <div class="org-eyebrow">Raising Funds for Camelid Research Since 1987</div>
           </div>
         </div>
         <h1 class="header-headline">Better Science.<br>Healthier Herds.</h1>
@@ -636,11 +672,10 @@
 
     </div>
   </header>
+
   <div class="header-rule"></div>
 
-  <!-- ============================================================
-       2. THREE PILLARS — What We Do
-  ============================================================ -->
+  <!-- THREE PILLARS — vertically centered in remaining front-page space -->
   <section class="section-pillars">
     <div class="sec-eyebrow">What We Do</div>
     <div class="sec-heading">Three Ways We Advance Camelid Health</div>
@@ -649,8 +684,7 @@
 
       <div class="pillar">
         <div class="pillar-icon">
-          <!-- Flask / research icon — matches .card-icon on website -->
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M9 3h6l1 4H8L9 3z"/>
             <path d="M8 7v10a4 4 0 0 0 8 0V7"/>
             <line x1="12" y1="17" x2="12" y2="21"/>
@@ -664,8 +698,7 @@
 
       <div class="pillar">
         <div class="pillar-icon">
-          <!-- Graduation cap — matches scholarship card icon on website -->
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
           </svg>
@@ -677,8 +710,7 @@
 
       <div class="pillar">
         <div class="pillar-icon">
-          <!-- People / community icon — matches educate card on website -->
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="9" cy="7" r="3"/>
             <circle cx="15" cy="7" r="3"/>
             <path d="M3 21v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2"/>
@@ -692,21 +724,34 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       3. IMPACT QUOTE — mirrors .pull-quote style
-  ============================================================ -->
+  <!-- QUOTE STRIP — anchors the bottom of the front page -->
   <div class="quote-strip">
     <div class="quote-inner">
-      <div>
-        <p class="quote-text">"Regardless of the size of their herd or the location of their barn, every camelid and every owner benefits from the research funded by the NWCF."</p>
-        <cite class="quote-attr">— North West Camelid Foundation</cite>
+      <p class="quote-text">"Regardless of the size of their herd or the location of their barn, every camelid and every owner benefits from the research funded by the NWCF."</p>
+      <cite class="quote-attr">— North West Camelid Foundation</cite>
+    </div>
+  </div>
+
+</div><!-- end page 1 -->
+
+
+<!-- ============================================================
+     PAGE 2: BACK
+============================================================ -->
+<div class="page">
+
+  <!-- Compact branding header -->
+  <div class="back-header">
+    <div class="org-lockup">
+      <img src="NWCF_Logo.png" alt="North West Camelid Foundation logo">
+      <div class="org-lockup-text">
+        <div class="org-wordmark">North West Camelid Foundation</div>
+        <div class="org-eyebrow">Raising Funds for Camelid Research Since 1987</div>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       4. BODY ROW — Why Support Matters / How to Get Involved
-  ============================================================ -->
+  <!-- Body row — fills all remaining space between header and footer -->
   <div class="body-row">
 
     <!-- Left: Why Your Support Matters -->
@@ -758,7 +803,6 @@
 
       </ul>
 
-      <!-- University partner mini-cards -->
       <div class="partner-label">Our University Research Partners</div>
       <div class="partner-row" style="margin-top:0.07in;">
         <div class="partner-card">
@@ -813,7 +857,6 @@
 
       </ul>
 
-      <!-- Donate CTA box -->
       <div class="cta-box">
         <div class="cta-eyebrow">Support NWCF</div>
         <div class="cta-headline">Your gift keeps camelids healthy.</div>
@@ -824,9 +867,6 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       5. FOOTER — matches site-footer pattern
-  ============================================================ -->
   <footer class="footer">
     <div class="footer-brand">North West Camelid Foundation</div>
     <div class="footer-contact">
@@ -839,6 +879,7 @@
     </div>
   </footer>
 
-</div>
+</div><!-- end page 2 -->
+
 </body>
 </html>
