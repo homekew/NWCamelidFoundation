@@ -2557,3 +2557,279 @@ body { overflow-x: hidden; }
   font-weight: 600;
   margin: 0;
 }
+
+/* ------------------------------------------------------------
+   Editorial components (homepage, reusable site-wide)
+   Uneven two-column layout, captioned photos, grant ledger,
+   small person entries, and a dated link list.
+   ------------------------------------------------------------ */
+
+/* Hero text and photo aligned to the top instead of stretched */
+.hero-inner--top {
+  align-items: start;
+}
+
+/* Uneven two-column layout: wide text column, narrower aside */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.split--reverse {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+}
+
+.split > * > h2:first-child {
+  margin-top: 0;
+}
+
+/* Plain inline link that sits next to a button */
+.text-link {
+  color: var(--terra);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.text-link:hover {
+  color: var(--brown);
+}
+
+.section--brown a,
+.text-link--on-dark {
+  color: var(--gold);
+}
+
+.section--brown a:hover,
+.text-link--on-dark:hover {
+  color: var(--light);
+}
+
+.section--brown a:focus-visible {
+  outline-color: var(--gold);
+}
+
+/* Photo with a caption */
+.photo-figure {
+  margin: 0;
+}
+
+.photo-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.photo-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: var(--size-sm);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.photo-figure figcaption strong {
+  color: var(--text);
+}
+
+.section--brown .photo-figure figcaption {
+  color: rgba(250, 248, 245, 0.85);
+}
+
+.photo-figure--wide {
+  margin-bottom: 3rem;
+}
+
+.photo-figure--wide img {
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.photo-figure--portrait img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Pull quote used as an aside rather than between paragraphs */
+.pull-quote--flush {
+  margin-block: 0;
+}
+
+.pull-quote cite {
+  display: block;
+}
+
+/* Grant ledger: a plain table of year, study, amount */
+.ledger {
+  width: 100%;
+  margin-top: 2.5rem;
+  border-collapse: collapse;
+  font-size: var(--size-base);
+}
+
+.ledger th {
+  padding: 0 0 0.6rem;
+  font-size: var(--size-sm);
+  font-weight: 600;
+  text-align: left;
+  color: var(--muted);
+  border-bottom: 2px solid var(--text);
+}
+
+.ledger td {
+  padding: 0.9rem 1.5rem 0.9rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.ledger td:first-child {
+  width: 5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ledger th.ledger__amount,
+.ledger td.ledger__amount {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-note {
+  margin-top: 1.25rem;
+  font-size: var(--size-sm);
+}
+
+/* Person entry: small photo beside a name and a line or two */
+.person-list {
+  list-style: none;
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.person {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.person__photo {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-md);
+}
+
+.person__name {
+  margin: 0 0 0.25rem;
+  font-size: var(--size-md);
+}
+
+.person__meta {
+  margin-left: 0.4rem;
+  font-family: var(--font-body);
+  font-size: var(--size-sm);
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Smaller section heading for a secondary column */
+.h-small {
+  font-size: var(--size-lg);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--text);
+}
+
+/* Dated list of links */
+.link-list {
+  list-style: none;
+}
+
+.link-list li {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.link-list a {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--size-md);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.link-list__meta {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--size-sm);
+  color: var(--muted);
+}
+
+.split .past-events-list {
+  margin-top: 2.5rem;
+}
+
+/* Closing donate block: left-aligned, narrow measure */
+.give {
+  max-width: 38rem;
+}
+
+.give .btn-group {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .split,
+  .split--reverse {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .photo-figure--portrait {
+    max-width: 22rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .ledger thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .ledger tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 1rem;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ledger td {
+    padding: 0;
+    border: 0;
+  }
+
+  .ledger td:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .photo-figure--wide img {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+.split .past-event__name {
+  margin-top: 0;
+}
